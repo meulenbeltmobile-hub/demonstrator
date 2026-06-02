@@ -86,7 +86,7 @@ function OptionA({ tr }) {
    edge. Icons are pinned along it like milestones:
    bulb at top, code in middle, brain at bottom.
    Orange accent dots mark key transitions.
-   Feels like a structured roadmap.
+   Feels like a structured roadmap !
 ══════════════════════════════════════════════ */
 function OptionB({ tr }) {
   return (
