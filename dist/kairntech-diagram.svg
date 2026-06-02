@@ -1,0 +1,123 @@
+<svg width="520" height="840" viewBox="0 0 520 840" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="520" height="840" fill="white"/>
+
+  <!-- Header -->
+  <text x="260" y="36" text-anchor="middle" font-size="22" font-weight="800" fill="#1E40AF" letter-spacing="-0.3">Kairntech Platform</text>
+  <text x="260" y="56" text-anchor="middle" font-size="13" fill="#6B7280" letter-spacing="1">ARCHITECTURE OVERVIEW</text>
+  <line x1="30" y1="68" x2="490" y2="68" stroke="#E5E7EB" stroke-width="1.5"/>
+
+  <!-- ═══ LAYER 1 ═══ Use-cases / Applications -->
+  <rect x="20" y="76" width="480" height="88" rx="9" fill="#FFF7ED" stroke="#FDE68A" stroke-width="1.5"/>
+  <rect x="20" y="76" width="7" height="88" rx="4" fill="#F59E0B"/>
+  <!-- Icon: app window centered at (48, 120) -->
+  <rect x="36" y="111" width="24" height="18" rx="3" fill="none" stroke="#F59E0B" stroke-width="1.8"/>
+  <line x1="36" y1="118" x2="60" y2="118" stroke="#F59E0B" stroke-width="1.4"/>
+  <circle cx="40" cy="114.5" r="1.5" fill="#F59E0B"/>
+  <circle cx="45" cy="114.5" r="1.5" fill="#F59E0B"/>
+  <!-- Text -->
+  <text x="76" y="100" font-size="17" font-weight="700" fill="#92400E">Use-cases / Applications</text>
+  <text x="76" y="122" font-size="14" fill="#78350F">Vibe code applications or integrate within existing</text>
+  <text x="76" y="140" font-size="14" fill="#78350F">applications — thanks to a rich API.</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,163 43,171 53,171" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 2 ═══ Agentic RAG Chatbot -->
+  <rect x="20" y="172" width="480" height="88" rx="9" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="172" width="7" height="88" rx="4" fill="#1E40AF"/>
+  <!-- Icon: chat bubble centered at (48, 216) -->
+  <rect x="36" y="207" width="24" height="18" rx="4" fill="none" stroke="#1E40AF" stroke-width="1.8"/>
+  <polygon points="40,225 40,230 45,225" fill="#1E40AF"/>
+  <line x1="41" y1="214" x2="55" y2="214" stroke="#1E40AF" stroke-width="1.4"/>
+  <line x1="41" y1="218" x2="51" y2="218" stroke="#1E40AF" stroke-width="1.4"/>
+  <!-- Text -->
+  <text x="76" y="196" font-size="17" font-weight="700" fill="#1E3A8A">Agentic RAG Chatbot</text>
+  <text x="76" y="218" font-size="14" fill="#1E40AF">Conversational AI with retrieval-augmented generation.</text>
+  <text x="76" y="236" font-size="14" fill="#1E40AF">Contextual answers from your knowledge base.</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,259 43,267 53,267" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 3 ═══ Agentic Workflow -->
+  <rect x="20" y="268" width="480" height="88" rx="9" fill="#FFF7ED" stroke="#FDE68A" stroke-width="1.5"/>
+  <rect x="20" y="268" width="7" height="88" rx="4" fill="#F59E0B"/>
+  <!-- Icon: cycle arrow centered at (48, 312) -->
+  <path d="M34 305 Q46 299 52 307 Q58 315 50 321" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/>
+  <polygon points="50,321 54,314 58,321" fill="#F59E0B"/>
+  <!-- Text -->
+  <text x="76" y="292" font-size="17" font-weight="700" fill="#92400E">Agentic Workflow</text>
+  <text x="76" y="314" font-size="14" fill="#78350F">Kairntech Studio or third-party tools (N8N).</text>
+  <text x="76" y="332" font-size="14" fill="#78350F">Continuous quality improvement.</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,355 43,363 53,363" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 4 ═══ Agents & Tools -->
+  <rect x="20" y="364" width="480" height="88" rx="9" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="364" width="7" height="88" rx="4" fill="#1E40AF"/>
+  <!-- Icon: wrench centered at (48, 408) -->
+  <path d="M40 403 L48 411 L56 403 L53 400 L49 404 L45 400 Z" fill="none" stroke="#1E40AF" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="48" y1="411" x2="43" y2="416" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="76" y="388" font-size="17" font-weight="700" fill="#1E3A8A">Agents &amp; Tools</text>
+  <text x="76" y="410" font-size="14" fill="#1E40AF">Prompting and model finetuning. Experiment quickly,</text>
+  <text x="76" y="428" font-size="14" fill="#1E40AF">customize for best-in-class accuracy &amp; price-performance.</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,451 43,459 53,459" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 5 ═══ Semantic Enrichment -->
+  <rect x="20" y="460" width="480" height="88" rx="9" fill="#FFF7ED" stroke="#FDE68A" stroke-width="1.5"/>
+  <rect x="20" y="460" width="7" height="88" rx="4" fill="#F59E0B"/>
+  <!-- Icon: network nodes centered at (48, 504) -->
+  <circle cx="42" cy="501" r="3" fill="#F59E0B"/>
+  <circle cx="54" cy="494" r="3" fill="#F59E0B"/>
+  <circle cx="54" cy="508" r="3" fill="#F59E0B"/>
+  <circle cx="42" cy="515" r="3" fill="#F59E0B"/>
+  <line x1="42" y1="501" x2="54" y2="494" stroke="#F59E0B" stroke-width="1.2"/>
+  <line x1="42" y1="501" x2="54" y2="508" stroke="#F59E0B" stroke-width="1.2"/>
+  <line x1="42" y1="515" x2="54" y2="508" stroke="#F59E0B" stroke-width="1.2"/>
+  <!-- Text -->
+  <text x="76" y="484" font-size="17" font-weight="700" fill="#92400E">Semantic Enrichment</text>
+  <text x="76" y="506" font-size="14" fill="#78350F">Mix, match and finetune NLP techniques and tools</text>
+  <text x="76" y="524" font-size="14" fill="#78350F">to add semantic value: context and metadata.</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,547 43,555 53,555" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 6 ═══ Data & Knowledge -->
+  <rect x="20" y="556" width="480" height="88" rx="9" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="556" width="7" height="88" rx="4" fill="#1E40AF"/>
+  <!-- Icon: database centered at (48, 600) -->
+  <rect x="40" y="595" width="16" height="10" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+  <ellipse cx="48" cy="605" rx="8" ry="3" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+  <ellipse cx="48" cy="595" rx="8" ry="3" fill="#EFF6FF" stroke="#1E40AF" stroke-width="1.5"/>
+  <line x1="40" y1="595" x2="40" y2="605" stroke="#1E40AF" stroke-width="1.5"/>
+  <line x1="56" y1="595" x2="56" y2="605" stroke="#1E40AF" stroke-width="1.5"/>
+  <!-- Text -->
+  <text x="76" y="580" font-size="17" font-weight="700" fill="#1E3A8A">Data &amp; Knowledge</text>
+  <text x="76" y="602" font-size="14" fill="#1E40AF">Connect, sync knowledge bases and content</text>
+  <text x="76" y="620" font-size="14" fill="#1E40AF">management systems (SharePoint, …).</text>
+
+  <!-- Arrow up -->
+  <polygon points="48,643 43,651 53,651" fill="#9CA3AF"/>
+
+  <!-- ═══ LAYER 7 ═══ Kairntech Server & API -->
+  <rect x="20" y="652" width="480" height="88" rx="9" fill="#1E3A8A" stroke="#1E40AF" stroke-width="1.5"/>
+  <rect x="20" y="652" width="7" height="88" rx="4" fill="#F59E0B"/>
+  <!-- Icon: server centered at (48, 696) -->
+  <rect x="38" y="688" width="20" height="7" rx="2" fill="none" stroke="#93C5FD" stroke-width="1.5"/>
+  <rect x="38" y="698" width="20" height="7" rx="2" fill="none" stroke="#93C5FD" stroke-width="1.5"/>
+  <circle cx="54" cy="691.5" r="1.5" fill="#F59E0B"/>
+  <circle cx="54" cy="701.5" r="1.5" fill="#F59E0B"/>
+  <!-- Text -->
+  <text x="76" y="676" font-size="17" font-weight="700" fill="white">Kairntech Server &amp; API</text>
+  <text x="76" y="698" font-size="14" fill="#BFDBFE">Enterprise ready · SSO · CI/CD · Scalable</text>
+  <text x="76" y="716" font-size="14" fill="#BFDBFE">On-premise installation, including LLMs.</text>
+
+  <!-- Footer -->
+  <text x="260" y="772" text-anchor="middle" font-size="12" fill="#9CA3AF">kairntech.com</text>
+
+</svg>
