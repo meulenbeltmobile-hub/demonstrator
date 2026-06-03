@@ -143,8 +143,8 @@ export default function Home() {
       {/* Section 3 — About / Narrative */}
       <section className="about-section" aria-label="About">
         <div className="about-inner">
-          <p className="about-opening">{renderBold(tr.about.opening)}</p>
-          <p className="about-opening">{tr.about.opening2}</p>
+          <p className="about-opening">{renderBold(tr.about.opening)} {tr.about.opening2}</p>
+          <p className="about-opening">{tr.about.opening3}</p>
         </div>
       </section>
 

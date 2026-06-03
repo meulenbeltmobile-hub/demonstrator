@@ -9,13 +9,14 @@ const translations = {
       about: 'About',
     },
     hero: {
-      tagline1: 'From vibecoding to',
+      tagline1: 'From coding to',
       tagline2: 'business success',
       subtitle: 'Turn great ideas into **robust**, **profitable** and **sovereign** web applications.',
     },
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude, **the barrier to create web applications has dropped significantly**.',
       opening2: 'Today, anyone with a unique domain expertise can build an application.',
+      opening3: 'In addition, legacy applications can be enhanced with AI, not only through coding but also by adding new ways of enduser-interaction (chatbots) and by automating processes with agents.',
       hurdlesTitle: 'But building an app is only the first step',
       hurdlesSubtitle: 'A lot of hurdles remain to achieve business success.',
       hurdles: [
@@ -29,23 +30,23 @@ const translations = {
     },
     features: {
       heading: 'The Applied AI in Action ecosystem',
-      subheading: 'Applied AI in Action proposes an ecosystem of tools and services to turn vibe-coded web applications into **robust**, **profitable** and **sovereign** solutions.',
+      subheading: 'Applied AI in Action proposes an ecosystem of tools and services to turn ideas into **robust**, **profitable** and **sovereign** web applications.',
       robustness: {
-        title: 'Robustness',
+        title: 'Robust',
         description: 'Strengthen your source code. Review and improve AI pipelines. Optimize LLM usage. Increase accuracy and consistency. Evaluate deployment options.',
       },
       profitability: {
-        title: 'Profitability',
+        title: 'Profitable',
         description: 'Anticipate and reduce LLM costs. Website landing page design. Pricing and Go-to-Market strategy, SEO and GEO optimization. Social media marketing. Video content creation.',
       },
       sovereignty: {
-        title: 'Sovereignty',
+        title: 'Sovereign',
         description: 'Test and implement open source LLMs. Consider secure on-premise deployments and avoid sharing of confidential data.',
       },
     },
     cta: {
-      developer: 'I want to take my application to the next level',
-      customer: 'I want to discover solutions',
+      developer: 'Take my application to the next level',
+      customer: 'Explore applications',
     },
     product: {
       header: 'Tools & Services',
@@ -139,13 +140,14 @@ const translations = {
       about: 'À propos',
     },
     hero: {
-      tagline1: 'Du vibecoding au',
+      tagline1: 'Du coding au',
       tagline2: 'succès commercial',
       subtitle: 'Transformez de bonnes idées en applications web **robustes**, **rentables** et **souveraines**.',
     },
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude, **la barrière à la création d\'applications web a considérablement baissé**.',
       opening2: 'Aujourd\'hui, toute personne disposant d\'une expertise métier unique peut créer une application.',
+      opening3: 'De plus, les applications existantes peuvent être enrichies par l\'IA, non seulement par le code, mais aussi en ajoutant de nouvelles formes d\'interaction (chatbots) et en automatisant des processus avec des agents.',
       hurdlesTitle: 'Mais construire une application n\'est que la première étape',
       hurdlesSubtitle: 'De nombreux obstacles subsistent avant d\'atteindre le succès commercial.',
       hurdles: [
@@ -159,23 +161,23 @@ const translations = {
     },
     features: {
       heading: 'L\'écosystème Applied AI in Action',
-      subheading: 'Applied AI in Action propose un écosystème d\'outils et de services pour transformer les applications vibe-codées en solutions **robustes**, **rentables** et **souveraines**.',
+      subheading: 'Applied AI in Action propose un écosystème d\'outils et de services pour transformer des idées en applications web **robustes**, **rentables** et **souveraines**.',
       robustness: {
-        title: 'Robustesse',
+        title: 'Robuste',
         description: 'Renforcez votre code source. Revue et amélioration des pipelines IA. Optimisation de l\'usage des LLM. Amélioration de la précision et de la cohérence. Évaluation des options de déploiement.',
       },
       profitability: {
-        title: 'Rentabilité',
+        title: 'Rentable',
         description: 'Anticipez et réduisez les coûts LLM. Conception de page d\'atterrissage. Stratégie de prix et de mise sur le marché, optimisation SEO et GEO. Marketing sur les réseaux sociaux. Création de contenu vidéo.',
       },
       sovereignty: {
-        title: 'Souveraineté',
+        title: 'Souveraine',
         description: 'Testez et implémentez des LLM open source. Envisagez des déploiements on-premise sécurisés et évitez le partage de données confidentielles.',
       },
     },
     cta: {
-      developer: 'Je veux propulser mon application au niveau supérieur',
-      customer: 'Je veux découvrir les solutions',
+      developer: 'Propulser mon application au niveau supérieur',
+      customer: 'Explorer les applications',
     },
     product: {
       header: 'Outils & Services',
@@ -269,13 +271,14 @@ const translations = {
       about: 'Über uns',
     },
     hero: {
-      tagline1: 'Vom Vibecoding zum',
+      tagline1: 'Vom Coding zum',
       tagline2: 'Geschäftserfolg',
       subtitle: 'Verwandeln Sie großartige Ideen in **robuste**, **profitable** und **souveräne** Webanwendungen.',
     },
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist **die Hürde zur Erstellung von Webanwendungen deutlich gesunken**.',
       opening2: 'Heute kann jeder mit einzigartiger Fachkenntnis eine Anwendung erstellen.',
+      opening3: 'Darüber hinaus können bestehende Anwendungen mit KI erweitert werden — nicht nur durch Code, sondern auch durch neue Interaktionsformen (Chatbots) und durch die Automatisierung von Prozessen mit Agenten.',
       hurdlesTitle: 'Aber eine App zu bauen ist nur der erste Schritt',
       hurdlesSubtitle: 'Viele Hürden bleiben bis zum geschäftlichen Erfolg.',
       hurdles: [
@@ -289,23 +292,23 @@ const translations = {
     },
     features: {
       heading: 'Das Applied AI in Action Ökosystem',
-      subheading: 'Applied AI in Action bietet ein Ökosystem aus Tools und Services, um vibe-kodierte Webanwendungen in **robuste**, **profitable** und **souveräne** Lösungen zu verwandeln.',
+      subheading: 'Applied AI in Action bietet ein Ökosystem aus Tools und Services, um Ideen in **robuste**, **profitable** und **souveräne** Webanwendungen zu verwandeln.',
       robustness: {
-        title: 'Robustheit',
+        title: 'Robust',
         description: 'Stärken Sie Ihren Quellcode. Überprüfung und Verbesserung von KI-Pipelines. Optimierung der LLM-Nutzung. Steigerung von Genauigkeit und Konsistenz. Bewertung von Deployment-Optionen.',
       },
       profitability: {
-        title: 'Rentabilität',
+        title: 'Profitabel',
         description: 'Antizipieren und reduzieren Sie LLM-Kosten. Website-Landing-Page-Design. Preis- und Go-to-Market-Strategie, SEO- und GEO-Optimierung. Social-Media-Marketing. Video-Content-Erstellung.',
       },
       sovereignty: {
-        title: 'Souveränität',
+        title: 'Souverän',
         description: 'Testen und implementieren Sie Open-Source-LLMs. Erwägen Sie sichere On-Premise-Deployments und vermeiden Sie die Weitergabe vertraulicher Daten.',
       },
     },
     cta: {
-      developer: 'Ich möchte meine Anwendung auf das nächste Level bringen',
-      customer: 'Ich möchte Lösungen entdecken',
+      developer: 'Meine Anwendung auf das nächste Level bringen',
+      customer: 'Anwendungen erkunden',
     },
     product: {
       header: 'Tools & Services',
