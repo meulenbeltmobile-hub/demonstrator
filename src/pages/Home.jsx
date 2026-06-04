@@ -145,6 +145,7 @@ export default function Home() {
         <div className="about-inner">
           <p className="about-opening">{renderBold(tr.about.opening)} {tr.about.opening2}</p>
           <p className="about-opening">{tr.about.opening3}</p>
+          <p className="about-opening">{tr.about.opening4}</p>
         </div>
       </section>
 

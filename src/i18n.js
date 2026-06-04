@@ -16,7 +16,8 @@ const translations = {
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude, **the barrier to create web applications has dropped significantly**.',
       opening2: 'Today, anyone with a unique domain expertise can build an application.',
-      opening3: 'In addition, legacy applications can be enhanced with AI, not only through coding but also by adding new ways of enduser-interaction (chatbots) and by automating processes with agents.',
+      opening3: 'At the same time enterprises are struggling with the technical complexity to prepare and deploy agentic systems, the rising costs of tokens resulting in a low number of applications that reach production at scale, adopted by end-users and showing a solid ROI.',
+      opening4: 'In addition, legacy applications can be enhanced with AI, not only through coding but also by adding new ways of enduser-interaction (chatbots) and by automating processes with agents.',
       hurdlesTitle: 'But building an app is only the first step',
       hurdlesSubtitle: 'A lot of hurdles remain to achieve business success.',
       hurdles: [
@@ -147,7 +148,8 @@ const translations = {
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude, **la barrière à la création d\'applications web a considérablement baissé**.',
       opening2: 'Aujourd\'hui, toute personne disposant d\'une expertise métier unique peut créer une application.',
-      opening3: 'De plus, les applications existantes peuvent être enrichies par l\'IA, non seulement par le code, mais aussi en ajoutant de nouvelles formes d\'interaction (chatbots) et en automatisant des processus avec des agents.',
+      opening3: 'Dans le même temps, les entreprises peinent face à la complexité technique du déploiement de systèmes agentiques, aux coûts croissants des tokens — résultant en peu d\'applications atteignant la production à grande échelle, adoptées par les utilisateurs finaux et affichant un ROI solide.',
+      opening4: 'De plus, les applications existantes peuvent être enrichies par l\'IA, non seulement par le code, mais aussi en ajoutant de nouvelles formes d\'interaction (chatbots) et en automatisant des processus avec des agents.',
       hurdlesTitle: 'Mais construire une application n\'est que la première étape',
       hurdlesSubtitle: 'De nombreux obstacles subsistent avant d\'atteindre le succès commercial.',
       hurdles: [
@@ -278,7 +280,8 @@ const translations = {
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist **die Hürde zur Erstellung von Webanwendungen deutlich gesunken**.',
       opening2: 'Heute kann jeder mit einzigartiger Fachkenntnis eine Anwendung erstellen.',
-      opening3: 'Darüber hinaus können bestehende Anwendungen mit KI erweitert werden — nicht nur durch Code, sondern auch durch neue Interaktionsformen (Chatbots) und durch die Automatisierung von Prozessen mit Agenten.',
+      opening3: 'Gleichzeitig kämpfen Unternehmen mit der technischen Komplexität beim Aufbau und Einsatz agentischer Systeme sowie mit den steigenden Token-Kosten — was dazu führt, dass nur wenige Anwendungen produktiv skalieren, von Endnutzern angenommen werden und einen soliden ROI nachweisen.',
+      opening4: 'Darüber hinaus können bestehende Anwendungen mit KI erweitert werden — nicht nur durch Code, sondern auch durch neue Interaktionsformen (Chatbots) und durch die Automatisierung von Prozessen mit Agenten.',
       hurdlesTitle: 'Aber eine App zu bauen ist nur der erste Schritt',
       hurdlesSubtitle: 'Viele Hürden bleiben bis zum geschäftlichen Erfolg.',
       hurdles: [
