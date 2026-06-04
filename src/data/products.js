@@ -133,6 +133,58 @@ const products = [
     price: '',
     link: 'https://www.linkedin.com/in/vincentnibart/',
   },
+  {
+    id: 1780581122694,
+    categories: ['build'],
+    languages: ['en', 'fr', 'de'],
+    avatar: { type: 'logo', url: 'logo-kairntech.png' },
+    name: 'Kairntech',
+    shortTitle: {
+      en: 'Kairntech starter pack',
+      fr: 'Pack DE démarrage Kairntech',
+      de: 'Kairntech-Starterpaket',
+    },
+    title: {
+      en: 'Consultancy + demonstration + first experiment',
+      fr: 'Conseil + démonstration + première expérience',
+      de: 'Beratung + Demonstration + erstes Experiment',
+    },
+    bio: {
+      en: 'Kairntech is a company founded in 2019 by a tech team with 25+ years of experience in natural language technologies. The company successufly creates and deploys in production enterprise applications for teams (HR, purchasing, compliance, sales, marketing...).',
+      fr: 'Kairntech est une société fondée en 2019 par une équipe technique avec plus de 25ans d\'expérience dans les technologies du langage naturel. L\'entreprise crée et déploie avec succès en production des applications d\'entreprise pour les équipes (RH, achats, conformité, ventes, marketing…).',
+      de: 'Kairntech ist ein Unternehmen, das 2019 von einem Tech-Team mit mehr als 25Jahren Erfahrung in natürlichen Sprachtechnologien gegründet wurde. Das Unternehmen erstellt und implementiert erfolgreich in der Produktion Unternehmensanwendungen für Teams (HR, Einkauf, Compliance, Vertrieb, Marketing...).',
+    },
+    why: {
+      en: 'Kairntech offers a unique combination of hands-on AI expertise for enterprise application combined with a production-ready API server and a self-service studio.',
+      fr: 'Kairntech offre une combinaison unique d\'expertise pratique en IA pour les applications d\'entreprise, combinée à un serveur API prêt pour la production et à un studio en libre-service.',
+      de: 'Kairntech bietet eine einzigartige Kombination aus praktischem KI-Know-how für Unternehmensanwendungen in Kombination mit einem produktionsbereiten API-Server und einem Self-Service-Studio.',
+    },
+    shortDesc: {
+      en: 'Kairntech starter pack',
+      fr: 'Pack DE démarrage Kairntech',
+      de: 'Kairntech-Starterpaket',
+    },
+    longDesc: {
+      en: 'Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines. A great strength is the expertise in semantic enrichment, a prerequisite for accuracy, end-user adoption and ROI.',
+      fr: 'Kairntech propose un serveur de déploiement d\'IA prêt pour l\'entreprise qui peut être déployé sur site. De plus, un studio sans code offre une autonomie totale aux experts du domaine pour expérimenter et personnaliser les pipelines d\'IA. Une grande force est l\'expertise dans l\'enrichissement sémantique, une condition préalable à la précision, à l\'adoption par l\'utilisateur final et au retour sur investissement.',
+      de: 'Kairntech bietet einen unternehmensfähigen KI-Bereitstellungsserver, der vor Ort bereitgestellt werden kann. Darüber hinaus bietet ein No-Code-Studio Domänenexperten volle Autonomie beim Experimentieren und Anpassen von KI-Pipelines. Eine große Stärke ist das Know-how in der semantischen Anreicherung, eine Voraussetzung für Genauigkeit, Endbenutzerakzeptanz und ROI.',
+    },
+    fullDesc: {
+      en: 'Free 30 minute discusion\nTypical budget: 5 - 10K Euro',
+      fr: 'Discusion gratuite de 30 minutes\nBudget typique : 5 à 10 000 euros',
+      de: 'Kostenlose 30-minütige Discusion\nTypisches Budget: 5 - 10.000 Euro',
+    },
+    ctaLabel: {
+      en: 'Book a meeting',
+      fr: 'Réserver un rendez-vous',
+      de: 'Buchen Sie ein Meeting',
+    },
+    ctaUrl: {
+      en: 'https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06',
+    },
+    price: '',
+    link: 'http://kairntech.com',
+  },
 ];
 
 export default products;
