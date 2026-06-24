@@ -3,269 +3,70 @@ const products = [
   {
     "id": 4,
     "type": "tools-services",
-    "categories": [
-      "prepare"
-    ],
+    "categories": ["prepare", "market"],
     "verticals": [],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "avatar": {
-      "type": "image",
-      "url": "clement.marinho.png"
-    },
-    "name": "ClÃ©ment Marinho",
-    "shortTitle": {
-      "en": "SEO Software",
-      "fr": "Logiciel SEO"
-    },
-    "title": {
-      "en": "Automated SaaS solution for SEO optimization",
-      "fr": "Optimisation SEO de Site Web",
-      "de": "Website-SEO-Optimierung"
-    },
-    "bio": {
-      "en": "ClÃ©ment has worked extensively in SEO and GEO for 5 years and co-founded Nazars.\nHe is an early adoptor of vibecoding and created several applications based on his in-depth domain know-how. Now is the time to scale up.  ",
-      "fr": "ClÃ©ment a beaucoup travaillÃ© dans le SEO et le GEO pendant 5 ans et a co-fondÃ© Nazars.\nIl est un des premiers Ã  adopter le vibecoding et a crÃ©Ã© plusieurs applications basÃ©es sur son savoir-faire approfondi dans le domaine. Il est maintenant temps de passer Ã  l'Ã©chelle supÃ©rieure."
-    },
-    "why": {
-      "en": "Indepth SEO / GEO business knowledge thanks to working many years with customers, successfully generating traffic and leads for 20+ companies.",
-      "fr": "Une grande expertise mÃ©tier du rÃ©fÃ©rencement SEO et GEO grÃ¢ce Ã  de nombreuses annÃ©es de travail avec les clients, gÃ©nÃ©rant avec succÃ¨s du trafic et des prospects pour plus de 20 entreprises."
-    },
-    "shortDesc": {
-      "en": "SEO analytics at a fraction of the cost a service provider would normally charge.",
-      "fr": "Analyse SEO Ã  une fraction du coÃ»t qu'un fournisseur de services facturerait normalement.",
-      "de": "Automatisierte SEO & GEO-Analyse mit detailliertem Website-Bericht und Expertenberatung."
-    },
-    "longDesc": {
-      "en": "Clement: please provide a description of the solution",
-      "fr": "ClÃ©ment Ã  fournir"
-    },
-    "fullDesc": {
-      "en": "Free 30-minute onboarding session\n20% discount during first 3 months of SaaS platform",
-      "fr": "SÃ©ance d'intÃ©gration gratuite de 30 minutes\n20% de rÃ©duction pendant les 3 premiers mois de la plateforme SaaS",
-      "de": "ClÃ©ment arbeitet seit 5 Jahren intensiv in SEO und GEO und hat automatisierte Dienste entwickelt. Die Setup-GebÃ¼hr umfasst eine detaillierte Website-Analyse und eine 30-minÃ¼tige Besprechung der Ergebnisse mit Aktionsplan."
-    },
-    "ctaLabel": {
-      "en": "Book a meeting",
-      "fr": "RÃ©server un rendez-vous"
-    },
-    "cta2Label": {
-      "en": "Visit website",
-      "fr": "Voir le site internet"
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/clement-marinho-consultant-seo/"
-  },
-  {
-    "id": 1780483028013,
-    "type": "tools-services",
-    "categories": [
-      "think"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "avatar": {
-      "type": "image",
-      "url": "nicolas.brequigny.png"
-    },
-    "name": "Nicolas Brequigny",
-    "shortTitle": {
-      "en": "Landing page design",
-      "fr": "Conception de la page d'atterrissage"
-    },
-    "title": {
-      "en": "Product market alignment",
-      "fr": "Alignement du marchÃ© des produits"
-    },
-    "bio": {
-      "en": "Nicolas has a backgournd of marketing roles with start- and scale-ups. He created Sumito 7 years ago to provide marketing expertise.",
-      "fr": "Nicolas a un arriÃ©rÃ© de rÃ´les marketing avec des start-ups et des scale-ups. Il a crÃ©Ã© Sumito il y a 7 ans pour apporter son expertise marketing."
-    },
-    "why": {
-      "en": "It is never easy to obtain a product-market fit.\nThis requires a clear and proven methodology delivered at a competitive price.",
-      "fr": "Il n'est jamais facile d'obtenir un ajustement produit-marchÃ©.\nCela nÃ©cessite une mÃ©thodologie claire et Ã©prouvÃ©e livrÃ©e Ã  un prix compÃ©titif."
-    },
-    "shortDesc": {
-      "en": "Landing page positioning and design",
-      "fr": "Positionnement et conception de la page de renvoi"
-    },
-    "longDesc": {
-      "en": "A proven methodology to position a product that is aligned with the market and communicate this clearly in a landing page.",
-      "fr": "Une mÃ©thodologie Ã©prouvÃ©e pour positionner un produit qui est alignÃ© sur le marchÃ© et le communiquer clairement dans une page de destination."
-    },
-    "fullDesc": {
-      "en": "Free 30-minute discovery interview",
-      "fr": "Entretien dÃ©couverte gratuit de 30 minutes"
-    },
-    "ctaLabel": {
-      "en": "Book a meeting",
-      "fr": "RÃ©server un rendez-vous"
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/nicolas-brequigny/"
-  },
-  {
-    "id": 1780489336479,
-    "type": "tools-services",
-    "categories": [
-      "think"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "avatar": {
-      "type": "image",
-      "url": "vincent.nibart.png"
-    },
-    "name": "Vincent Nibart",
-    "shortTitle": {
-      "en": "AI implementation consultancy",
-      "fr": "Conseil en implÃ©mentation"
-    },
-    "title": {
-      "en": "How to get quality AI enterprise applications to run at scale",
-      "fr": "Comment faire fonctionner Ã  grande Ã©chelle des applications d'entreprise d'IA de qualitÃ©"
-    },
-    "bio": {
-      "en": "VIncent is co-founder of Kairntech a former researcher and has been working for 25 years in natural language technologies. He has precious hands-on experience on bringing use-cases to production, and all the technical and organizational challenges that need to be addressed.",
-      "fr": "VIncent est co-fondateur de Kairntech, un ancien chercheur qui travaille depuis 25 ans dans les technologies du langage naturel. Il possÃ¨de une prÃ©cieuse expÃ©rience pratique en matiÃ¨re de mise en production de cas d'utilisation et de tous les dÃ©fis techniques et organisationnels Ã  relever."
-    },
-    "why": {
-      "en": "Hands-on experience on all that is required to obtain high-quality and impactful AI applications in production.",
-      "fr": "ExpÃ©rience pratique sur tout ce qui est nÃ©cessaire pour obtenir des applications d'IA de haute qualitÃ© et percutantes en production."
-    },
-    "shortDesc": {
-      "en": "Consultancy on AI implementation",
-      "fr": "Conseil sur la mise en Å“uvre de l'IA"
-    },
-    "longDesc": {
-      "en": "Full review of how internal documents, audio and video are organized (Sharepoint, CMS...) to establish a semantic enrichment strategy. Review of AI Pipelines, technologies (LLMs) and processes, quality measurement and control, project KPIs (end user adoption metrics), assessment of resources.",
-      "fr": "Revue complÃ¨te de l'organisation des documents internes, audio et vidÃ©o (Sharepoint, CMSâ€¦) pour Ã©tablir une stratÃ©gie d'enrichissement sÃ©mantique. Revue des pipelines d'IA, des technologies (LLM) et des processus, de la mesure et du contrÃ´le de la qualitÃ©, des KPI du projet (mesures d'adoption par l'utilisateur final), de l'Ã©valuation des ressources."
-    },
-    "fullDesc": {
-      "en": "50% off first hour of consultancy",
-      "fr": "50 % de rÃ©duction sur la premiÃ¨re heure de consultation"
-    },
-    "ctaLabel": {
-      "en": "Book a meeting",
-      "fr": "RÃ©server un rendez-vous"
-    },
-    "ctaUrl": {
-      "en": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06"
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/vincentnibart/"
-  },
-  {
-    "id": 1782295587163,
-    "type": "tools-services",
-    "categories": [
-      "think"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr",
-      "de"
-    ],
-    "avatarPeople": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarTool": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarCompany": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#9CA3AF"
-    },
+    "languages": ["en", "fr", "de"],
+    "avatarPeople": { "type": "image", "url": "clement.marinho.png" },
+    "avatarTool": { "type": "initials", "value": "?", "bg": "#1E40AF" },
+    "avatarCompany": { "type": "initials", "value": "?", "bg": "#9CA3AF" },
     "vignetteAvatar": "people",
     "detailsAvatar": "people",
-    "peopleName": null,
-    "peopleLink": null,
-    "toolName": "Test Tool",
-    "toolLink": null,
+    "peopleName": "Clément Marinho",
+    "peopleLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
+    "toolName": "SEO Champion",
+    "toolLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
     "companyName": null,
     "companyLink": null,
-    "name": "Test Tool",
-    "shortTitle": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "title": {
-      "en": "Test Tool Title",
-      "fr": "Titre de l'outil",
-      "de": "Test-Tool-Titel"
-    },
-    "shortDesc": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "why": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "longDesc": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "fullDesc": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "bio": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "ctaLabel": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "ctaUrl": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Label": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Url": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
+    "name": "Clément Marinho",
+    "shortTitle": { "en": "SEO Champion", "fr": "Logiciel SEO", "de": "SEO-Champion" },
+    "title": { "en": "Automated SaaS solution for SEO optimization", "fr": "Optimisation SEO de Site Web", "de": "Website-SEO-Optimierung" },
+    "shortDesc": { "en": "Full-features SEO analytics, optimizing your website and aligning the website with best-value keywords.", "fr": "Analyse SEO à une fraction du coût qu'un fournisseur de services facturerait normalement.", "de": "Automatisierte SEO & GEO-Analyse mit detailliertem Website-Bericht und Expertenberatung." },
+    "why": { "en": "Do-it-yourself solution based on indepth SEO business knowledge at a fraction of the cost an agency would charge.", "fr": "Une grande expertise métier du référencement SEO et GEO grâce à de nombreuses années de travail avec les clients, générant avec succès du trafic et des prospects pour plus de 20 entreprises.", "de": "Do-it-yourself-Lösung, die auf fundiertem SEO-Geschäftswissen zu einem Bruchteil der Kosten basiert, die eine Agentur berechnen würde." },
+    "longDesc": { "en": "Clément has a unique expertise and several more advanced solutions to complement this SaaS solution.", "fr": "Clément à fournir", "de": "Clément verfügt über ein einzigartiges Fachwissen und mehrere fortschrittlichere Lösungen." },
+    "fullDesc": { "en": "Free 30-minute onboarding session", "fr": "Séance d'intégration gratuite de 30 minutes\n20% de réduction pendant les 3 premiers mois de la plateforme SaaS", "de": "Clément arbeitet seit 5 Jahren intensiv in SEO und GEO und hat automatisierte Dienste entwickelt." },
+    "bio": { "en": "Clément has worked extensively in SEO and GEO for 5+ years and is a co-founder of Nazars.\nAs an early adoptor of vibecoding and created several applications based on his in-depth domain know-how.\nThe first results of his endeavours have just been released!", "fr": "Clément a beaucoup travaillé dans le SEO et le GEO pendant 5 ans et a co-fondé Nazars.\nIl est un des premiers à adopter le vibecoding et a créé plusieurs applications basées sur son savoir-faire approfondi dans le domaine.", "de": "Clément arbeitet seit mehr als 5 Jahren intensiv in den Bereichen SEO und GEO und ist Mitbegründer von Nazars." },
+    "ctaLabel": { "en": "Book a meeting", "fr": "Réserver un rendez-vous", "de": "Buchen Sie ein Meeting" },
+    "ctaUrl": { "en": "", "fr": "", "de": "" },
+    "cta2Label": { "en": "Visit website", "fr": "Voir le site internet", "de": "Website besuchen" },
+    "cta2Url": { "en": "", "fr": "", "de": "" },
     "price": "",
-    "link": null,
-    "avatar": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarDetails": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    }
+    "link": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
+    "avatar": { "type": "image", "url": "clement.marinho.png" },
+    "avatarDetails": { "type": "image", "url": "clement.marinho.png" }
+  },
+  {
+    "id": 1780581122694,
+    "type": "tools-services",
+    "categories": ["build", "deploy"],
+    "verticals": [],
+    "languages": ["en", "fr", "de"],
+    "avatarPeople": { "type": "logo", "url": "" },
+    "avatarTool": { "type": "initials", "value": "?", "bg": "#1E40AF" },
+    "avatarCompany": { "type": "logo", "url": "logo-kairntech.png" },
+    "vignetteAvatar": "company",
+    "detailsAvatar": "company",
+    "peopleName": "Vincent Nibart",
+    "peopleLink": "https://www.linkedin.com/in/vincentnibart/",
+    "toolName": "Kairntech",
+    "toolLink": "http://kairntech.com",
+    "companyName": "Kairntech",
+    "companyLink": "http://kairntech.com",
+    "name": "Vincent Nibart",
+    "shortTitle": { "en": "Kairntech Starter pack", "fr": "Pack DE démarrage Kairntech", "de": "Kairntech-Starterpaket" },
+    "title": { "en": "Consultancy + first use case experiment", "fr": "Conseil + démonstration + première expérience", "de": "Beratung + Demonstration + erstes Experiment" },
+    "shortDesc": { "en": "Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines.", "fr": "Pack DE démarrage Kairntech", "de": "Kairntech-Starterpaket" },
+    "why": { "en": "Kairntech offers hands-on AI expertise for enterprise application combined with a production-ready API server, an agentic RAG chatbot and a self-service orchestrator studio.\nSweetspots: large volumes and complex documents, semantic enrichment of content, accurate solutions for business teams", "fr": "Kairntech offre une combinaison unique d'expertise pratique en IA pour les applications d'entreprise, combinée à un serveur API prêt pour la production et à un studio en libre-service.", "de": "Kairntech bietet eine einzigartige Kombination aus praktischem KI-Know-how für Unternehmensanwendungen." },
+    "longDesc": { "en": "Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines. A great strength is the expertise in semantic enrichment, a prerequisite for accuracy, end-user adoption and ROI.", "fr": "Kairntech propose un serveur de déploiement d'IA prêt pour l'entreprise qui peut être déployé sur site.", "de": "Kairntech bietet einen unternehmensfähigen KI-Bereitstellungsserver, der vor Ort bereitgestellt werden kann." },
+    "fullDesc": { "en": "Free 30 minute discussion\nTypical budget: 5 - 10K Euro", "fr": "Discussion gratuite de 30 minutes\nBudget typique : 5 à 10 000 euros", "de": "Kostenlose 30-minütige Diskussion\nTypisches Budget: 5 - 10.000 Euro" },
+    "bio": { "en": "Kairntech was founded in 2019 by a tech team with 25+ years of experience in natural language technologies. The company successfully deploys use cases in production for enterprise teams (HR, purchasing, compliance, sales, marketing...) with demanding customers such as Boehringer Ingelheim, Agence France Presse and the Ministère de l'Armée.", "fr": "Kairntech est une société fondée en 2019 par une équipe technique avec plus de 25 ans d'expérience dans les technologies du langage naturel.", "de": "Kairntech ist ein Unternehmen, das 2019 von einem Tech-Team mit mehr als 25 Jahren Erfahrung in natürlichen Sprachtechnologien gegründet wurde." },
+    "ctaLabel": { "en": "Book a meeting", "fr": "Réserver un rendez-vous", "de": "Buchen Sie ein Meeting" },
+    "ctaUrl": { "en": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06", "fr": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06", "de": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06" },
+    "cta2Label": { "en": "", "fr": "", "de": "" },
+    "cta2Url": { "en": "", "fr": "", "de": "" },
+    "price": "",
+    "link": "https://www.linkedin.com/in/vincentnibart/",
+    "avatar": { "type": "logo", "url": "logo-kairntech.png" },
+    "avatarDetails": { "type": "logo", "url": "logo-kairntech.png" }
   }
 ];
 
