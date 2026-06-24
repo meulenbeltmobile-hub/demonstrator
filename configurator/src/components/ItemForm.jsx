@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { autoTranslate } from '../utils/translate';
+import { translateLang } from '../utils/translate';
+import { saveGlossaryEntry } from '../utils/glossary';
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -197,38 +198,97 @@ function AvatarSelector({ label, value, onChange, avatarPeople, avatarTool, avat
   );
 }
 
+function GlossaryPin({ lc, field, form, savedField, onSave }) {
+  if (lc === 'en') return null;
+  const src = form[field]?.en?.trim();
+  const dst = form[field]?.[lc]?.trim();
+  if (!src || !dst) return null;
+  const justSaved = savedField === `${lc}.${field}`;
+  return (
+    <button
+      type="button"
+      onClick={() => onSave(lc, field)}
+      title="Save this translation to glossary"
+      style={{
+        flexShrink: 0, alignSelf: 'center',
+        padding: '4px 7px', borderRadius: 5,
+        border: `1px solid ${justSaved ? '#059669' : 'var(--gray-300)'}`,
+        background: justSaved ? '#D1FAE5' : 'transparent',
+        cursor: 'pointer', fontSize: '0.78rem', lineHeight: 1,
+        color: justSaved ? '#065F46' : 'var(--gray-400)',
+      }}
+    >
+      {justSaved ? '✓' : '📌'}
+    </button>
+  );
+}
+
+function LangHeader({ lang, approvedLangs, translatingLang, translateErrors, onTranslate, onToggleApprove }) {
+  const isEN = lang.code === 'en';
+  const approved = approvedLangs.includes(lang.code);
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
+      <span style={{ fontWeight: 700, fontSize: '0.82rem', color: 'var(--blue)', minWidth: 68 }}>
+        {lang.label}
+      </span>
+      <span style={{
+        fontSize: '0.7rem', fontWeight: 600, padding: '2px 9px', borderRadius: 10,
+        background: approved ? '#D1FAE5' : '#F3F4F6',
+        color: approved ? '#065F46' : '#6B7280',
+      }}>
+        {approved ? 'Approved' : 'Draft'}
+      </span>
+      {!isEN && (
+        <>
+          <button
+            type="button"
+            onClick={() => onTranslate(lang.code)}
+            disabled={!!translatingLang}
+            style={{
+              fontSize: '0.72rem', padding: '2px 10px', borderRadius: 6,
+              border: '1.5px solid var(--gray-300)', background: 'transparent',
+              cursor: translatingLang ? 'not-allowed' : 'pointer', color: 'var(--gray-600)',
+            }}
+          >
+            {translatingLang === lang.code ? 'Translating…' : 'Translate from EN ↻'}
+          </button>
+          {translateErrors[lang.code] && (
+            <span style={{ fontSize: '0.7rem', color: 'var(--orange-dark)' }}>Some fields failed</span>
+          )}
+          <button
+            type="button"
+            onClick={() => onToggleApprove(lang.code)}
+            style={{
+              fontSize: '0.72rem', padding: '2px 10px', borderRadius: 6,
+              border: `1.5px solid ${approved ? '#059669' : 'var(--blue)'}`,
+              background: approved ? '#D1FAE5' : '#EFF6FF',
+              cursor: 'pointer',
+              color: approved ? '#065F46' : 'var(--blue)',
+              marginLeft: 'auto',
+            }}
+          >
+            {approved ? '✓ Approved' : 'Approve'}
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
 function normalise(item, type) {
   return {
     id: null,
     type: type ?? 'tools-services',
-    categories: [],
-    verticals: [],
-    languages: ['en'],
-    avatarPeople:  { type: 'initials', value: '', bg: '#1E40AF' },
-    avatarTool:    { type: 'initials', value: '', bg: '#1E40AF' },
-    avatarCompany: { type: 'initials', value: '', bg: '#9CA3AF' },
-    vignetteAvatar: 'people',
-    detailsAvatar:  'people',
-    peopleName: '',
-    peopleLink: '',
-    toolName: '',
-    toolLink: '',
-    companyName: '',
-    companyLink: '',
-    name: '',
-    shortTitle: { en: '', fr: '', de: '' },
-    title: { en: '', fr: '', de: '' },
+    title:     { en: '', fr: '', de: '' },
     shortDesc: { en: '', fr: '', de: '' },
-    why:      { en: '', fr: '', de: '' },
-    longDesc: { en: '', fr: '', de: '' },
-    fullDesc: { en: '', fr: '', de: '' },
-    bio: { en: '', fr: '', de: '' },
+    why:       { en: '', fr: '', de: '' },
+    longDesc:  { en: '', fr: '', de: '' },
+    fullDesc:  { en: '', fr: '', de: '' },
+    bio:       { en: '', fr: '', de: '' },
     ctaLabel:  { en: '', fr: '', de: '' },
     ctaUrl:    { en: '', fr: '', de: '' },
     cta2Label: { en: '', fr: '', de: '' },
     cta2Url:   { en: '', fr: '', de: '' },
-    price: '',
-    link: '',
     ...item,
     name: item?.name ?? '',
     shortTitle: (item?.shortTitle && typeof item.shortTitle === 'object')
@@ -238,7 +298,7 @@ function normalise(item, type) {
     price: item?.price ?? '',
     categories: item?.categories ?? (item?.category ? [item.category] : []),
     verticals: item?.verticals ?? (item?.vertical ? [item.vertical] : []),
-    languages: item?.languages ?? ['en', 'fr', 'de'],
+    languages: item?.languages ?? ['en'],
     avatarPeople:  item?.avatarPeople ?? item?.avatar ?? { type: 'initials', value: '', bg: '#1E40AF' },
     avatarTool:    item?.avatarTool ?? { type: 'initials', value: '', bg: '#1E40AF' },
     avatarCompany: item?.avatarCompany ?? { type: 'initials', value: '', bg: '#9CA3AF' },
@@ -254,22 +314,31 @@ function normalise(item, type) {
 }
 
 export default function ItemForm({ item, itemType, onSave, onClose }) {
+  const initial = useState(() => normalise(item, itemType))[0];
   const [form, setForm] = useState(() => normalise(item, itemType));
   const [activeTab, setActiveTab] = useState('item');
-  const [translating, setTranslating] = useState(false);
-  const [translateError, setTranslateError] = useState(false);
+  const [translatingLang, setTranslatingLang] = useState(null);
+  const [translateErrors, setTranslateErrors] = useState({});
+  const [savedGlossaryField, setSavedGlossaryField] = useState(null);
+  const [validationError, setValidationError] = useState(null);
   const isNew = !item?.id;
+  const isDirty = JSON.stringify(form) !== JSON.stringify(initial);
   const typeLabel = form.type === 'people' ? 'Person' : form.type === 'solutions' ? 'Solution' : 'Tool';
 
   const categoryList = (form.type === 'tools-services' || form.type === 'people') ? PEOPLE_TOOLS_CATEGORIES
     : form.type === 'solutions' ? SOLUTION_CATEGORIES : null;
   const showVerticals = form.type === 'solutions' && form.categories.includes('enterprise-solutions');
 
+  function safeClose() {
+    if (isDirty && !window.confirm('You have unsaved changes. Close anyway?')) return;
+    onClose();
+  }
+
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    const onKey = (e) => { if (e.key === 'Escape') safeClose(); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, [isDirty]);
 
   function setField(path, value) {
     setForm((prev) => {
@@ -299,20 +368,41 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
     setForm((prev) => ({ ...prev, type: t, categories: [], verticals: [] }));
   }
 
+  async function handleTranslateLang(lc) {
+    setTranslatingLang(lc);
+    setTranslateErrors((prev) => ({ ...prev, [lc]: false }));
+    try {
+      const { form: updated, anyFailed } = await translateLang(form, lc);
+      setForm(updated);
+      if (anyFailed) setTranslateErrors((prev) => ({ ...prev, [lc]: true }));
+    } catch {
+      setTranslateErrors((prev) => ({ ...prev, [lc]: true }));
+    } finally {
+      setTranslatingLang(null);
+    }
+  }
+
+  function toggleApprove(lc) {
+    toggleArr('languages', lc);
+  }
+
+  async function handleSaveGlossaryField(lc, field) {
+    const src = form[field]?.en?.trim();
+    const dst = form[field]?.[lc]?.trim();
+    if (!src || !dst) return;
+    await saveGlossaryEntry(lc, src, dst);
+    setSavedGlossaryField(`${lc}.${field}`);
+    setTimeout(() => setSavedGlossaryField(null), 2000);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    setTranslateError(false);
-    setTranslating(true);
+    setValidationError(null);
 
-    let finalForm = form;
-    try {
-      const { form: translated, anyFailed } = await autoTranslate(form);
-      finalForm = translated;
-      if (anyFailed) setTranslateError(true);
-    } catch {
-      setTranslateError(true);
-    } finally {
-      setTranslating(false);
+    if (categoryList !== null && form.categories.length === 0) {
+      setValidationError('Select at least one category on the Item tab.');
+      setActiveTab('item');
+      return;
     }
 
     function cleanAvatar(av) {
@@ -322,43 +412,43 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
     }
 
     function getAvatarByKey(key) {
-      if (key === 'tool')    return cleanAvatar(finalForm.avatarTool);
-      if (key === 'company') return cleanAvatar(finalForm.avatarCompany);
-      return cleanAvatar(finalForm.avatarPeople);
+      if (key === 'tool')    return cleanAvatar(form.avatarTool);
+      if (key === 'company') return cleanAvatar(form.avatarCompany);
+      return cleanAvatar(form.avatarPeople);
     }
 
     const saved = {
-      ...finalForm,
-      id:            finalForm.id ?? Date.now(),
-      type:          finalForm.type,
-      peopleName:    finalForm.peopleName.trim() || null,
-      peopleLink:    finalForm.peopleLink.trim() || null,
-      toolName:      finalForm.toolName.trim() || null,
-      toolLink:      finalForm.toolLink.trim() || null,
-      companyName:   finalForm.companyName.trim() || null,
-      companyLink:   finalForm.companyLink.trim() || null,
-      name:          finalForm.peopleName.trim() || finalForm.toolName.trim() || null,
-      link:          finalForm.peopleLink.trim() || finalForm.toolLink.trim() || null,
-      verticals:     showVerticals ? finalForm.verticals : [],
-      avatarPeople:  cleanAvatar(finalForm.avatarPeople),
-      avatarTool:    cleanAvatar(finalForm.avatarTool),
-      avatarCompany: cleanAvatar(finalForm.avatarCompany),
-      vignetteAvatar: finalForm.vignetteAvatar,
-      detailsAvatar:  finalForm.detailsAvatar,
-      avatar:        getAvatarByKey(finalForm.vignetteAvatar),
-      avatarDetails: getAvatarByKey(finalForm.detailsAvatar),
+      ...form,
+      id:            form.id ?? Date.now(),
+      type:          form.type,
+      peopleName:    form.peopleName.trim() || null,
+      peopleLink:    form.peopleLink.trim() || null,
+      toolName:      form.toolName.trim() || null,
+      toolLink:      form.toolLink.trim() || null,
+      companyName:   form.companyName.trim() || null,
+      companyLink:   form.companyLink.trim() || null,
+      name:          form.peopleName.trim() || form.toolName.trim() || null,
+      link:          form.peopleLink.trim() || form.toolLink.trim() || null,
+      verticals:     showVerticals ? form.verticals : [],
+      avatarPeople:  cleanAvatar(form.avatarPeople),
+      avatarTool:    cleanAvatar(form.avatarTool),
+      avatarCompany: cleanAvatar(form.avatarCompany),
+      vignetteAvatar: form.vignetteAvatar,
+      detailsAvatar:  form.detailsAvatar,
+      avatar:        getAvatarByKey(form.vignetteAvatar),
+      avatarDetails: getAvatarByKey(form.detailsAvatar),
     };
     onSave(saved);
   }
 
-  const activeLangs = LANGS.filter((l) => form.languages.includes(l.code));
+  const activeLangs = LANGS;
 
   return (
-    <div className="modal-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="modal-backdrop" onClick={(e) => e.target === e.currentTarget && safeClose()}>
       <div className="modal modal-lg" role="dialog" aria-modal="true" aria-label={isNew ? 'Add item' : 'Edit item'}>
         <div className="modal-header">
           <h2>{isNew ? `Add ${typeLabel}` : `Edit ${typeLabel}`}</h2>
-          <button className="modal-close btn-ghost" onClick={onClose} aria-label="Close">
+          <button className="modal-close btn-ghost" onClick={safeClose} aria-label="Close">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -534,9 +624,15 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   <div className="lang-check-row">
                     {LANGS.map((l) => {
                       const checked = form.languages.includes(l.code);
+                      const isLast = form.languages.length === 1 && checked;
                       return (
                         <label key={l.code} className={`lang-tile ${checked ? 'checked' : ''}`}>
-                          <input type="checkbox" checked={checked} onChange={() => toggleArr('languages', l.code)} />
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() => !isLast && toggleArr('languages', l.code)}
+                            disabled={isLast}
+                          />
                           {l.label}
                         </label>
                       );
@@ -588,51 +684,65 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   avatarCompany={form.avatarCompany}
                   toolLabel={form.type === 'solutions' ? 'Solution' : 'Tool'}
                 />
-                {activeLangs.length > 0 ? activeLangs.map((lang) => (
+                {activeLangs.map((lang) => (
                   <div key={lang.code} className="lang-section" style={{ marginBottom: 16 }}>
-                    <div style={{ fontWeight: 700, fontSize: '0.82rem', color: 'var(--blue)', marginBottom: 10 }}>
-                      {lang.label}
-                    </div>
+                    <LangHeader
+                      lang={lang}
+                      approvedLangs={form.languages}
+                      translatingLang={translatingLang}
+                      translateErrors={translateErrors}
+                      onTranslate={handleTranslateLang}
+                      onToggleApprove={toggleApprove}
+                    />
                     <div className="form-group">
                       <label className="form-label">
                         Short title <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <input
-                        className="form-input"
-                        value={form.shortTitle?.[lang.code] ?? ''}
-                        onChange={(e) => setField(`shortTitle.${lang.code}`, e.target.value)}
-                        placeholder="e.g. Kairntech Partner, Senior Developer"
-                        maxLength={60}
-                      />
+                      <div style={{ display: 'flex', gap: 6 }}>
+                        <input
+                          className="form-input"
+                          value={form.shortTitle?.[lang.code] ?? ''}
+                          onChange={(e) => setField(`shortTitle.${lang.code}`, e.target.value)}
+                          placeholder="e.g. Kairntech Partner, Senior Developer"
+                          maxLength={60}
+                          style={{ flex: 1 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="shortTitle" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         Title <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <input
-                        className="form-input"
-                        value={form.title[lang.code]}
-                        onChange={(e) => setField(`title.${lang.code}`, e.target.value)}
-                        placeholder={`Title in ${lang.label}`}
-                        required={lang.code === 'en'}
-                      />
+                      <div style={{ display: 'flex', gap: 6 }}>
+                        <input
+                          className="form-input"
+                          value={form.title[lang.code]}
+                          onChange={(e) => setField(`title.${lang.code}`, e.target.value)}
+                          placeholder={`Title in ${lang.label}`}
+                          required={lang.code === 'en'}
+                          style={{ flex: 1 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="title" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         Pitch <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <textarea
-                        className="form-textarea"
-                        value={form.why?.[lang.code] ?? ''}
-                        onChange={(e) => setField(`why.${lang.code}`, e.target.value)}
-                        placeholder={`Key reasons — why choose this in ${lang.label}`}
-                        style={{ minHeight: 80 }}
-                      />
+                      <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                        <textarea
+                          className="form-textarea"
+                          value={form.why?.[lang.code] ?? ''}
+                          onChange={(e) => setField(`why.${lang.code}`, e.target.value)}
+                          placeholder={`Key reasons — why choose this in ${lang.label}`}
+                          style={{ flex: 1, minHeight: 80 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="why" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                   </div>
-                )) : (
-                  <p style={{ color: 'var(--gray-400)', fontSize: '0.85rem' }}>Select at least one language on the Item tab.</p>
-                )}
+                ))}
 
                 {/* Offer — single field, not per-language */}
                 <div className="form-group" style={{ marginTop: 8 }}>
@@ -659,69 +769,91 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   avatarCompany={form.avatarCompany}
                   toolLabel={form.type === 'solutions' ? 'Solution' : 'Tool'}
                 />
-                {activeLangs.length > 0 ? activeLangs.map((lang) => (
+                {activeLangs.map((lang) => (
                   <div key={lang.code} className="lang-section" style={{ marginBottom: 16 }}>
-                    <div style={{ fontWeight: 700, fontSize: '0.82rem', color: 'var(--blue)', marginBottom: 10 }}>
-                      {lang.label}
-                    </div>
+                    <LangHeader
+                      lang={lang}
+                      approvedLangs={form.languages}
+                      translatingLang={translatingLang}
+                      translateErrors={translateErrors}
+                      onTranslate={handleTranslateLang}
+                      onToggleApprove={toggleApprove}
+                    />
                     <div className="form-group">
                       <label className="form-label">
                         Bio <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <textarea
-                        className="form-textarea"
-                        value={form.bio?.[lang.code] ?? ''}
-                        onChange={(e) => setField(`bio.${lang.code}`, e.target.value)}
-                        placeholder={`Short biography or background in ${lang.label}`}
-                        style={{ minHeight: 80 }}
-                      />
+                      <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                        <textarea
+                          className="form-textarea"
+                          value={form.bio?.[lang.code] ?? ''}
+                          onChange={(e) => setField(`bio.${lang.code}`, e.target.value)}
+                          placeholder={`Short biography or background in ${lang.label}`}
+                          style={{ flex: 1, minHeight: 80 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="bio" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         Description <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <input
-                        className="form-input"
-                        value={form.shortDesc[lang.code]}
-                        onChange={(e) => setField(`shortDesc.${lang.code}`, e.target.value)}
-                        placeholder={`Description in ${lang.label}`}
-                      />
+                      <div style={{ display: 'flex', gap: 6 }}>
+                        <textarea
+                          className="form-textarea"
+                          value={form.shortDesc[lang.code]}
+                          onChange={(e) => setField(`shortDesc.${lang.code}`, e.target.value)}
+                          placeholder={`Description in ${lang.label}`}
+                          style={{ flex: 1, minHeight: 80 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="shortDesc" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         Why <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <textarea
-                        className="form-textarea"
-                        value={form.longDesc?.[lang.code] ?? ''}
-                        onChange={(e) => setField(`longDesc.${lang.code}`, e.target.value)}
-                        placeholder={`Why choose this in ${lang.label}`}
-                        style={{ minHeight: 100 }}
-                      />
+                      <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                        <textarea
+                          className="form-textarea"
+                          value={form.longDesc?.[lang.code] ?? ''}
+                          onChange={(e) => setField(`longDesc.${lang.code}`, e.target.value)}
+                          placeholder={`Why choose this in ${lang.label}`}
+                          style={{ flex: 1, minHeight: 100 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="longDesc" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-group">
                       <label className="form-label">
                         Next steps <span className="lang-flag">{lang.code.toUpperCase()}</span>
                       </label>
-                      <textarea
-                        className="form-textarea"
-                        value={form.fullDesc[lang.code]}
-                        onChange={(e) => setField(`fullDesc.${lang.code}`, e.target.value)}
-                        placeholder={`Next steps in ${lang.label}`}
-                        style={{ minHeight: 80 }}
-                      />
+                      <div style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
+                        <textarea
+                          className="form-textarea"
+                          value={form.fullDesc[lang.code]}
+                          onChange={(e) => setField(`fullDesc.${lang.code}`, e.target.value)}
+                          placeholder={`Next steps in ${lang.label}`}
+                          style={{ flex: 1, minHeight: 80 }}
+                        />
+                        <GlossaryPin lc={lang.code} field="fullDesc" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                      </div>
                     </div>
                     <div className="form-row" style={{ gap: 8 }}>
                       <div className="form-group">
                         <label className="form-label">
                           Action item 1 <span className="lang-flag">{lang.code.toUpperCase()}</span>
                         </label>
-                        <input
-                          className="form-input"
-                          value={form.ctaLabel?.[lang.code] ?? ''}
-                          onChange={(e) => setField(`ctaLabel.${lang.code}`, e.target.value)}
-                          placeholder="e.g. Book a session"
-                        />
+                        <div style={{ display: 'flex', gap: 6 }}>
+                          <input
+                            className="form-input"
+                            value={form.ctaLabel?.[lang.code] ?? ''}
+                            onChange={(e) => setField(`ctaLabel.${lang.code}`, e.target.value)}
+                            placeholder="e.g. Book a session"
+                            style={{ flex: 1 }}
+                          />
+                          <GlossaryPin lc={lang.code} field="ctaLabel" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                        </div>
                       </div>
                       <div className="form-group">
                         <label className="form-label">
@@ -742,12 +874,16 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                         <label className="form-label">
                           Action item 2 <span className="lang-flag">{lang.code.toUpperCase()}</span>
                         </label>
-                        <input
-                          className="form-input"
-                          value={form.cta2Label?.[lang.code] ?? ''}
-                          onChange={(e) => setField(`cta2Label.${lang.code}`, e.target.value)}
-                          placeholder="e.g. Learn more"
-                        />
+                        <div style={{ display: 'flex', gap: 6 }}>
+                          <input
+                            className="form-input"
+                            value={form.cta2Label?.[lang.code] ?? ''}
+                            onChange={(e) => setField(`cta2Label.${lang.code}`, e.target.value)}
+                            placeholder="e.g. Learn more"
+                            style={{ flex: 1 }}
+                          />
+                          <GlossaryPin lc={lang.code} field="cta2Label" form={form} savedField={savedGlossaryField} onSave={handleSaveGlossaryField} />
+                        </div>
                       </div>
                       <div className="form-group">
                         <label className="form-label">
@@ -763,35 +899,23 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                       </div>
                     </div>
                   </div>
-                )) : (
-                  <p style={{ color: 'var(--gray-400)', fontSize: '0.85rem' }}>Select at least one language on the Item tab.</p>
-                )}
+                ))}
               </div>
             )}
 
           </div>
 
           <div className="modal-footer">
-            {translateError && (
-              <span style={{ fontSize: '0.8rem', color: 'var(--orange-dark)', marginRight: 'auto' }}>
-                Some translations failed — content saved as-is.
+            {validationError && (
+              <span style={{ fontSize: '0.8rem', color: 'var(--red)', marginRight: 'auto' }}>
+                {validationError}
               </span>
             )}
-            <button type="button" className="btn btn-ghost" onClick={onClose} disabled={translating}>
+            <button type="button" className="btn btn-ghost" onClick={safeClose}>
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary" disabled={(categoryList !== null && form.categories.length === 0) || translating}>
-              {translating ? (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                    style={{ animation: 'spin 0.8s linear infinite' }}>
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                  </svg>
-                  Translating…
-                </>
-              ) : (
-                isNew ? `Add ${typeLabel}` : 'Save Changes'
-              )}
+            <button type="submit" className="btn btn-primary">
+              {isNew ? `Add ${typeLabel}` : 'Save Changes'}
             </button>
           </div>
         </form>

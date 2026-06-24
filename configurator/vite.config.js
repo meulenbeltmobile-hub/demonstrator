@@ -25,6 +25,46 @@ function saveSeedsPlugin() {
   return {
     name: 'save-seeds',
     configureServer(server) {
+      const GLOSSARY_PATH = path.resolve(__dirname, 'src/data/glossary.json');
+
+      server.middlewares.use('/api/glossary', (req, res) => {
+        if (req.method !== 'GET') { res.statusCode = 405; res.end(); return; }
+        try {
+          const data = fs.existsSync(GLOSSARY_PATH)
+            ? fs.readFileSync(GLOSSARY_PATH, 'utf8')
+            : '{"fr":{},"de":{}}';
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(data);
+        } catch (err) {
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: err.message }));
+        }
+      });
+
+      server.middlewares.use('/api/save-glossary', (req, res) => {
+        if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
+        let body = '';
+        req.on('data', (chunk) => { body += chunk; });
+        req.on('end', () => {
+          try {
+            const { lang, source, translation } = JSON.parse(body);
+            const glossary = fs.existsSync(GLOSSARY_PATH)
+              ? JSON.parse(fs.readFileSync(GLOSSARY_PATH, 'utf8'))
+              : { fr: {}, de: {} };
+            if (!glossary[lang]) glossary[lang] = {};
+            glossary[lang][source] = translation;
+            fs.writeFileSync(GLOSSARY_PATH, JSON.stringify(glossary, null, 2) + '\n', 'utf8');
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ ok: true }));
+          } catch (err) {
+            res.statusCode = 500;
+            res.end(JSON.stringify({ error: err.message }));
+          }
+        });
+      });
+
       server.middlewares.use('/api/save-seeds', (req, res) => {
         if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
         let body = '';
@@ -65,7 +105,7 @@ function saveSeedsPlugin() {
         req.on('end', () => {
           try {
             const date = new Date().toISOString().slice(0, 16).replace('T', ' ');
-            execSync('git add src/data/', { cwd: REPO_ROOT });
+            execSync('git add src/data/ configurator/src/data/glossary.json', { cwd: REPO_ROOT });
             try {
               execSync('git diff --cached --quiet', { cwd: REPO_ROOT });
               res.statusCode = 200;
@@ -92,7 +132,6 @@ function saveSeedsPlugin() {
 export default defineConfig({
   plugins: [react(), saveSeedsPlugin()],
   server: {
-    port: 5174,
     watch: { ignored: ['**/src/data/seeds.js'] },
   },
 });

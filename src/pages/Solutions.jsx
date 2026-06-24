@@ -7,7 +7,7 @@ import CategoryFilter from '../components/CategoryFilter';
 import solutions from '../data/solutions';
 
 export default function Solutions() {
-  const { tr } = useLanguage();
+  const { tr, lang } = useLanguage();
   const [category, setCategory] = useState('all');
   const [selected, setSelected] = useState(null);
 
@@ -19,9 +19,10 @@ export default function Solutions() {
     { key: 'enterprise-solutions', label: cats['enterprise-solutions'] },
   ];
 
+  const langFiltered = solutions.filter((s) => !s.languages || s.languages.includes(lang));
   const filtered = category === 'all'
-    ? solutions
-    : solutions.filter((s) => (s.categories ?? [s.category]).includes(category));
+    ? langFiltered
+    : langFiltered.filter((s) => (s.categories ?? [s.category]).includes(category));
 
   return (
     <>

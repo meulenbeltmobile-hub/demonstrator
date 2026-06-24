@@ -64,13 +64,14 @@ const PIPELINE = [
 ];
 
 export default function Product() {
-  const { tr } = useLanguage();
+  const { tr, lang } = useLanguage();
   const [category, setCategory] = useState('all');
   const [selected, setSelected] = useState(null);
 
+  const langFiltered = products.filter((p) => !p.languages || p.languages.includes(lang));
   const filtered = category === 'all'
-    ? products
-    : products.filter((p) => (p.categories ?? [p.category]).includes(category));
+    ? langFiltered
+    : langFiltered.filter((p) => (p.categories ?? [p.category]).includes(category));
 
   return (
     <>
