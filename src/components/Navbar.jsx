@@ -4,9 +4,9 @@ import { useLanguage } from '../context/LanguageContext';
 import Logo from './Logo';
 
 const LANGS = [
-  { code: 'en', label: 'English' },
-  { code: 'fr', label: 'Français' },
-  { code: 'de', label: 'Deutsch' },
+  { code: 'en', label: 'EN' },
+  { code: 'fr', label: 'FR' },
+  { code: 'de', label: 'DE' },
 ];
 
 export default function Navbar() {
@@ -16,6 +16,7 @@ export default function Navbar() {
   const links = [
     { to: '/', label: tr.nav.home },
     { to: '/products', label: tr.nav.products },
+    { to: '/tools', label: tr.nav.tools },
     { to: '/solutions', label: tr.nav.solutions },
     { to: '/blog', label: tr.nav.blog },
     { to: '/about', label: tr.nav.about },
@@ -25,7 +26,7 @@ export default function Navbar() {
     <nav className="navbar" role="navigation" aria-label="Main navigation">
       <div className="container navbar-inner">
         <Link to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-          <Logo size={32} />
+          <Logo size={28} />
           <span className="brand-text">
             <span>Applied AI</span>
             <span>in Action</span>

@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
-import Vignette from '../components/Vignette';
-import Modal from '../components/Modal';
-import products from '../data/products';
 
 const PIPELINE = [
   {
@@ -26,7 +23,7 @@ const PIPELINE = [
         <path d="M9 13h6M9.5 15.5h5M10.5 18h3"/>
       </svg>
     ),
-    items: ['Strategic technical advice', 'AI impact advice', 'Go-to-Market advice'],
+    items: [],
   },
   {
     key: 'build',
@@ -36,7 +33,7 @@ const PIPELINE = [
         <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
       </svg>
     ),
-    items: ['Coding support services', 'Document processing, semantic enrichment'],
+    items: [],
   },
   {
     key: 'deploy',
@@ -48,7 +45,7 @@ const PIPELINE = [
         <path d="M6 12l-3 4h3M18 12l3 4h-3"/>
       </svg>
     ),
-    items: ['Secure SaaS', 'On premise'],
+    items: [],
   },
   {
     key: 'market',
@@ -59,28 +56,23 @@ const PIPELINE = [
         <path d="M16 8.5a3 3 0 010 7"/>
       </svg>
     ),
-    items: ['SEO / GEO marketing', 'Social network marketing', 'Business development'],
+    items: [],
   },
 ];
 
-export default function Product() {
+export default function Tools() {
   const { tr } = useLanguage();
   const [category, setCategory] = useState('all');
-  const [selected, setSelected] = useState(null);
-
-  const filtered = category === 'all'
-    ? products
-    : products.filter((p) => (p.categories ?? [p.category]).includes(category));
 
   return (
     <>
-      <SEO title="People — Find the Right Expertise" path="/products" noindex={true} />
+      <SEO title="Tools — Find the Right Tools" path="/tools" noindex={true} />
       <section className="blog-hero">
         <div className="blog-hero-grid" aria-hidden="true" />
         <div className="container" style={{ position: 'relative' }}>
-          <div className="blog-eyebrow">{tr.nav.products}</div>
-          <h1 className="blog-hero-title">{tr.product.heroTitle}</h1>
-          <p className="blog-hero-sub">{tr.product.heroSub}</p>
+          <div className="blog-eyebrow">{tr.nav.tools}</div>
+          <h1 className="blog-hero-title">{tr.toolsPage.heroTitle}</h1>
+          <p className="blog-hero-sub">{tr.toolsPage.heroSub}</p>
         </div>
       </section>
 
@@ -112,21 +104,11 @@ export default function Product() {
 
       <section className="grid-section">
         <div className="container">
-          <div className="vignette-grid">
-            {filtered.length === 0 ? (
-              <p className="no-results">{tr.product.noResults}</p>
-            ) : (
-              filtered.map((item) => (
-                <Vignette key={item.id} item={item} onClick={setSelected} />
-              ))
-            )}
-          </div>
+          <p style={{ color: 'var(--gray-500)', textAlign: 'center', padding: '80px 0' }}>
+            Coming soon — tools will be listed here.
+          </p>
         </div>
       </section>
-
-      {selected && (
-        <Modal item={selected} onClose={() => setSelected(null)} />
-      )}
     </>
   );
 }

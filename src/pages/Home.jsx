@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 function renderBold(text) {
   return text.split(/\*\*(.+?)\*\*/).map((part, i) =>
@@ -10,22 +11,35 @@ function renderBold(text) {
 
 const FEATURES = ['robustness', 'profitability', 'sovereignty'];
 
-/* On-brand illustrations for the three "hurdle" blocks.
-   Swap any of these for a real photo later by replacing the <svg> with
-   <img src="/your-photo.jpg" alt="" />. */
+const FEATURE_ICONS = [
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>,
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
+];
+
+const PHASES = [
+  {
+    key: 'think', label: 'Think', color: '#2563EB',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg>,
+  },
+  {
+    key: 'build', label: 'Build', color: '#F59E0B',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
+  },
+  {
+    key: 'deploy', label: 'Deploy', color: '#2563EB',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C6.5 8 6 13 6 16h12c0-3-.5-8-6-14z"/><path d="M6 16v2a2 2 0 002 2h8a2 2 0 002-2v-2"/><path d="M6 12l-3 4h3M18 12l3 4h-3"/></svg>,
+  },
+  {
+    key: 'market', label: 'Market', color: '#F59E0B',
+    icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 3l-7 4H5a1 1 0 00-1 1v6a1 1 0 001 1h6l7 4V3z"/><path d="M16 8.5a3 3 0 010 7"/></svg>,
+  },
+];
+
 const HURDLE_ILLUS = [
-  // 0 — Technical complexity: photo (code on screen)
-  (
-    <img src="/technical-complexity.jpg" alt="Technical complexity" />
-  ),
-  // 1 — Marketing challenges: photo
-  (
-    <img src="/marketing-challenge.jpg" alt="Marketing challenges" />
-  ),
-  // 2 — Strategic concerns: photo
-  (
-    <img src="/strategic-concern.jpg" alt="Strategic concerns" />
-  ),
+  <img src="/technical-complexity.jpg" alt="Technical complexity" />,
+  <img src="/marketing-challenge.jpg" alt="Marketing challenges" />,
+  <img src="/strategic-concern.jpg" alt="Strategic challenges" />,
 ];
 
 export default function Home() {
@@ -34,153 +48,48 @@ export default function Home() {
 
   return (
     <>
-      {/* Section 1 — Hero */}
+      <SEO
+        path="/"
+        description="Applied AI in Action connects AI-powered app builders with an ecosystem of people and tools to turn ideas into robust, market-ready and sovereign web applications."
+      />
+      {/* Hero */}
       <section className="hero" aria-label="Hero">
-        {/* Option A background — lightbulb + code symbols + AI nodes */}
-        <svg
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          viewBox="0 0 1200 400"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
-          {/* Lightbulb — halfway between left and center, half size */}
-          <g transform="translate(320,200) scale(0.5)" opacity="0.22">
-            <circle cx="0" cy="-30" r="70" fill="none" stroke="white" strokeWidth="6" />
-            <path d="M-25,40 L25,40 M-20,55 L20,55 M-10,70 L10,70" stroke="white" strokeWidth="6" strokeLinecap="round" />
-            <path d="M-20,-20 Q0,5 20,-20" fill="none" stroke="white" strokeWidth="4" />
-          </g>
-
-          {/* Radiating rings around lightbulb */}
-          <circle cx="320" cy="200" r="60" fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <circle cx="320" cy="200" r="90" fill="none" stroke="white" strokeWidth="1" opacity="0.05" />
-          <circle cx="320" cy="200" r="125" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
-
-          {/* Code symbols — left */}
-          <text x="160" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'</>'}</text>
-          <text x="120" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'{ }'}</text>
-          <text x="200" y="310" fontFamily="monospace" fontSize="22" fill="white" opacity="0.12">{'// AI'}</text>
-
-          {/* Code symbols — right */}
-          <text x="970" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'<AI/>'}</text>
-          <text x="1010" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'[ ]'}</text>
-          <text x="980" y="310" fontFamily="monospace" fontSize="22" fill="white" opacity="0.12">{'def idea'}</text>
-
-          {/* AI node arcs */}
-          {[
-            [300,120],[420,80],[500,140],[700,80],[800,120],[900,90],
-            [250,280],[380,320],[500,290],[700,310],[830,280],[950,320],
-          ].map(([cx, cy], i) => (
-            <circle key={i} cx={cx} cy={cy} r="4"
-              fill={i % 3 === 0 ? '#F59E0B' : 'white'}
-              opacity={i % 3 === 0 ? 0.5 : 0.2}
-            />
-          ))}
-
-          {/* Connecting lines */}
-          <polyline points="300,120 420,80 500,140 600,170 700,80 800,120 900,90"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <polyline points="250,280 380,320 500,290 600,230 700,310 830,280 950,320"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <line x1="500" y1="140" x2="500" y2="290" stroke="white" strokeWidth="1" opacity="0.07" />
-          <line x1="700" y1="80"  x2="700" y2="310" stroke="white" strokeWidth="1" opacity="0.07" />
-        </svg>
-
         <div className="hero-content">
           <h1 className="hero-tagline">
-            {tr.hero.tagline1}<br />{tr.hero.tagline2}
+            {tr.hero.tagline1}{' '}
+            <span className="hero-accent">{tr.hero.tagline2}</span>
           </h1>
           <p className="hero-subtitle">{renderBold(tr.hero.subtitle)}</p>
-        </div>
-      </section>
-
-      {/* Section 2 — CTA */}
-      <section className="cta-section" aria-label="Get started">
-        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-          viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <radialGradient id="fadeEdgeCta" cx="50%" cy="50%" r="55%">
-              <stop offset="40%" stopColor="white" stopOpacity="0" />
-              <stop offset="100%" stopColor="white" stopOpacity="1" />
-            </radialGradient>
-          </defs>
-          <text x="60"  y="200" fontFamily="monospace" fontSize="52" fill="#1E40AF" opacity="0.1" fontWeight="bold">{'</>'}</text>
-          <text x="30"  y="310" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.18">{'{ }'}</text>
-          <text x="950" y="200" fontFamily="monospace" fontSize="52" fill="#1E40AF" opacity="0.1" fontWeight="bold">{'<AI/>'}</text>
-          <text x="990" y="310" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.18">{'[ ]'}</text>
-          {[[200,80],[340,50],[460,90],[580,60],[700,85],[840,55],[980,90],[1080,65]].map(([cx,cy],i)=>(
-            <circle key={`t${i}`} cx={cx} cy={cy} r="4" fill={i%3===0?'#F59E0B':'#1E40AF'} opacity={i%3===0?0.28:0.13}/>
-          ))}
-          <polyline points="200,80 340,50 460,90 580,60 700,85 840,55 980,90 1080,65" fill="none" stroke="#1E40AF" strokeWidth="1" opacity="0.07"/>
-          {[[150,190],[300,215],[440,180],[570,205],[700,185],[830,210],[970,185],[1100,205]].map(([cx,cy],i)=>(
-            <circle key={`um${i}`} cx={cx} cy={cy} r="4" fill={i%3===1?'#F59E0B':'#1E40AF'} opacity={i%3===1?0.28:0.13}/>
-          ))}
-          <polyline points="150,190 300,215 440,180 570,205 700,185 830,210 970,185 1100,205" fill="none" stroke="#1E40AF" strokeWidth="1" opacity="0.07"/>
-          {[[160,530],[310,555],[450,520],[580,545],[710,525],[850,550],[990,520],[1110,545]].map(([cx,cy],i)=>(
-            <circle key={`lm${i}`} cx={cx} cy={cy} r="4" fill={i%3===0?'#F59E0B':'#1E40AF'} opacity={i%3===0?0.28:0.13}/>
-          ))}
-          <polyline points="160,530 310,555 450,520 580,545 710,525 850,550 990,520 1110,545" fill="none" stroke="#1E40AF" strokeWidth="1" opacity="0.07"/>
-          {[[200,660],[360,680],[500,650],[640,670],[780,650],[920,675],[1060,655]].map(([cx,cy],i)=>(
-            <circle key={`b${i}`} cx={cx} cy={cy} r="4" fill={i%3===2?'#F59E0B':'#1E40AF'} opacity={i%3===2?0.28:0.13}/>
-          ))}
-          <polyline points="200,660 360,680 500,650 640,670 780,650 920,675 1060,655" fill="none" stroke="#1E40AF" strokeWidth="1" opacity="0.07"/>
-          {[340,460,580,700,840,980].map((x,i)=>(
-            <line key={`v${i}`} x1={x} y1={50} x2={x+(i%2===0?-20:20)} y2={680} stroke="#1E40AF" strokeWidth="1" opacity="0.04"/>
-          ))}
-          <rect x="0" y="0" width="1200" height="750" fill="url(#fadeEdgeCta)" />
-        </svg>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="cta-buttons">
+          <div className="hero-btns">
             <button className="btn btn-primary btn-lg" onClick={() => navigate('/products')}>
-              🚀 {tr.cta.developer}
+              {tr.cta.developer}
             </button>
-            <button className="btn btn-secondary btn-lg" onClick={() => navigate('/solutions')}>
-              🔍 {tr.cta.customer}
+            <button className="btn btn-primary btn-lg" onClick={() => navigate('/tools')}>
+              {tr.cta.tools}
+            </button>
+            <button className="btn btn-outline btn-lg" onClick={() => navigate('/solutions')}>
+              {tr.cta.customer}
             </button>
           </div>
         </div>
       </section>
 
-      {/* Section 3 — About / Narrative */}
+      {/* About / Narrative */}
       <section className="about-section" aria-label="About">
         <div className="about-inner">
-          <p className="about-opening">{renderBold(tr.about.opening)} {tr.about.opening2}</p>
-          <p className="about-opening">{tr.about.opening3}</p>
-          <p className="about-opening">{tr.about.opening4}</p>
+          <p className="about-opening">
+            {tr.about.opening}<br />
+            {renderBold(tr.about.openingBold)}<br />
+            {tr.about.opening2}
+          </p>
         </div>
       </section>
 
-      {/* Hurdles header — full-width blue banner */}
+      {/* Hurdles header */}
       <section className="hurdles-header" aria-label="Hurdles">
-        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <g transform="translate(600,200)" opacity="0.12">
-            <circle cx="0" cy="-30" r="70" fill="none" stroke="white" strokeWidth="6" />
-            <path d="M-25,40 L25,40 M-20,55 L20,55 M-10,70 L10,70" stroke="white" strokeWidth="6" strokeLinecap="round" />
-            <path d="M-20,-20 Q0,5 20,-20" fill="none" stroke="white" strokeWidth="4" />
-          </g>
-          <circle cx="600" cy="200" r="140" fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <circle cx="600" cy="200" r="200" fill="none" stroke="white" strokeWidth="1" opacity="0.05" />
-          <circle cx="600" cy="200" r="280" fill="none" stroke="white" strokeWidth="1" opacity="0.04" />
-          <text x="160" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'</>'}</text>
-          <text x="120" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'{ }'}</text>
-          <text x="970" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'<AI/>'}</text>
-          <text x="1010" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'[ ]'}</text>
-          {[
-            [300,120],[420,80],[500,140],[700,80],[800,120],[900,90],
-            [250,280],[380,320],[500,290],[700,310],[830,280],[950,320],
-          ].map(([cx, cy], i) => (
-            <circle key={i} cx={cx} cy={cy} r="4"
-              fill={i % 3 === 0 ? '#F59E0B' : 'white'}
-              opacity={i % 3 === 0 ? 0.5 : 0.2} />
-          ))}
-          <polyline points="300,120 420,80 500,140 600,170 700,80 800,120 900,90"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <polyline points="250,280 380,320 500,290 600,230 700,310 830,280 950,320"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-        </svg>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h2 className="hurdles-title">{tr.about.hurdlesTitle}</h2>
-          <p className="hurdles-subtitle">{tr.about.hurdlesSubtitle}</p>
+        <div className="container">
+          <h2 className="hurdles-title">{tr.about.hurdlesTitleMain} <span className="hero-accent">{tr.about.hurdlesTitleAccent}</span></h2>
+          {tr.about.hurdlesSubtitle && <p className="hurdles-subtitle">{tr.about.hurdlesSubtitle}</p>}
         </div>
       </section>
 
@@ -201,48 +110,82 @@ export default function Home() {
             ))}
           </div>
           <div className="about-mission">
-            <div className="about-mission-line">{tr.about.bold2top}</div>
-            <div className="about-mission-mid">
-              <span className="about-mission-rule" aria-hidden="true" />
-              {tr.about.bold2mid}
-              <span className="about-mission-rule" aria-hidden="true" />
+            <div className="about-mission-line">
+              {tr.about.bold2top}<span className="hero-accent">{tr.about.bold2mid}</span>
             </div>
-            <div className="about-mission-line">{tr.about.bold2bot}</div>
+            <div className="about-mission-sub">{tr.about.bold2bot}</div>
+            <div className="about-mission-cta">
+              <span className="about-mission-cta-label">{tr.about.missionCta}</span>
+              <button className="btn btn-outline btn-lg" onClick={() => navigate('/blog#manifesto')}>{tr.about.manifesto}</button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 3 — Robustness / Profitability / Sovereignty */}
+      {/* Pillars — dark navy */}
       <section className="features-section" aria-label="Key pillars">
-        {/* Same SVG node vocabulary as hero for continuity */}
-        <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-          viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <circle cx="600" cy="200" r="180" fill="none" stroke="white" strokeWidth="1" opacity="0.06" />
-          <circle cx="600" cy="200" r="280" fill="none" stroke="white" strokeWidth="1" opacity="0.04" />
-          <text x="60"  y="120" fontFamily="monospace" fontSize="40" fill="white" opacity="0.08" fontWeight="bold">{'</>'}</text>
-          <text x="40"  y="290" fontFamily="monospace" fontSize="22" fill="#F59E0B" opacity="0.2">{'{ }'}</text>
-          <text x="960" y="120" fontFamily="monospace" fontSize="40" fill="white" opacity="0.08" fontWeight="bold">{'<AI/>'}</text>
-          <text x="990" y="290" fontFamily="monospace" fontSize="22" fill="#F59E0B" opacity="0.2">{'[ ]'}</text>
-          {[[220,60],[380,40],[520,75],[680,40],[840,65],[1000,45]].map(([cx,cy],i) => (
-            <circle key={i} cx={cx} cy={cy} r="4" fill={i%3===0?'#F59E0B':'white'} opacity={i%3===0?0.4:0.15} />
-          ))}
-          <polyline points="220,60 380,40 520,75 680,40 840,65 1000,45" fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          {[[220,340],[380,360],[520,330],[680,355],[840,335],[1000,355]].map(([cx,cy],i) => (
-            <circle key={i} cx={cx} cy={cy} r="4" fill={i%3===1?'#F59E0B':'white'} opacity={i%3===1?0.4:0.15} />
-          ))}
-          <polyline points="220,340 380,360 520,330 680,355 840,335 1000,355" fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-        </svg>
-
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <h2 className="features-heading">{tr.features.heading}</h2>
           <p className="features-subheading">{renderBold(tr.features.subheading)}</p>
           <div className="features-grid">
-            {FEATURES.map((key) => (
+            {FEATURES.map((key, i) => (
               <div className="feature-card" key={key}>
+                <div className="feature-card-icon">{FEATURE_ICONS[i]}</div>
                 <h3>{tr.features[key].title}</h3>
                 <p>{tr.features[key].description}</p>
               </div>
             ))}
+          </div>
+          <div className="features-cta">
+            <button className="btn btn-primary btn-lg" onClick={() => navigate('/products')}>{tr.features.ctaPeople}</button>
+            <button className="btn btn-primary btn-lg" onClick={() => navigate('/tools')}>{tr.features.ctaTools}</button>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="how-it-works-section">
+        <div className="container">
+          <h2 className="how-it-works-title">{tr.hiw.title}</h2>
+          <p className="how-it-works-sub">{tr.hiw.sub}</p>
+          <div className="hiw-pipeline">
+            {PHASES.map((phase, i) => (
+              <div className="hiw-phase-wrap" key={phase.key}>
+                <div className="hiw-phase" style={{ '--phase-color': phase.color }}>
+                  <div className="hiw-phase-icon">{phase.icon}</div>
+                  <div className="hiw-phase-label">{phase.label}</div>
+                </div>
+                {i < PHASES.length - 1 && (
+                  <svg className="hiw-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="hiw-columns">
+            <article className="vignette-card hiw-vignette-preview" aria-hidden="true">
+              <div className="vignette-body">
+                <div className="avatar" style={{ background: '#0F1A3D' }}></div>
+                <div style={{ width: '45%', height: '8px', borderRadius: '3px', background: '#F59E0B', opacity: 0.8, marginBottom: '14px' }}></div>
+                <div style={{ width: '90%', height: '12px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.2, marginBottom: '6px' }}></div>
+                <div style={{ width: '78%', height: '12px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.2, marginBottom: '16px' }}></div>
+                <div style={{ width: '100%', height: '8px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.1, marginBottom: '6px' }}></div>
+                <div style={{ width: '94%', height: '8px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.1, marginBottom: '6px' }}></div>
+                <div style={{ width: '85%', height: '8px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.1, marginBottom: '6px' }}></div>
+                <div style={{ width: '68%', height: '8px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.1 }}></div>
+              </div>
+              <div className="vignette-price">
+                <div style={{ width: '80px', height: '8px', borderRadius: '3px', background: '#0F1A3D', opacity: 0.15 }}></div>
+                <button className="btn-ask-now" aria-label="Learn more" tabIndex={-1}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </article>
+            <div className="hiw-text-col">
+              <p className="hiw-description">{tr.hiw.description}</p>
+              <p className="hiw-extra">
+                {tr.hiw.extra1}<Link to="/solutions" className="hiw-solutions-link">{tr.hiw.extraLink}</Link>{tr.hiw.extra2}
+              </p>
+            </div>
           </div>
         </div>
       </section>

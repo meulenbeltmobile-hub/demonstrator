@@ -1,9 +1,11 @@
 import { useLanguage } from '../context/LanguageContext';
+import SEO from '../components/SEO';
 
 export default function About() {
   const { tr } = useLanguage();
   return (
     <>
+      <SEO title="About" path="/about" noindex={true} />
       <header className="page-header">
         <svg
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
