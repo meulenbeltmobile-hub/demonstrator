@@ -67,5 +67,10 @@ function saveSeedsPlugin() {
 
 export default defineConfig({
   plugins: [react(), saveSeedsPlugin()],
-  server: { port: 5174 },
+  server: {
+    port: 5174,
+    watch: {
+      ignored: ['**/src/data/seeds.js'],
+    },
+  },
 });
