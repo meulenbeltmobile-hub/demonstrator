@@ -42,11 +42,10 @@ export default function Modal({ item, onClose }) {
   if (!item) return null;
 
   const title     = typeof item.title    === 'string' ? item.title    : item.title[lang];
-  const longDesc  = item.longDesc  ? (typeof item.longDesc  === 'string' ? item.longDesc  : item.longDesc[lang])  : null;
-  const shortDesc = item.shortDesc ? (typeof item.shortDesc === 'string' ? item.shortDesc : item.shortDesc[lang]) : null;
-  const fullDesc  = typeof item.fullDesc === 'string' ? item.fullDesc : item.fullDesc[lang];
-  const bio       = item.bio ? (typeof item.bio === 'string' ? item.bio : item.bio[lang]) : null;
-  const why       = item.why ? (typeof item.why === 'string' ? item.why : item.why[lang]) : null;
+  const description = item.shortDesc ? (typeof item.shortDesc === 'string' ? item.shortDesc : item.shortDesc[lang]) : null;
+  const why         = item.longDesc  ? (typeof item.longDesc  === 'string' ? item.longDesc  : item.longDesc[lang])  : null;
+  const fullDesc    = typeof item.fullDesc === 'string' ? item.fullDesc : item.fullDesc[lang];
+  const bio         = item.bio ? (typeof item.bio === 'string' ? item.bio : item.bio[lang]) : null;
   const shortTitle = item.shortTitle
     ? (typeof item.shortTitle === 'object' ? item.shortTitle[lang] : item.shortTitle)
     : null;
@@ -67,7 +66,7 @@ export default function Modal({ item, onClose }) {
         <div className="modal-header modal-header--two-col">
           {/* Left: avatar + name + link */}
           <div className="modal-header-left">
-            <Avatar avatar={item.avatar} size={80} />
+            <Avatar avatar={item.avatarDetails ?? item.avatar} size={80} />
             {item.name && <div className="modal-name">{item.name}</div>}
             {item.link && (
               <a
@@ -100,10 +99,10 @@ export default function Modal({ item, onClose }) {
         </div>
 
         <div className="modal-body">
-          {longDesc && (
+          {description && (
             <div className="modal-section">
               <h4 className="modal-section-title">Description</h4>
-              <p className="modal-description">{longDesc}</p>
+              <p className="modal-description">{description}</p>
             </div>
           )}
           {why && (

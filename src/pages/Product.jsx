@@ -3,7 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
 import Vignette from '../components/Vignette';
 import Modal from '../components/Modal';
-import products from '../data/products';
+import products from '../data/people';
 
 const PIPELINE = [
   {

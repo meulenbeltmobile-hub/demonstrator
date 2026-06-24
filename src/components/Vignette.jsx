@@ -25,8 +25,8 @@ function Avatar({ avatar }) {
 export default function Vignette({ item, onClick }) {
   const { lang } = useLanguage();
 
-  const title = typeof item.title === 'string' ? item.title : item.title[lang];
-  const shortDesc = typeof item.shortDesc === 'string' ? item.shortDesc : item.shortDesc[lang];
+  const title = typeof item.title === 'string' ? item.title : item.title?.[lang] ?? '';
+  const pitch = typeof item.why === 'string' ? item.why : item.why?.[lang] ?? '';
 
   return (
     <article
@@ -35,7 +35,7 @@ export default function Vignette({ item, onClick }) {
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onClick(item); }}
       tabIndex={0}
       role="button"
-      aria-label={`${title}${item.name ? ` — ${item.name}` : ''}`}
+      aria-label={`${title}${item.peopleName || item.name ? ` — ${item.peopleName || item.name}` : ''}`}
     >
       <div className="vignette-body">
         <Avatar avatar={item.avatar} />
@@ -43,7 +43,7 @@ export default function Vignette({ item, onClick }) {
           {typeof item.shortTitle === 'object' ? item.shortTitle[lang] : item.shortTitle}
         </div>}
         <div className="vignette-title">{title}</div>
-        <p className="vignette-desc">{shortDesc}</p>
+        <p className="vignette-desc">{pitch}</p>
       </div>
       <div className="vignette-price">
         <span className="price-label">{item.price || ''}</span>
