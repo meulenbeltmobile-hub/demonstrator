@@ -11,7 +11,7 @@ const products = [
     "shortDesc": {
       "en": "Full-featured SEO analytics, optimizing your website and aligning the website with best-value keywords.",
       "fr": "Analyse SEO complète, optimisation de votre site Web et alignement du site Web avec les mots-clés les plus rentables.",
-      "de": "Automatisierte SEO & GEO-Analyse mit detailliertem Website-Bericht und Expertenberatung."
+      "de": ""
     },
     "why": {
       "en": "Do-it-yourself solution based on indepth SEO business knowledge at a fraction of the cost a marketing agency would charge.",
@@ -24,7 +24,7 @@ const products = [
     "fullDesc": {
       "en": "Free 30-minute onboarding session",
       "fr": "Séance onboarding gratuite de 30 minutes",
-      "de": "ClÃ©ment arbeitet seit 5 Jahren intensiv in SEO und GEO und hat automatisierte Dienste entwickelt. Die Setup-GebÃ¼hr umfasst eine detaillierte Website-Analyse und eine 30-minÃ¼tige Besprechung der Ergebnisse mit Aktionsplan."
+      "de": ""
     },
     "bio": {
       "en": "Clément has worked extensively in SEO and GEO for 5+ years and is a co-founder of Nazars.\nAs an early adoptor of vibecoding and created several applications based on his in-depth domain know-how. \nThe first results of his endeavours have just been released! ",
@@ -41,7 +41,7 @@ const products = [
     },
     "cta2Label": {
       "en": "Visit website",
-      "fr": "Voir le site internet"
+      "fr": "Voir le site"
     },
     "cta2Url": {
       "en": "",
@@ -94,57 +94,6 @@ const products = [
       "type": "image",
       "url": "clement.marinho.png"
     }
-  },
-  {
-    "id": 1780483028013,
-    "type": "tools-services",
-    "categories": [
-      "think"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "avatar": {
-      "type": "image",
-      "url": "nicolas.brequigny.png"
-    },
-    "name": "Nicolas Brequigny",
-    "shortTitle": {
-      "en": "Landing page design",
-      "fr": "Conception de la page d'atterrissage"
-    },
-    "title": {
-      "en": "Product market alignment",
-      "fr": "Alignement du marchÃ© des produits"
-    },
-    "bio": {
-      "en": "Nicolas has a backgournd of marketing roles with start- and scale-ups. He created Sumito 7 years ago to provide marketing expertise.",
-      "fr": "Nicolas a un arriÃ©rÃ© de rÃ´les marketing avec des start-ups et des scale-ups. Il a crÃ©Ã© Sumito il y a 7 ans pour apporter son expertise marketing."
-    },
-    "why": {
-      "en": "It is never easy to obtain a product-market fit.\nThis requires a clear and proven methodology delivered at a competitive price.",
-      "fr": "Il n'est jamais facile d'obtenir un ajustement produit-marchÃ©.\nCela nÃ©cessite une mÃ©thodologie claire et Ã©prouvÃ©e livrÃ©e Ã  un prix compÃ©titif."
-    },
-    "shortDesc": {
-      "en": "Landing page positioning and design",
-      "fr": "Positionnement et conception de la page de renvoi"
-    },
-    "longDesc": {
-      "en": "A proven methodology to position a product that is aligned with the market and communicate this clearly in a landing page.",
-      "fr": "Une mÃ©thodologie Ã©prouvÃ©e pour positionner un produit qui est alignÃ© sur le marchÃ© et le communiquer clairement dans une page de destination."
-    },
-    "fullDesc": {
-      "en": "Free 30-minute discovery interview",
-      "fr": "Entretien dÃ©couverte gratuit de 30 minutes"
-    },
-    "ctaLabel": {
-      "en": "Book a meeting",
-      "fr": "RÃ©server un rendez-vous"
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/nicolas-brequigny/"
   },
   {
     "id": 1780489336479,
