@@ -3,70 +3,161 @@ const solutions = [
   {
     "id": 1780400998187,
     "type": "solutions",
-    "categories": ["personal-productivity"],
+    "categories": [
+      "personal-productivity"
+    ],
     "verticals": [],
-    "languages": ["en", "fr"],
-    "avatarPeople": { "type": "image", "url": "fabrice.schwarz.png" },
-    "avatarTool": { "type": "logo", "url": "jobsearchbooster.png" },
-    "avatarCompany": { "type": "initials", "value": "?", "bg": "#9CA3AF" },
-    "vignetteAvatar": "people",
-    "detailsAvatar": "company",
-    "peopleName": "Fabrice Schwarz",
-    "peopleLink": "https://www.linkedin.com/in/fabrice-schwarz-6a98073/",
-    "toolName": "Job Search Booster",
-    "toolLink": "https://jobsearchbooster.com",
-    "companyName": null,
-    "companyLink": null,
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "avatar": {
+      "type": "image",
+      "url": "fabrice.schwarz.png"
+    },
     "name": "Fabrice Schwarz",
-    "shortTitle": { "en": "Job Search Booster", "fr": "Booster la recherche d'emploi" },
-    "title": { "en": "AI augmented job search", "fr": "Recherche d'emploi augmentée par IA" },
-    "shortDesc": { "en": "Find jobs that fit your profile and requirements", "fr": "Trouvez des emplois qui correspondent à votre profil et à vos exigences" },
-    "why": { "en": "Spend less time searching various job-sites.\nIncrease the quality and effectiveness of the search\nDon't automate everything - you remain in charge", "fr": "Passez moins de temps à naviguer sur des sites d'emploi.\nAugmentez la qualité et l'efficacité de vos recherches\nEt n'automatisez pas tout - vous restez responsable" },
-    "longDesc": { "en": "JobSearchBooster consists of three parts:\n- Analyse CV and search preferences\n- Search best matches with job scoring and assessment\n- Create a custom motivation letter", "fr": "JobSearchBooster se compose de trois parties :\n- Analyser le CV et les préférences de recherche\n- Rechercher les meilleures correspondances avec la notation et l'évaluation de l'emploi\n- Créer une lettre de motivation personnalisée" },
-    "fullDesc": { "en": "Application online soon", "fr": "Consultez le site Web pour plus de détails et des prix très attractifs." },
-    "bio": { "en": "Fabrice has an innovative mindset always exploring new ideas at the frontier of mechanics, electronics, telecommunications and software. When searching for a job he felt frustrated, which is the reason why he developed JobSearchBooster.", "fr": "Fabrice a un état d'esprit innovant explorant toujours de nouvelles idées à la frontière de la mécanique, de l'électronique, des télécommunications et des logiciels." },
-    "ctaLabel": { "en": "", "fr": "Voir le site internet" },
-    "ctaUrl": { "en": "", "fr": "http://jobsearchbooster.com" },
-    "cta2Label": { "en": "", "fr": "" },
-    "cta2Url": { "en": "", "fr": "" },
+    "shortTitle": {
+      "en": "Job Search Booster",
+      "fr": "Booster la recherche d'emploi"
+    },
+    "title": {
+      "en": "AI augmented job search",
+      "fr": "Recherche d'emploi augmentÃ©e par IA"
+    },
+    "bio": {
+      "en": "Fabrice has an innovative mindset always exploring new ideas at the frontier of mechanics, electronics, telecommunications and software. When searching for a job he felt frustrated, which is the reason why he developed JobSearchBooster.",
+      "fr": "Fabrice a un Ã©tat d'esprit innovant explorant toujours de nouvelles idÃ©es Ã  la frontiÃ¨re de la mÃ©canique, de l'Ã©lectronique, des tÃ©lÃ©communications et des logiciels. Lors de la recherche d'un emploi, il se sentait frustrÃ©, ce qui est la raison pour laquelle il a dÃ©veloppÃ© JobSearchBooster."
+    },
+    "why": {
+      "en": "Spend less time searching various job-sites.\nIncrease the quality and effectiveness of the search\nDon't automate everything - you remain in charge",
+      "fr": "Passez moins de temps Ã  naviguer sur des sites d'emploi.\nAugmentez la qualitÃ© et l'efficacitÃ© de vos recherches\nEt n'automatisez pas tout - vous restez responsable"
+    },
+    "shortDesc": {
+      "en": "Find jobs that fit your profile and requirements",
+      "fr": "Trouvez des emplois qui correspondent Ã  votre profil et Ã  vos exigences"
+    },
+    "longDesc": {
+      "en": "JobSearchBooster consists of three parts:\n- Analyse CV and search preferences\n- Search best matches with job scoring and assessment\n- Create a custom motivation letter",
+      "fr": "JobSearchBooster se compose de trois parties :\n- Analyser le CV et les prÃ©fÃ©rences de recherche\n- Rechercher les meilleures correspondances avec la notation et l'Ã©valuation de l'emploi\n- CrÃ©er une lettre de motivation personnalisÃ©e"
+    },
+    "fullDesc": {
+      "en": "Check out the website for more details and highly attractive pricing.",
+      "fr": "Consultez le site Web pour plus de dÃ©tails et des prix trÃ¨s attractifs."
+    },
+    "ctaLabel": {
+      "en": "Visit website",
+      "fr": "Voir le site internet"
+    },
+    "ctaUrl": {
+      "en": "http://jobsearchbooster.com",
+      "fr": "http://jobsearchbooster.com"
+    },
     "price": "",
-    "link": "https://www.linkedin.com/in/fabrice-schwarz-6a98073/",
-    "avatar": { "type": "image", "url": "fabrice.schwarz.png" },
-    "avatarDetails": { "type": "initials", "value": "?", "bg": "#9CA3AF" }
+    "link": "https://www.linkedin.com/in/fabrice-schwarz-6a98073/"
   },
   {
-    "id": 1782302997077,
+    "id": 1782295645487,
     "type": "solutions",
-    "categories": ["personal-productivity", "enterprise-solutions"],
+    "categories": [
+      "personal-productivity"
+    ],
     "verticals": [],
-    "languages": ["en", "de", "fr"],
-    "avatarPeople": { "type": "image", "url": "kai.lebeth.png" },
-    "avatarTool": { "type": "initials", "value": "?", "bg": "#1E40AF" },
-    "avatarCompany": { "type": "initials", "value": "?", "bg": "#9CA3AF" },
+    "languages": [
+      "en",
+      "fr",
+      "de"
+    ],
+    "avatarPeople": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#9CA3AF"
+    },
     "vignetteAvatar": "people",
     "detailsAvatar": "people",
-    "peopleName": "Kai Lebeth",
-    "peopleLink": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "toolName": "Form Booster",
+    "peopleName": null,
+    "peopleLink": null,
+    "toolName": "Test Solution",
     "toolLink": null,
     "companyName": null,
     "companyLink": null,
-    "name": "Kai Lebeth",
-    "shortTitle": { "en": "PDF and Web Form Booster", "fr": "PDF et Web Form Booster", "de": "PDF und Web Form Booster" },
-    "title": { "en": "Make complex forms easier to complete and compliant with audits", "fr": "Rendre les formulaires complexes plus faciles à remplir et conformes aux audits", "de": "Erleichtern Sie das Ausfüllen komplexer Formulare und die Einhaltung von Audits" },
-    "shortDesc": { "en": "Form Booster allows you to fill-in complex forms using natural language. It detects errors and runs automatic analysis to find gaps in your replies. A full audit trail is created automatically.", "fr": "Form Booster vous permet de remplir des formulaires complexes en utilisant le langage naturel.", "de": "Mit Form Booster können Sie komplexe Formulare in natürlicher Sprache ausfüllen." },
-    "why": { "en": "Form booster is the perfect tool to help you complete complex forms for subsidies, declarations and reporting.", "fr": "Le booster de formulaire est l'outil idéal pour vous aider à remplir des formulaires complexes pour les subventions, les déclarations et les rapports.", "de": "Formular-Booster ist das perfekte Werkzeug, um Ihnen zu helfen, komplexe Formulare für Subventionen, Erklärungen und Berichte auszufüllen." },
-    "longDesc": { "en": "Although most suited in demanding enterprise compliance use-cases, the technology can be used for any form. Try it out!", "fr": "Bien qu'elle soit la plus adaptée aux cas d'utilisation exigeants de la conformité d'entreprise, la technologie peut être utilisée pour n'importe quelle forme.", "de": "Obwohl die Technologie am besten für anspruchsvolle Anwendungsfälle der Unternehmens-Compliance geeignet ist, kann sie für jede Form verwendet werden." },
-    "fullDesc": { "en": "Request a quick demonstration", "fr": "Demander une démonstration rapide", "de": "Fordern Sie eine kurze Demonstration an" },
-    "bio": { "en": "After a career at IBM, Kai spent more than 25 years at Commerzbank working on various topics around compliance.\nAs an enthusiastic vibe-coder he developed a number of unique enterprise solutions.", "fr": "Après une carrière chez IBM, Kai a passé plus de 25 ans chez Commerzbank à travailler sur divers sujets liés à la conformité.", "de": "Nach einer Karriere bei IBM arbeitete Kai mehr als 25 Jahre bei der Commerzbank an verschiedenen Themen rund um Compliance." },
-    "ctaLabel": { "en": "", "fr": "", "de": "" },
-    "ctaUrl": { "en": "", "fr": "", "de": "" },
-    "cta2Label": { "en": "", "fr": "", "de": "" },
-    "cta2Url": { "en": "", "fr": "", "de": "" },
+    "name": "Test Solution",
+    "shortTitle": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "title": {
+      "en": "Test Solution Title",
+      "fr": "Titre de la solution:",
+      "de": "Titel der TestlÃ¶sung"
+    },
+    "shortDesc": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "why": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "longDesc": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "fullDesc": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "bio": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "ctaLabel": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "ctaUrl": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Label": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Url": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
     "price": "",
-    "link": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "avatar": { "type": "image", "url": "kai.lebeth.png" },
-    "avatarDetails": { "type": "image", "url": "kai.lebeth.png" }
+    "link": null,
+    "avatar": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarDetails": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    }
   }
 ];
 
