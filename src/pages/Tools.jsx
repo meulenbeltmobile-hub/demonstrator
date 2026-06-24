@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
+import Vignette from '../components/Vignette';
+import Modal from '../components/Modal';
+import products from '../data/products';
 
 const PIPELINE = [
   {
@@ -63,6 +66,11 @@ const PIPELINE = [
 export default function Tools() {
   const { tr } = useLanguage();
   const [category, setCategory] = useState('all');
+  const [selected, setSelected] = useState(null);
+
+  const filtered = category === 'all'
+    ? products
+    : products.filter((p) => (p.categories ?? []).includes(category));
 
   return (
     <>
@@ -104,11 +112,21 @@ export default function Tools() {
 
       <section className="grid-section">
         <div className="container">
-          <p style={{ color: 'var(--gray-500)', textAlign: 'center', padding: '80px 0' }}>
-            Coming soon — tools will be listed here.
-          </p>
+          <div className="vignette-grid">
+            {filtered.length === 0 ? (
+              <p className="no-results">{tr.product.noResults}</p>
+            ) : (
+              filtered.map((item) => (
+                <Vignette key={item.id} item={item} onClick={setSelected} />
+              ))
+            )}
+          </div>
         </div>
       </section>
+
+      {selected && (
+        <Modal item={selected} onClose={() => setSelected(null)} />
+      )}
     </>
   );
 }
