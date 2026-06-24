@@ -9,7 +9,7 @@ const people = [
     },
     "shortDesc": {
       "en": "We audit your homepage to identify the gaps between your product's real value and how it's communicated — uncovering why qualified visitors leave without converting.  From that audit, we run a one-day positioning workshop with your leadership team to sharpen your value proposition, differentiators, use cases, and messaging.  We then deliver a Figma mockup of your new homepage with the revised copywriting, ready for your web team to implement — all for €3,500.",
-      "fr": "Nous vérifions votre page d'accueil pour identifier les écarts entre la valeur réelle de votre produit et la façon dont il est communiqué — en découvrant pourquoi les visiteurs qualifiés partent sans convertir.  À partir de cet audit, nous organisons un atelier de positionnement d'une journée avec votre équipe de direction pour affiner votre proposition de valeur, vos différenciateurs, vos cas d'utilisation et vos messages.  Nous livrons ensuite une maquette Figma de votre nouvelle page d'accueil avec la rédaction révisée, prête à être mise en œuvre par votre équipe Web — le tout pour 3 500 € ."
+      "fr": "Nous auditons votre page d'accueil pour identifier les écarts entre la valeur réelle de votre produit et la façon dont il est communiqué — en découvrant pourquoi les visiteurs qualifiés partent sans convertir.  À partir de cet audit, nous organisons un atelier de positionnement d'une journée avec votre équipe de direction pour affiner votre proposition de valeur, vos différenciateurs, vos cas d'utilisation et vos messages.  Nous livrons ensuite une maquette Figma de votre nouvelle page d'accueil avec la rédaction révisée, prête à être mise en œuvre par votre équipe Web — le tout pour 3 500 € ."
     },
     "why": {
       "en": "It is never easy to obtain a product-market fit. This requires a clear and proven methodology delivered at a competitive price.",
@@ -21,7 +21,7 @@ const people = [
     },
     "fullDesc": {
       "en": "Free 30-minute discovery interview",
-      "fr": "Entretien découverte gratuit de 30 minutes"
+      "fr": "Entretien de découverte gratuit de 30 minutes"
     },
     "bio": {
       "en": "Nicolas has a backgournd of marketing roles with start- and scale-ups. He created Sumito 7 years ago to provide marketing expertise.",
@@ -91,6 +91,98 @@ const people = [
     "avatarDetails": {
       "type": "image",
       "url": "nicolas.brequigny.png"
+    }
+  },
+  {
+    "id": 1780489336479,
+    "type": "people",
+    "title": {
+      "en": "How to get quality AI enterprise use-cases to run at scale, and adopted by end-users.",
+      "fr": "Comment obtenir des cas d'utilisation d'entreprise d'IA de qualité pour fonctionner à grande échelle et être adoptés par les utilisateurs finaux."
+    },
+    "shortDesc": {
+      "en": "Full review of how internal documents, audio and video are organized (Sharepoint, CMS...). Create a semantic enrichment strategy. Review of AI Pipelines, technologies (including but not limited to LLM models) and processes, quality measurement and control, project KPIs (end user adoption metrics), assessment of resources and organization impact.",
+      "fr": "Revue complète de l'organisation des documents internes, audio et vidéo (Sharepoint, CMS…). Créer une stratégie d'enrichissement sémantique. Examen des pipelines d'IA, des technologies (y compris, mais sans s'y limiter, les modèles de LLM) et des processus, de la mesure et du contrôle de la qualité, des indicateurs clés de performance des projets (indicateurs d'adoption par les utilisateurs finaux), de l'évaluation des ressources et de l'impact sur l'organisation."
+    },
+    "why": {
+      "en": "Hands-on experience on all that is required to obtain high-quality and impactful AI applications in production, back-up by the powerful Kairntech enterprise ecosystem.",
+      "fr": "Expérience terrain sur tout ce qui est nécessaire pour obtenir des applications d'IA de haute qualité et en production, soutenues par le puissant serveur entreprise de Kairntech."
+    },
+    "longDesc": {
+      "en": "The bottom line is simple: not a single GenAI project is easy. Thinking early and elaborate a clear plan, can save you a lot of money.",
+      "fr": "C'est simple : pas un seul projet GenAI n'est facile. Réfléchir tôt et connaître les enjeux peut vous faire économiser beaucoup d'argent."
+    },
+    "fullDesc": {
+      "en": "Free 30-minute introduction interview",
+      "fr": ""
+    },
+    "bio": {
+      "en": "VIncent is co-founder of Kairntech a former researcher and has been working for 25 years in natural language technologies. He has precious hands-on experience on bringing use-cases to production, and all the technical and organizational challenges that need to be addressed. Vincent has delivered business value to companies like Agence France Press, le Ministère des Armées et Boehringer Ingelheim. ",
+      "fr": "VIncent est co-fondateur de Kairntech, un ancien chercheur qui travaille depuis 25 ans dans les technologies du langage naturel. Il possède une précieuse expérience pratique en matière de mise en production de cas d'utilisation et de tous les défis techniques et organisationnels à relever. Vincent a apporté de la valeur commerciale à des entreprises comme l'Agence France Presse, le Ministère des Armées et Boehringer Ingelheim."
+    },
+    "ctaLabel": {
+      "en": "Book a meeting",
+      "fr": "Prendre rendez-vous"
+    },
+    "ctaUrl": {
+      "en": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06",
+      "fr": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06"
+    },
+    "cta2Label": {
+      "en": "Visit Kairntech website",
+      "fr": "Visiter le site Kairntech",
+      "de": ""
+    },
+    "cta2Url": {
+      "en": "http://kairntech.com",
+      "fr": "http://kairntech.com",
+      "de": ""
+    },
+    "categories": [
+      "think",
+      "build"
+    ],
+    "verticals": [],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "avatar": {
+      "type": "image",
+      "url": "vincent.nibart.png"
+    },
+    "name": "Vincent Nibart",
+    "shortTitle": {
+      "en": "AI implementation strategy consultancy",
+      "fr": "Conseil en stratégie de mise en œuvre IA"
+    },
+    "price": "",
+    "link": "https://www.linkedin.com/in/vincentnibart/",
+    "avatarPeople": {
+      "type": "image",
+      "url": "vincent.nibart.png"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#9CA3AF"
+    },
+    "vignetteAvatar": "people",
+    "detailsAvatar": "people",
+    "peopleName": "Vincent Nibart",
+    "peopleLink": "https://www.linkedin.com/in/vincentnibart/",
+    "toolName": null,
+    "toolLink": null,
+    "companyName": "Kairntech",
+    "companyLink": "http://kairntech.com",
+    "avatarDetails": {
+      "type": "image",
+      "url": "vincent.nibart.png"
     }
   }
 ];
