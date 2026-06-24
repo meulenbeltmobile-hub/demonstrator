@@ -104,10 +104,30 @@ export default function Configurator() {
   const [typeFilter,     setTypeFilter]     = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [verticalFilter, setVerticalFilter] = useState('all');
-  const [editing,    setEditing]    = useState(null);
-  const [showExport, setShowExport] = useState(false);
+  const [editing,       setEditing]       = useState(null);
+  const [showExport,    setShowExport]    = useState(false);
+  const [publishing,    setPublishing]    = useState(false);
+  const [publishStatus, setPublishStatus] = useState(null);
+  const [publishMsg,    setPublishMsg]    = useState('');
 
   useEffect(() => { saveItems(items); }, [items]);
+
+  async function handlePublish() {
+    setPublishing(true);
+    setPublishStatus(null);
+    try {
+      const res = await fetch('/api/publish', { method: 'POST' });
+      const data = await res.json();
+      setPublishStatus(res.ok ? 'ok' : 'error');
+      setPublishMsg(data.message || data.error || '');
+    } catch (err) {
+      setPublishStatus('error');
+      setPublishMsg(err.message);
+    } finally {
+      setPublishing(false);
+      setTimeout(() => setPublishStatus(null), 4000);
+    }
+  }
 
   function handleTypeChange(t) {
     setTypeFilter(t);
@@ -182,13 +202,34 @@ export default function Configurator() {
               <FilterBtn active={typeFilter === 'tools-services'} onClick={() => handleTypeChange('tools-services')}>Tools</FilterBtn>
               <FilterBtn active={typeFilter === 'solutions'} onClick={() => handleTypeChange('solutions')}>Solutions</FilterBtn>
             </div>
-            <div style={{ marginLeft: 'auto' }}>
-              <button className="btn btn-secondary" onClick={() => setShowExport(true)}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Export JS
+            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
+              {publishMsg && (
+                <span style={{ fontSize: '0.8rem', color: publishStatus === 'ok' ? 'var(--green)' : 'var(--red)' }}>
+                  {publishMsg}
+                </span>
+              )}
+              <button
+                className="btn btn-secondary"
+                onClick={handlePublish}
+                disabled={publishing}
+              >
+                {publishing ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                      style={{ animation: 'spin 0.8s linear infinite' }}>
+                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    Publishing…
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Export
+                  </>
+                )}
               </button>
             </div>
           </div>

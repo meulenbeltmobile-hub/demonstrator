@@ -2,9 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// When running from aaia-website/configurator/, the repo root is the parent
+const REPO_ROOT = path.resolve(__dirname, '..');
 
 function writeJsonData(filePath, items, exportName) {
   const content = [
@@ -23,24 +26,18 @@ function saveSeedsPlugin() {
     name: 'save-seeds',
     configureServer(server) {
       server.middlewares.use('/api/save-seeds', (req, res) => {
-        if (req.method !== 'POST') {
-          res.statusCode = 405;
-          res.end('Method not allowed');
-          return;
-        }
+        if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
         let body = '';
         req.on('data', (chunk) => { body += chunk; });
         req.on('end', () => {
           try {
             const { people, products, solutions } = JSON.parse(body);
-            const websiteData = path.resolve(__dirname, '../src/data');
+            const websiteData = path.resolve(REPO_ROOT, 'src/data');
 
-            // Write website data files directly — no manual export needed
             writeJsonData(path.join(websiteData, 'people.js'),    people,    'people');
             writeJsonData(path.join(websiteData, 'products.js'),  products,  'products');
             writeJsonData(path.join(websiteData, 'solutions.js'), solutions, 'solutions');
 
-            // Also keep configurator's own seeds file for local persistence
             const seedsContent = [
               '// Auto-saved by AAIA Configurator — do not edit by hand',
               `export const seedPeople   = ${JSON.stringify(people,    null, 2)};`,
@@ -61,6 +58,33 @@ function saveSeedsPlugin() {
           }
         });
       });
+
+      server.middlewares.use('/api/publish', (req, res) => {
+        if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
+        req.on('data', () => {});
+        req.on('end', () => {
+          try {
+            const date = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            execSync('git add src/data/', { cwd: REPO_ROOT });
+            try {
+              execSync('git diff --cached --quiet', { cwd: REPO_ROOT });
+              res.statusCode = 200;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ ok: true, message: 'Already up to date — nothing to publish' }));
+            } catch {
+              execSync(`git commit -m "Content update ${date}"`, { cwd: REPO_ROOT });
+              execSync('git push', { cwd: REPO_ROOT });
+              res.statusCode = 200;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ ok: true, message: 'Published — Vercel deploy triggered' }));
+            }
+          } catch (err) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: err.message }));
+          }
+        });
+      });
     },
   };
 }
@@ -69,8 +93,6 @@ export default defineConfig({
   plugins: [react(), saveSeedsPlugin()],
   server: {
     port: 5174,
-    watch: {
-      ignored: ['**/src/data/seeds.js'],
-    },
+    watch: { ignored: ['**/src/data/seeds.js'] },
   },
 });
