@@ -94,6 +94,107 @@ const products = [
       "type": "image",
       "url": "clement.marinho.png"
     }
+  },
+  {
+    "id": 1782319551037,
+    "type": "tools-services",
+    "title": {
+      "en": "Consultancy + first use-case experiment",
+      "fr": "Conseil + premier cas d'utilisation expérimental",
+      "de": "Beratung + erstes Use-Case-Experiment"
+    },
+    "shortDesc": {
+      "en": "Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines. A great strength is the expertise in semantic enrichment, a prerequisite for accuracy, end-user adoption and ROI.",
+      "fr": "Kairntech propose un serveur de déploiement d'IA prêt pour l'entreprise qui peut être déployé sur site. De plus, un studio sans code offre une autonomie totale aux experts du domaine pour expérimenter et personnaliser les pipelines d'IA. Une grande force est l'expertise dans l'enrichissement sémantique, une condition préalable à la précision, à l'adoption par l'utilisateur final et au retour sur investissement.",
+      "de": "Kairntech bietet einen unternehmensfähigen KI-Bereitstellungsserver, der vor Ort bereitgestellt werden kann. Darüber hinaus bietet ein No-Code-Studio Domänenexperten volle Autonomie beim Experimentieren und Anpassen von KI-Pipelines. Eine große Stärke ist das Know-how in der semantischen Anreicherung, eine Voraussetzung für Genauigkeit, Endbenutzerakzeptanz und ROI."
+    },
+    "why": {
+      "en": "Kairntech offers hands-on AI expertise for enterprise application combined with a production-ready API server, an agentic RAG chatbot and a self-service orchestrator studio.\nSweetspots: large volumes and complex documents, semantic enrichment of content, accurate solutions for business teams",
+      "fr": "Kairntech offre une expertise pratique en IA pour les applications d'entreprise combinée à un serveur API prêt pour la production, un chatbot agentic RAG et un studio d'orchestration en libre-service.\nSweetspots : volumes importants et documents complexes, enrichissement sémantique des contenus, solutions précises pour les équipes métiers",
+      "de": "Kairntech bietet praktisches KI-Know-how für Unternehmensanwendungen in Kombination mit einem produktionsbereiten API-Server, einem RAG-CHATBOT für Agenten und einem Self-Service-Orchestrator-Studio.\nSweetspots: große Mengen und komplexe Dokumente, semantische Anreicherung von Inhalten, akkurate Lösungen für Business-Teams"
+    },
+    "longDesc": {
+      "en": "There is no such thing as an easy GenAI project. Having the experience and the tools to go fast helps you save a lot of money.",
+      "fr": "Il n'existe pas de projet GenAI facile. Avoir l'expérience et les outils pour aller vite vous aide à économiser beaucoup d'argent.",
+      "de": "Es gibt kein einfaches GenAI-Projekt. Wenn Sie die Erfahrung und die Tools haben, um schnell zu sein, können Sie viel Geld sparen."
+    },
+    "fullDesc": {
+      "en": "30 minute free of cost meeting",
+      "fr": "30 minutes de réunion gratuite",
+      "de": "30 Minuten kostenloses Meeting"
+    },
+    "bio": {
+      "en": "Kairntech was founded in 2019 by a tech team with 25+ years of experience in natural language technologies. The company successully deploys usecases in production for enterprise teams (HR, purchasing, compliance, sales, marketing...) with high demanding customers such as Boehringer Ingelheim, Agence France Presse and the Ministère de l'Armée. ",
+      "fr": "Kairntech a été fondée en 2019 par une équipe technique avec plus de 25ans d'expérience dans les technologies du langage naturel. L'entreprise déploie avec succès des usecases en production pour des équipes d'entreprise (RH, achats, conformité, ventes, marketing…) auprès de clients très exigeants tels que Boehringer Ingelheim, l'Agence France Presse et le Ministère de l'Armée.",
+      "de": "Kairntech wurde 2019 von einem Tech-Team mit mehr als 25Jahren Erfahrung in natürlichen Sprachtechnologien gegründet. Das Unternehmen setzt Anwendungsfälle in der Produktion erfolgreich für Unternehmensteams (HR, Einkauf, Compliance, Vertrieb, Marketing...) mit anspruchsvollen Kunden wie Boehringer Ingelheim, Agence France Presse und dem Ministère de l'Armée ein."
+    },
+    "ctaLabel": {
+      "en": "Book a meeting",
+      "fr": "Prendre rendez-vous",
+      "de": "Buchen Sie ein Meeting"
+    },
+    "ctaUrl": {
+      "en": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06",
+      "fr": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06",
+      "de": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06"
+    },
+    "cta2Label": {
+      "en": "Visit website",
+      "fr": "Voir le site",
+      "de": "Website besuchen"
+    },
+    "cta2Url": {
+      "en": "http://kairntech.com",
+      "fr": "",
+      "de": ""
+    },
+    "name": "Vincent Nibart",
+    "shortTitle": {
+      "en": "Kairntech starter pack",
+      "fr": "Starter Pack Kairntech",
+      "de": "Starter Pack Kairntech"
+    },
+    "link": "https://www.linkedin.com/in/vincentnibart/",
+    "price": "",
+    "categories": [
+      "build",
+      "deploy"
+    ],
+    "verticals": [],
+    "languages": [
+      "en",
+      "fr",
+      "de"
+    ],
+    "avatarPeople": {
+      "type": "image",
+      "url": "vincent.nibart.png"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "logo",
+      "url": "logo-kairntech.png"
+    },
+    "vignetteAvatar": "company",
+    "detailsAvatar": "company",
+    "peopleName": "Vincent Nibart",
+    "peopleLink": "https://www.linkedin.com/in/vincentnibart/",
+    "toolName": "Kairntech",
+    "toolLink": "http://kairntech.com",
+    "companyName": null,
+    "companyLink": null,
+    "avatar": {
+      "type": "logo",
+      "url": "logo-kairntech.png"
+    },
+    "avatarDetails": {
+      "type": "logo",
+      "url": "logo-kairntech.png"
+    }
   }
 ];
 
