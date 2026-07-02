@@ -19,7 +19,7 @@ const PIPELINE = [
     items: [],
   },
   {
-    key: 'prepare',
+    key: 'think',
     label: 'Prepare',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">

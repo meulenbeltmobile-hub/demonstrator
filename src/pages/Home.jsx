@@ -19,7 +19,7 @@ const FEATURE_ICONS = [
 
 const PHASES = [
   {
-    key: 'prepare', label: 'Prepare', color: '#2563EB',
+    key: 'think', label: 'Prepare', color: '#2563EB',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg>,
   },
   {

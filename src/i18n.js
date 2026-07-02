@@ -195,12 +195,12 @@ const translations = {
     },
     pipeline: {
       all: 'All',
-      prepare: 'Prepare',
+      think: 'Prepare',
       build: 'Build',
       deploy: 'Deploy',
       market: 'Market',
       items: {
-        prepare: ['Strategic advice: technologies, tools, AI models, Go-to-market, quality and user adoption...'],
+        think: ['Strategic advice: technologies, tools, AI models, Go-to-market, quality and user adoption...'],
         build: ['Coding support, quality and security enhancements, document conversion, semantic enrichment...'],
         deploy: ['Quality measurement, SaaS or on-premise hosting...'],
         market: ['Website design, SEO/GEO marketing, social media content creation, sales enablement...'],
@@ -482,12 +482,12 @@ const translations = {
     },
     pipeline: {
       all: 'Tout',
-      prepare: 'Préparer',
+      think: 'Préparer',
       build: 'Construire',
       deploy: 'Déployer',
       market: 'Mettre sur le marché',
       items: {
-        prepare: ['Conseil stratégique : technologies, outils, modèles IA, mise sur le marché, qualité et adoption utilisateur...'],
+        think: ['Conseil stratégique : technologies, outils, modèles IA, mise sur le marché, qualité et adoption utilisateur...'],
         build: ['Support au développement, améliorations qualité et sécurité, conversion de documents, enrichissement sémantique...'],
         deploy: ['Mesure de la qualité, hébergement SaaS ou on-premise...'],
         market: ['Conception de site web, marketing SEO/GEO, création de contenu réseaux sociaux, aide à la vente...'],
@@ -769,12 +769,12 @@ const translations = {
     },
     pipeline: {
       all: 'Alle',
-      prepare: 'Vorbereiten',
+      think: 'Vorbereiten',
       build: 'Bauen',
       deploy: 'Bereitstellen',
       market: 'Vermarkten',
       items: {
-        prepare: ['Strategische Beratung: Technologien, Tools, KI-Modelle, Go-to-Market, Qualität und Nutzerakzeptanz...'],
+        think: ['Strategische Beratung: Technologien, Tools, KI-Modelle, Go-to-Market, Qualität und Nutzerakzeptanz...'],
         build: ['Coding-Unterstützung, Qualitäts- und Sicherheitsverbesserungen, Dokumentenkonvertierung, semantische Anreicherung...'],
         deploy: ['Qualitätsmessung, SaaS- oder On-Premise-Hosting...'],
         market: ['Website-Design, SEO/GEO-Marketing, Social-Media-Content-Erstellung, Sales Enablement...'],

@@ -12,13 +12,13 @@ const EMPTY = {
 };
 
 const PHASE_ICONS = {
-  prepare: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg>,
+  think: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg>,
   build: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
   deploy: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2C6.5 8 6 13 6 16h12c0-3-.5-8-6-14z"/><path d="M6 16v2a2 2 0 002 2h8a2 2 0 002-2v-2"/><path d="M6 12l-3 4h3M18 12l3 4h-3"/></svg>,
   market: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 3l-7 4H5a1 1 0 00-1 1v6a1 1 0 001 1h6l7 4V3z"/><path d="M16 8.5a3 3 0 010 7"/></svg>,
 };
 
-const PHASE_COLORS = { prepare: '#2563EB', build: '#F59E0B', deploy: '#2563EB', market: '#F59E0B' };
+const PHASE_COLORS = { think: '#2563EB', build: '#F59E0B', deploy: '#2563EB', market: '#F59E0B' };
 
 export default function Form() {
   const { tr } = useLanguage();
@@ -39,7 +39,7 @@ export default function Form() {
       name: values.name,
       email: values.email,
       status: values.status,
-      prepare: {
+      think: {
         description: values.description,
         targetAudience: values.targetAudience,
         languages: values.languages,
@@ -123,9 +123,9 @@ export default function Form() {
                 </div>
               </div>
 
-              {/* Prepare */}
-              <div className="form-phase" style={{ '--phase-color': PHASE_COLORS.prepare }}>
-                <PhaseHeader phase="prepare" />
+              {/* Prepare (phase key 'think') */}
+              <div className="form-phase" style={{ '--phase-color': PHASE_COLORS.think }}>
+                <PhaseHeader phase="think" />
                 <div className="contact-field">
                   <label htmlFor="f-description">{f.appDescription}</label>
                   <textarea id="f-description" rows={3} value={values.description} onChange={set('description')} />

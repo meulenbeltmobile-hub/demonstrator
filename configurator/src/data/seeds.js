@@ -237,7 +237,7 @@ export const seedProducts = [
       "de": ""
     },
     "categories": [
-      "prepare",
+      "think",
       "market"
     ],
     "verticals": [],

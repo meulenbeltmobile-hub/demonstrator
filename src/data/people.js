@@ -47,7 +47,7 @@ const people = [
       "de": ""
     },
     "categories": [
-      "prepare",
+      "think",
       "market"
     ],
     "verticals": [],
@@ -139,7 +139,7 @@ const people = [
       "de": ""
     },
     "categories": [
-      "prepare",
+      "think",
       "build"
     ],
     "verticals": [],
