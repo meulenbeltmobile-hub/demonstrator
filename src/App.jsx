@@ -11,6 +11,7 @@ import About from './pages/About';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Legal from './pages/Legal';
+import Form from './pages/Form';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/legal" element={<Legal />} />
+            <Route path="/form" element={<Form />} />
           </Routes>
         </main>
         <Footer />

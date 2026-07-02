@@ -31,6 +31,7 @@ export default function Footer() {
             <h4>Company</h4>
             <Link to="/about">{tr.nav.about}</Link>
             <Link to="/blog">{tr.nav.blog}</Link>
+            <Link to="/form">{tr.form.eyebrow}</Link>
           </div>
 
           <div className="footer-col">

@@ -19,7 +19,7 @@ const FEATURE_ICONS = [
 
 const PHASES = [
   {
-    key: 'think', label: 'Think', color: '#2563EB',
+    key: 'prepare', label: 'Prepare', color: '#2563EB',
     icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg>,
   },
   {
@@ -182,6 +182,9 @@ export default function Home() {
             </article>
             <div className="hiw-text-col">
               <p className="hiw-description">{tr.hiw.description}</p>
+              <p className="hiw-extra">
+                {tr.hiw.form1}<Link to="/form" className="hiw-solutions-link">{tr.hiw.formLink}</Link>{tr.hiw.form2}
+              </p>
               <p className="hiw-extra">
                 {tr.hiw.extra1}<Link to="/solutions" className="hiw-solutions-link">{tr.hiw.extraLink}</Link>{tr.hiw.extra2}
               </p>

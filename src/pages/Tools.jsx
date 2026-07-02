@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
 import Vignette from '../components/Vignette';
@@ -18,8 +19,8 @@ const PIPELINE = [
     items: [],
   },
   {
-    key: 'think',
-    label: 'Think',
+    key: 'prepare',
+    label: 'Prepare',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
         <circle cx="12" cy="8" r="5"/>
@@ -88,7 +89,8 @@ export default function Tools() {
       {/* Pipeline — interactive filter */}
       <section className="pipeline-section">
         <div className="container">
-          <div className="pipeline-filter-bar">
+          <div className="pipeline-bar-row">
+            <div className="pipeline-filter-bar">
             {PIPELINE.map((step) => (
               <div className="pipeline-filter-step" key={step.key}>
                 <button
@@ -107,6 +109,11 @@ export default function Tools() {
                 )}
               </div>
             ))}
+            </div>
+            <Link to="/form" className="btn btn-primary pipeline-cta">
+              {tr.form.eyebrow}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </Link>
           </div>
         </div>
       </section>
