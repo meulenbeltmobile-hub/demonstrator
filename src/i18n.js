@@ -15,7 +15,7 @@ const translations = {
     hero: {
       tagline1: 'From vibecoding to',
       tagline2: 'business success',
-      subtitle: 'Turn great ideas into **robust**, **market-ready** and **sovereign** web applications.',
+      subtitle: 'We provide an ecosystem of people and tools that help to turn great ideas into **robust**, **market-ready** and **sovereign** web applications throughout the journey of your application.',
     },
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude,',
@@ -302,7 +302,7 @@ const translations = {
     hero: {
       tagline1: 'Du vibecoding au',
       tagline2: 'succès commercial',
-      subtitle: 'Transformez de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**.',
+      subtitle: 'Nous proposons un écosystème de personnes et d\'outils qui aident à transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**, tout au long du parcours de votre application.',
     },
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude,',
@@ -589,7 +589,7 @@ const translations = {
     hero: {
       tagline1: 'Vom Vibecoding zum',
       tagline2: 'Geschäftserfolg',
-      subtitle: 'Verwandeln Sie großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen.',
+      subtitle: 'Wir bieten ein Ökosystem aus Menschen und Tools, das hilft, großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln — über den gesamten Weg Ihrer Anwendung hinweg.',
     },
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist',

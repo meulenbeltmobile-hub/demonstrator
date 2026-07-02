@@ -59,7 +59,25 @@ export default function Home() {
             {tr.hero.tagline1}{' '}
             <span className="hero-accent">{tr.hero.tagline2}</span>
           </h1>
-          <p className="hero-subtitle">{renderBold(tr.hero.subtitle)}</p>
+          <p className="hero-subtitle">
+            {tr.about.opening}<br />
+            {renderBold(tr.about.openingBold)}<br />
+            {tr.about.opening2}
+          </p>
+          <p className="hero-help">{renderBold(tr.hero.subtitle)}</p>
+          <div className="hero-pipeline" aria-label="From Prepare to Market">
+            {PHASES.map((phase, i) => (
+              <div className="hiw-phase-wrap" key={phase.key}>
+                <div className="hiw-phase" style={{ '--phase-color': phase.color }}>
+                  <div className="hiw-phase-icon">{phase.icon}</div>
+                  <div className="hiw-phase-label">{phase.label}</div>
+                </div>
+                {i < PHASES.length - 1 && (
+                  <svg className="hiw-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                )}
+              </div>
+            ))}
+          </div>
           <div className="hero-btns">
             <button className="btn btn-primary btn-lg" onClick={() => navigate('/products')}>
               {tr.cta.developer}
@@ -71,17 +89,6 @@ export default function Home() {
               {tr.cta.customer}
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* About / Narrative */}
-      <section className="about-section" aria-label="About">
-        <div className="about-inner">
-          <p className="about-opening">
-            {tr.about.opening}<br />
-            {renderBold(tr.about.openingBold)}<br />
-            {tr.about.opening2}
-          </p>
         </div>
       </section>
 
@@ -130,8 +137,10 @@ export default function Home() {
           <div className="features-grid">
             {FEATURES.map((key, i) => (
               <div className="feature-card" key={key}>
-                <div className="feature-card-icon">{FEATURE_ICONS[i]}</div>
-                <h3>{tr.features[key].title}</h3>
+                <div className="feature-card-head">
+                  <div className="feature-card-icon">{FEATURE_ICONS[i]}</div>
+                  <h3>{tr.features[key].title}</h3>
+                </div>
                 <p>{tr.features[key].description}</p>
               </div>
             ))}
@@ -148,19 +157,6 @@ export default function Home() {
         <div className="container">
           <h2 className="how-it-works-title">{tr.hiw.title}</h2>
           <p className="how-it-works-sub">{tr.hiw.sub}</p>
-          <div className="hiw-pipeline">
-            {PHASES.map((phase, i) => (
-              <div className="hiw-phase-wrap" key={phase.key}>
-                <div className="hiw-phase" style={{ '--phase-color': phase.color }}>
-                  <div className="hiw-phase-icon">{phase.icon}</div>
-                  <div className="hiw-phase-label">{phase.label}</div>
-                </div>
-                {i < PHASES.length - 1 && (
-                  <svg className="hiw-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-                )}
-              </div>
-            ))}
-          </div>
           <div className="hiw-columns">
             <article className="vignette-card hiw-vignette-preview" aria-hidden="true">
               <div className="vignette-body">
