@@ -184,6 +184,208 @@ export const seedPeople   = [
       "type": "image",
       "url": "vincent.nibart.png"
     }
+  },
+  {
+    "id": 1783328025420,
+    "type": "people",
+    "title": {
+      "en": "Audit to analyze time-consuming tasks, development of personalized agentic workflows",
+      "fr": "Audit pour analyser les tâches chronophages, développement de workflows agentic personnalisés",
+      "de": ""
+    },
+    "shortDesc": {
+      "en": "The first step of the collaboration is an audit on use-cases you want to address, taking into account the tools that are available. Chaka will then deliver a customized solution automating business processes exactly the way you want it.",
+      "fr": "La première étape de la collaboration est un audit sur les cas d'utilisation que vous souhaitez aborder, en tenant compte des outils disponibles. Chaka fournira ensuite une solution personnalisée automatisant les processus métier exactement comme vous le souhaitez.",
+      "de": ""
+    },
+    "why": {
+      "en": "For small and medium companies the step to implement AI agents is often hampered by technical know-how, Chaka helps you to obtain business value quickly.",
+      "fr": "Pour les petites et moyennes entreprises, l'étape de mise en œuvre des agents d'IA est souvent entravée par le savoir-faire technique, Chaka vous aide à obtenir rapidement de la valeur commerciale.",
+      "de": ""
+    },
+    "longDesc": {
+      "en": "Hands-on experience for highly tailored services.",
+      "fr": "Expérience pratique pour des services hautement personnalisés.",
+      "de": ""
+    },
+    "fullDesc": {
+      "en": "Book a meeting",
+      "fr": "Prendre rendez-vous",
+      "de": ""
+    },
+    "bio": {
+      "en": "Chaka has over 10 years experience in software development, and worked a lot on typescript. He developed his own software solution targeted at AirBnB conciergeries and gained a lot of competences in automating administrative, communication and planning tasks with agents.",
+      "fr": "Chaka a plus de 10 ans d'expérience dans le développement de logiciels et a beaucoup travaillé sur la dactylographie. Il a développé sa propre solution logicielle destinée aux conciergeries AirBnB et a acquis de nombreuses compétences dans l'automatisation des tâches administratives, de communication et de planification avec les agents.",
+      "de": ""
+    },
+    "ctaLabel": {
+      "en": "Book a meeting",
+      "fr": "Prendre rendez-vous",
+      "de": ""
+    },
+    "ctaUrl": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Label": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Url": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "name": "Chaka Ngameni",
+    "shortTitle": {
+      "en": "Agentic workflows",
+      "fr": "Des agents pour vos processus métier chronophages",
+      "de": ""
+    },
+    "link": "https://www.linkedin.com/in/chaka-ngameni-njineh-9a788693/",
+    "price": "",
+    "categories": [
+      "deploy",
+      "build"
+    ],
+    "verticals": [],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "avatarPeople": {
+      "type": "image",
+      "url": "chaka.ngameni.png"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#9CA3AF"
+    },
+    "vignetteAvatar": "people",
+    "detailsAvatar": "people",
+    "peopleName": "Chaka Ngameni",
+    "peopleLink": "https://www.linkedin.com/in/chaka-ngameni-njineh-9a788693/",
+    "toolName": null,
+    "toolLink": null,
+    "companyName": null,
+    "companyLink": null,
+    "avatar": {
+      "type": "image",
+      "url": "chaka.ngameni.png"
+    },
+    "avatarDetails": {
+      "type": "image",
+      "url": "chaka.ngameni.png"
+    }
+  },
+  {
+    "id": 1783328543023,
+    "type": "people",
+    "title": {
+      "en": "Make sure that your activity anticipates compliance and security breaches in the best possible manner.",
+      "fr": "Assurez-vous que votre activité anticipe au mieux les challenges de la conformité et de la sécurité.",
+      "de": "Stellen Sie sicher, dass Ihre Aktivitäten Compliance- und Sicherheitsverletzungen bestmöglich antizipieren."
+    },
+    "shortDesc": {
+      "en": "Eric proposes services inlucding Interim CISO - Transition management, Governance, compliance and risk management, Cybersecurity frameworks linked to business processes, Awareness , Evangelization, Education and Coaching and Cyber Incident response Framework and Cyber Crisis Simulation",
+      "fr": "Eric propose des services pour éclairer les RSSI intérimaires - Gestion de la transition, gouvernance, conformité et gestion des risques, cadres de cybersécurité liés aux processus métier, cadre de sensibilisation , d'évangélisation, d'éducation et de coaching et de réponse aux incidents cybernétiques et simulation de crise cybernétique",
+      "de": "Eric bietet Dienstleistungen inlucding Interim CISO - Transition Management, Governance, Compliance und Risikomanagement, Cybersecurity Frameworks im Zusammenhang mit Geschäftsprozessen, Awareness , Evangelisation, Education and Coaching und Cyber Incident Response Framework und Cyber Crisis Simulation"
+    },
+    "why": {
+      "en": "Eric has spend an entire carreer in cybersecurity, notably as CSO for Schneider. He recently started his own consultancy company.",
+      "fr": "Eric a consacré toute une carrière à la cybersécurité, notamment en tant que CSO pour Schneider. Il a créé sa propre société de conseil en 2023.",
+      "de": "Eric hat eine ganze Karriere in der Cybersicherheit verbracht, insbesondere als CSO für Schneider. Vor kurzem gründete er seine eigene Beratungsfirma."
+    },
+    "longDesc": {
+      "en": "Eric has unique competences in practical cyber security deployments strategies.",
+      "fr": "Eric possède des compétences uniques dans les stratégies pratiques de déploiement de la cybersécurité.",
+      "de": "Eric verfügt über einzigartige Kompetenzen in praktischen Strategien für den Einsatz von Cybersicherheit."
+    },
+    "fullDesc": {
+      "en": "Book a meeting, free of cost",
+      "fr": "Réservez une réunion, sans frais",
+      "de": "Buchen Sie ein kostenloses Meeting"
+    },
+    "bio": {
+      "en": "Eric spends his whole career in cybersecurity with tier one industrial players like Schneider, Nexans and Ingenico. He started his consultancy company in 2023.",
+      "fr": "Eric passe toute sa carrière dans la cybersécurité avec des acteurs industriels de premier plan comme Schneider, Nexans et Ingenico. Il a démarré sa société de conseil en 2023.",
+      "de": "Eric verbringt seine gesamte Karriere im Bereich Cybersicherheit bei Industrieunternehmen wie Schneider, Nexans und Ingenico. Er gründete seine Beratungsfirma im Jahr 2023."
+    },
+    "ctaLabel": {
+      "en": "Book a meeting",
+      "fr": "Prendre rendez-vous",
+      "de": "Buchen Sie ein Meeting"
+    },
+    "ctaUrl": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Label": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "cta2Url": {
+      "en": "",
+      "fr": "",
+      "de": ""
+    },
+    "name": "Eric Singer",
+    "shortTitle": {
+      "en": "Strategic security advise",
+      "fr": "Conseil stratégique en matière de sécurité",
+      "de": "Strategische Sicherheitsberatung"
+    },
+    "link": "https://www.linkedin.com/in/erichsinger/",
+    "price": "",
+    "categories": [
+      "think"
+    ],
+    "verticals": [],
+    "languages": [
+      "en",
+      "fr",
+      "de"
+    ],
+    "avatarPeople": {
+      "type": "image",
+      "url": "eric.singer.png"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#9CA3AF"
+    },
+    "vignetteAvatar": "people",
+    "detailsAvatar": "people",
+    "peopleName": "Eric Singer",
+    "peopleLink": "https://www.linkedin.com/in/erichsinger/",
+    "toolName": null,
+    "toolLink": null,
+    "companyName": null,
+    "companyLink": null,
+    "avatar": {
+      "type": "image",
+      "url": "eric.singer.png"
+    },
+    "avatarDetails": {
+      "type": "image",
+      "url": "eric.singer.png"
+    }
   }
 ];
 

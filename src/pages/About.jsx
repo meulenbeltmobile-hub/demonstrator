@@ -1,57 +1,77 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
 
+function renderBold(text) {
+  return text.split(/\*\*(.+?)\*\*/).map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 export default function About() {
   const { tr } = useLanguage();
+  const navigate = useNavigate();
+  const a = tr.aboutPage;
+  const [photoFailed, setPhotoFailed] = useState(false);
+
   return (
     <>
       <SEO title="About" path="/about" noindex={true} />
-      <header className="page-header">
-        <svg
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-          viewBox="0 0 1200 400"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
-          <g transform="translate(600,200)" opacity="0.12">
-            <circle cx="0" cy="-30" r="70" fill="none" stroke="white" strokeWidth="6" />
-            <path d="M-25,40 L25,40 M-20,55 L20,55 M-10,70 L10,70" stroke="white" strokeWidth="6" strokeLinecap="round" />
-            <path d="M-20,-20 Q0,5 20,-20" fill="none" stroke="white" strokeWidth="4" />
-          </g>
-          <circle cx="600" cy="200" r="140" fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <circle cx="600" cy="200" r="200" fill="none" stroke="white" strokeWidth="1" opacity="0.05" />
-          <circle cx="600" cy="200" r="280" fill="none" stroke="white" strokeWidth="1" opacity="0.04" />
-          <text x="160" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'</>'}</text>
-          <text x="120" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'{ }'}</text>
-          <text x="200" y="310" fontFamily="monospace" fontSize="22" fill="white" opacity="0.12">{'// AI'}</text>
-          <text x="970" y="160" fontFamily="monospace" fontSize="52" fill="white" opacity="0.15" fontWeight="bold">{'<AI/>'}</text>
-          <text x="1010" y="260" fontFamily="monospace" fontSize="28" fill="#F59E0B" opacity="0.25">{'[ ]'}</text>
-          <text x="980" y="310" fontFamily="monospace" fontSize="22" fill="white" opacity="0.12">{'def idea'}</text>
-          {[
-            [300,120],[420,80],[500,140],[700,80],[800,120],[900,90],
-            [250,280],[380,320],[500,290],[700,310],[830,280],[950,320],
-          ].map(([cx, cy], i) => (
-            <circle key={i} cx={cx} cy={cy} r="4"
-              fill={i % 3 === 0 ? '#F59E0B' : 'white'}
-              opacity={i % 3 === 0 ? 0.5 : 0.2}
-            />
-          ))}
-          <polyline points="300,120 420,80 500,140 600,170 700,80 800,120 900,90"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <polyline points="250,280 380,320 500,290 600,230 700,310 830,280 950,320"
-            fill="none" stroke="white" strokeWidth="1" opacity="0.08" />
-          <line x1="500" y1="140" x2="500" y2="290" stroke="white" strokeWidth="1" opacity="0.07" />
-          <line x1="700" y1="80"  x2="700" y2="310" stroke="white" strokeWidth="1" opacity="0.07" />
-        </svg>
-        <div className="container" style={{ position: 'relative' }}>
-          <h1>{tr.nav.about}</h1>
-          <p>{tr.about?.pageDescription}</p>
-        </div>
-      </header>
 
-      <section className="grid-section">
+      <section className="blog-hero">
+        <div className="blog-hero-grid" aria-hidden="true" />
+        <div className="container" style={{ position: 'relative' }}>
+          <div className="blog-eyebrow">{a.eyebrow}</div>
+          <h1 className="blog-hero-title">{a.title}</h1>
+          <p className="blog-hero-sub">{a.lead}</p>
+        </div>
+      </section>
+
+      <section className="about-note-section">
         <div className="container">
-          <p className="no-results">About page coming soon.</p>
+          <div className="about-note">
+            <p>{renderBold(a.p1)}</p>
+            <p>{renderBold(a.p2)}</p>
+            <p>{renderBold(a.p3)}</p>
+            <p>{renderBold(a.p4)}</p>
+
+            <div className="about-motto">
+              <p className="about-motto-lead">{a.mottoLead}</p>
+              <p className="about-motto-text">{a.motto}</p>
+            </div>
+
+            <div className="about-signature">
+              {photoFailed ? (
+                <div className="about-photo about-photo-fallback" aria-hidden="true">GM</div>
+              ) : (
+                <img
+                  src="/geert.meulenbelt.png"
+                  alt={a.signature}
+                  className="about-photo"
+                  onError={() => setPhotoFailed(true)}
+                />
+              )}
+              <div>
+                <div className="about-signature-name">{a.signature}</div>
+                <a
+                  className="about-linkedin-link"
+                  href="https://www.linkedin.com/in/geertmeulenbelt/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {a.linkedin} →
+                </a>
+              </div>
+            </div>
+
+            <div className="about-manifesto-cta">
+              <span>{a.manifestoCta}</span>
+              <button className="btn btn-outline" onClick={() => navigate('/blog#manifesto')}>
+                {a.manifestoLink}
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </>

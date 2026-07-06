@@ -140,7 +140,7 @@ button {
   display: block;
   padding: 6px 12px;
   border-radius: var(--radius-sm);
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--gray-600);
   transition: background var(--transition), color var(--transition);
@@ -173,7 +173,7 @@ button {
   gap: 4px;
   padding: 4px 8px;
   border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--gray-500);
   transition: background var(--transition), color var(--transition);
@@ -338,11 +338,10 @@ button {
 }
 
 .hero-help {
-  font-size: 1.1rem;
-  color: var(--gray-700);
-  font-weight: 500;
-  line-height: 1.7;
-  max-width: 720px;
+  font-size: 1.3rem;
+  color: var(--gray-500);
+  line-height: 1.65;
+  max-width: 780px;
   margin: 0 auto;
 }
 
@@ -530,6 +529,112 @@ button {
 
 .about-card:nth-child(2) { border-left-color: var(--orange); }
 .about-card:nth-child(3) { border-left-color: var(--blue-dark); }
+
+/* ── About page: founder's note ── */
+.about-note-section {
+  background: var(--white);
+  padding: 64px 0 80px;
+}
+
+.about-note {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-note p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--gray-700);
+  margin: 0 0 22px;
+}
+
+.about-note strong {
+  color: var(--gray-900);
+  font-weight: 700;
+}
+
+.about-motto {
+  text-align: center;
+  margin: 48px 0 36px;
+}
+
+.about-motto-lead {
+  font-size: 1rem !important;
+  color: var(--gray-500) !important;
+  margin: 0 0 12px !important;
+}
+
+.about-motto-text {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+  margin: 0 !important;
+}
+
+.about-signature {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.about-photo {
+  display: block;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  border: 5px solid var(--blue-mid);
+}
+
+.about-photo-fallback {
+  width: 128px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.about-signature-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.about-linkedin-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.about-linkedin-link:hover {
+  text-decoration: underline;
+}
+
+.about-manifesto-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 44px;
+  padding-top: 36px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.about-manifesto-cta span {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+}
 
 /* ── Hurdles (zigzag) ── */
 .hurdles-header {
@@ -853,11 +958,18 @@ button {
 
 .hiw-columns {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 332px 1fr;
   gap: 48px;
   align-items: center;
   margin-top: 48px;
   text-align: left;
+}
+
+.hiw-vignette-frame {
+  background: var(--blue-light);
+  border: 1px solid var(--blue-mid);
+  border-radius: 22px;
+  padding: 26px;
 }
 
 .hiw-vignette-preview {
@@ -865,14 +977,14 @@ button {
 }
 
 .hiw-description {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: var(--gray-500);
   line-height: 1.8;
   margin: 0;
 }
 
 .hiw-extra {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--gray-500);
   line-height: 1.8;
   margin-top: 32px;

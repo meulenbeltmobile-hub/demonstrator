@@ -60,8 +60,8 @@ export default function Home() {
             <span className="hero-accent">{tr.hero.tagline2}</span>
           </h1>
           <p className="hero-subtitle">
-            {tr.about.opening}<br />
-            {renderBold(tr.about.openingBold)}<br />
+            {tr.about.opening}{' '}
+            {renderBold(tr.about.openingBold)}{' '}
             {tr.about.opening2}
           </p>
           <p className="hero-help">{renderBold(tr.hero.subtitle)}</p>
@@ -158,6 +158,7 @@ export default function Home() {
           <h2 className="how-it-works-title">{tr.hiw.title}</h2>
           <p className="how-it-works-sub">{tr.hiw.sub}</p>
           <div className="hiw-columns">
+            <div className="hiw-vignette-frame">
             <article className="vignette-card hiw-vignette-preview" aria-hidden="true">
               <div className="vignette-body">
                 <div className="avatar" style={{ background: '#0F1A3D' }}></div>
@@ -176,6 +177,7 @@ export default function Home() {
                 </button>
               </div>
             </article>
+            </div>
             <div className="hiw-text-col">
               <p className="hiw-description">{tr.hiw.description}</p>
               <p className="hiw-extra">
