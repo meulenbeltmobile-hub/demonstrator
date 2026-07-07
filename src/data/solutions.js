@@ -92,108 +92,6 @@ const solutions = [
     }
   },
   {
-    "id": 1782302997077,
-    "type": "solutions",
-    "categories": [
-      "personal-productivity",
-      "enterprise-solutions"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "de",
-      "fr"
-    ],
-    "avatarPeople": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    },
-    "avatarTool": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarCompany": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#9CA3AF"
-    },
-    "vignetteAvatar": "people",
-    "detailsAvatar": "people",
-    "peopleName": "Kai Lebeth",
-    "peopleLink": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "toolName": "Form Booster",
-    "toolLink": null,
-    "companyName": null,
-    "companyLink": null,
-    "name": "Kai Lebeth",
-    "shortTitle": {
-      "en": "PDF and Web Form Booster",
-      "fr": "PDF et Web Form Booster",
-      "de": "PDF und Web Form Booster"
-    },
-    "title": {
-      "en": "Make complex forms easier to complete and compliant with audits",
-      "fr": "Rendre les formulaires complexes plus faciles à remplir et conformes aux audits",
-      "de": "Erleichtern Sie das Ausfüllen komplexer Formulare und die Einhaltung von Audits"
-    },
-    "shortDesc": {
-      "en": "Form Booster allows you to fill-in complex forms using natural language. It detects errors and runs automatic analysis to find gaps in your replies. Answers only get better if you upload specifications and background information. A full audit trail is created automatically.",
-      "fr": "Form Booster vous permet de remplir des formulaires complexes en utilisant le langage naturel. Il détecte les erreurs et exécute une analyse automatique pour trouver des lacunes dans vos réponses. Les réponses ne s'améliorent que si vous téléchargez les spécifications et les informations de base. Une piste d'audit complète est créée automatiquement.",
-      "de": "Mit Form Booster können Sie komplexe Formulare in natürlicher Sprache ausfüllen. Es erkennt Fehler und führt eine automatische Analyse durch, um Lücken in Ihren Antworten zu finden. Antworten werden nur besser, wenn Sie Spezifikationen und Hintergrundinformationen hochladen. Ein vollständiger Audit-Trail wird automatisch erstellt."
-    },
-    "why": {
-      "en": "Form booster is the perfect tool to help you complete complex forms for subsidies, declarations and reporting. ",
-      "fr": "Le booster de formulaire est l'outil idéal pour vous aider à remplir des formulaires complexes pour les subventions, les déclarations et les rapports.",
-      "de": "Formular-Booster ist das perfekte Werkzeug, um Ihnen zu helfen, komplexe Formulare für Subventionen, Erklärungen und Berichte auszufüllen."
-    },
-    "longDesc": {
-      "en": "Although most suited in demanding enterprise compliance use-cases, the technology can be used for any form. Try it out!",
-      "fr": "Bien qu'elle soit la plus adaptée aux cas d'utilisation exigeants de la conformité d'entreprise, la technologie peut être utilisée pour n'importe quelle forme. Essayez-le !",
-      "de": "Obwohl die Technologie am besten für anspruchsvolle Anwendungsfälle der Unternehmens-Compliance geeignet ist, kann sie für jede Form verwendet werden. Probieren Sie es aus!"
-    },
-    "fullDesc": {
-      "en": "Request a quick demonstration",
-      "fr": "Demander une démonstration rapide",
-      "de": "Fordern Sie eine kurze Demonstration an"
-    },
-    "bio": {
-      "en": "After a career at IBM, Kai spent more than 25 years at Commerzbank working on various topics around compliance.\nAs an enthusiastic vibe-coder he developed a number of unique enterprise solutions.",
-      "fr": "Après une carrière chez IBM, Kai a passé plus de 25 ans chez Commerzbank à travailler sur divers sujets liés à la conformité.\nEn tant que vibe-coder enthousiaste, il a développé un certain nombre de solutions d'entreprise uniques.",
-      "de": "Nach einer Karriere bei IBM arbeitete Kai mehr als 25 Jahre bei der Commerzbank an verschiedenen Themen rund um Compliance.\nAls begeisterter Vibe-Codierer entwickelte er eine Reihe einzigartiger Unternehmenslösungen."
-    },
-    "ctaLabel": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "ctaUrl": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Label": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Url": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "avatar": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    },
-    "avatarDetails": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    }
-  },
-  {
     "id": 1782318605187,
     "type": "solutions",
     "title": {
@@ -261,7 +159,8 @@ const solutions = [
     "verticals": [],
     "languages": [
       "en",
-      "de"
+      "de",
+      "fr"
     ],
     "avatarPeople": {
       "type": "image",

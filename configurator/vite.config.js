@@ -131,6 +131,10 @@ function saveSeedsPlugin() {
 
 export default defineConfig({
   plugins: [react(), saveSeedsPlugin()],
+  // Serve avatar images straight from the website's public/ folder so the
+  // configurator never shows stale/missing images for newly added people —
+  // there is no separate copy to keep in sync.
+  publicDir: path.resolve(REPO_ROOT, 'public'),
   server: {
     watch: { ignored: ['**/src/data/seeds.js'] },
   },

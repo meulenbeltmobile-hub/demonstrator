@@ -493,107 +493,6 @@ export const seedProducts = [
     }
   },
   {
-    "id": 1780581122694,
-    "type": "tools-services",
-    "categories": [
-      "build",
-      "deploy"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr",
-      "de"
-    ],
-    "avatarPeople": {
-      "type": "logo",
-      "url": ""
-    },
-    "avatarTool": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarCompany": {
-      "type": "logo",
-      "url": "logo-kairntech.png"
-    },
-    "vignetteAvatar": "company",
-    "detailsAvatar": "company",
-    "peopleName": "Vincent Nibart",
-    "peopleLink": "https://www.linkedin.com/in/vincentnibart/",
-    "toolName": "Kairntech",
-    "toolLink": "http://kairntech.com",
-    "companyName": "Kairntech",
-    "companyLink": "http://kairntech.com",
-    "name": "Vincent Nibart",
-    "shortTitle": {
-      "en": "Kairntech Starter pack",
-      "fr": "Pack DE démarrage Kairntech",
-      "de": "Kairntech-Starterpaket"
-    },
-    "title": {
-      "en": "Consultancy + first use case experiment",
-      "fr": "Conseil + démonstration + première expérience",
-      "de": "Beratung + Demonstration + erstes Experiment"
-    },
-    "shortDesc": {
-      "en": "Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines. A great strength is the expertise in semantic enrichment, a prerequisite for accuracy, end-user adoption and ROI.",
-      "fr": "Pack DE démarrage Kairntech",
-      "de": "Kairntech-Starterpaket"
-    },
-    "why": {
-      "en": "Kairntech offers hands-on AI expertise for enterprise application combined with a production-ready API server, an agentic RAG chatbot and a self-service orchestrator studio.\nSweetspots: large volumes and complex documents, semantic enrichment of content, accurate solutions for business teams",
-      "fr": "Kairntech offre une combinaison unique d'expertise pratique en IA pour les applications d'entreprise, combinée à un serveur API prêt pour la production et à un studio en libre-service.",
-      "de": "Kairntech bietet eine einzigartige Kombination aus praktischem KI-Know-how für Unternehmensanwendungen in Kombination mit einem produktionsbereiten API-Server und einem Self-Service-Studio."
-    },
-    "longDesc": {
-      "en": "Kairntech offers an enterprise-ready AI deployment server that can be deployed on premise. In addition a no-code Studio offers full autonomy to domain experts to experiment and customize AI pipelines. A great strength is the expertise in semantic enrichment, a prerequisite for accuracy, end-user adoption and ROI.",
-      "fr": "Kairntech propose un serveur de déploiement d'IA prêt pour l'entreprise qui peut être déployé sur site. De plus, un studio sans code offre une autonomie totale aux experts du domaine pour expérimenter et personnaliser les pipelines d'IA. Une grande force est l'expertise dans l'enrichissement sémantique, une condition préalable à la précision, à l'adoption par l'utilisateur final et au retour sur investissement.",
-      "de": "Kairntech bietet einen unternehmensfähigen KI-Bereitstellungsserver, der vor Ort bereitgestellt werden kann. Darüber hinaus bietet ein No-Code-Studio Domänenexperten volle Autonomie beim Experimentieren und Anpassen von KI-Pipelines. Eine große Stärke ist das Know-how in der semantischen Anreicherung, eine Voraussetzung für Genauigkeit, Endbenutzerakzeptanz und ROI."
-    },
-    "fullDesc": {
-      "en": "Free 30 minute discusion\nTypical budget: 5 - 10K Euro",
-      "fr": "Discusion gratuite de 30 minutes\nBudget typique : 5 à 10 000 euros",
-      "de": "Kostenlose 30-minütige Discusion\nTypisches Budget: 5 - 10.000 Euro"
-    },
-    "bio": {
-      "en": "Kairntech was founded in 2019 by a tech team with 25+ years of experience in natural language technologies. The company successully deploys usecases in production for enterprise teams (HR, purchasing, compliance, sales, marketing...) with high demanding customers such as Boehringer Ingelheim, Agence France Presse and the Ministère de l'Armée. ",
-      "fr": "Kairntech est une société fondée en 2019 par une équipe technique avec plus de 25ans d'expérience dans les technologies du langage naturel. L'entreprise crée et déploie avec succès en production des applications d'entreprise pour les équipes (RH, achats, conformité, ventes, marketing…).",
-      "de": "Kairntech ist ein Unternehmen, das 2019 von einem Tech-Team mit mehr als 25Jahren Erfahrung in natürlichen Sprachtechnologien gegründet wurde. Das Unternehmen erstellt und implementiert erfolgreich in der Produktion Unternehmensanwendungen für Teams (HR, Einkauf, Compliance, Vertrieb, Marketing...)."
-    },
-    "ctaLabel": {
-      "en": "Book a meeting",
-      "fr": "Réserver un rendez-vous",
-      "de": "Buchen Sie ein Meeting"
-    },
-    "ctaUrl": {
-      "en": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06",
-      "fr": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06",
-      "de": "https://calendly.com/vincent-nibart-kairntech/30min?month=2026-06"
-    },
-    "cta2Label": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Url": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/vincentnibart/",
-    "avatar": {
-      "type": "logo",
-      "url": "logo-kairntech.png"
-    },
-    "avatarDetails": {
-      "type": "logo",
-      "url": "logo-kairntech.png"
-    }
-  },
-  {
     "id": 1782319551037,
     "type": "tools-services",
     "title": {
@@ -683,8 +582,8 @@ export const seedProducts = [
     "peopleLink": "https://www.linkedin.com/in/vincentnibart/",
     "toolName": "Kairntech",
     "toolLink": "http://kairntech.com",
-    "companyName": null,
-    "companyLink": null,
+    "companyName": "Kairntech",
+    "companyLink": "http://kairntech.com",
     "avatar": {
       "type": "logo",
       "url": "logo-kairntech.png"
@@ -789,108 +688,6 @@ export const seedSolutions = [
     }
   },
   {
-    "id": 1782302997077,
-    "type": "solutions",
-    "categories": [
-      "personal-productivity",
-      "enterprise-solutions"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "de",
-      "fr"
-    ],
-    "avatarPeople": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    },
-    "avatarTool": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarCompany": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#9CA3AF"
-    },
-    "vignetteAvatar": "people",
-    "detailsAvatar": "people",
-    "peopleName": "Kai Lebeth",
-    "peopleLink": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "toolName": "Form Booster",
-    "toolLink": null,
-    "companyName": null,
-    "companyLink": null,
-    "name": "Kai Lebeth",
-    "shortTitle": {
-      "en": "PDF and Web Form Booster",
-      "fr": "PDF et Web Form Booster",
-      "de": "PDF und Web Form Booster"
-    },
-    "title": {
-      "en": "Make complex forms easier to complete and compliant with audits",
-      "fr": "Rendre les formulaires complexes plus faciles à remplir et conformes aux audits",
-      "de": "Erleichtern Sie das Ausfüllen komplexer Formulare und die Einhaltung von Audits"
-    },
-    "shortDesc": {
-      "en": "Form Booster allows you to fill-in complex forms using natural language. It detects errors and runs automatic analysis to find gaps in your replies. Answers only get better if you upload specifications and background information. A full audit trail is created automatically.",
-      "fr": "Form Booster vous permet de remplir des formulaires complexes en utilisant le langage naturel. Il détecte les erreurs et exécute une analyse automatique pour trouver des lacunes dans vos réponses. Les réponses ne s'améliorent que si vous téléchargez les spécifications et les informations de base. Une piste d'audit complète est créée automatiquement.",
-      "de": "Mit Form Booster können Sie komplexe Formulare in natürlicher Sprache ausfüllen. Es erkennt Fehler und führt eine automatische Analyse durch, um Lücken in Ihren Antworten zu finden. Antworten werden nur besser, wenn Sie Spezifikationen und Hintergrundinformationen hochladen. Ein vollständiger Audit-Trail wird automatisch erstellt."
-    },
-    "why": {
-      "en": "Form booster is the perfect tool to help you complete complex forms for subsidies, declarations and reporting. ",
-      "fr": "Le booster de formulaire est l'outil idéal pour vous aider à remplir des formulaires complexes pour les subventions, les déclarations et les rapports.",
-      "de": "Formular-Booster ist das perfekte Werkzeug, um Ihnen zu helfen, komplexe Formulare für Subventionen, Erklärungen und Berichte auszufüllen."
-    },
-    "longDesc": {
-      "en": "Although most suited in demanding enterprise compliance use-cases, the technology can be used for any form. Try it out!",
-      "fr": "Bien qu'elle soit la plus adaptée aux cas d'utilisation exigeants de la conformité d'entreprise, la technologie peut être utilisée pour n'importe quelle forme. Essayez-le !",
-      "de": "Obwohl die Technologie am besten für anspruchsvolle Anwendungsfälle der Unternehmens-Compliance geeignet ist, kann sie für jede Form verwendet werden. Probieren Sie es aus!"
-    },
-    "fullDesc": {
-      "en": "Request a quick demonstration",
-      "fr": "Demander une démonstration rapide",
-      "de": "Fordern Sie eine kurze Demonstration an"
-    },
-    "bio": {
-      "en": "After a career at IBM, Kai spent more than 25 years at Commerzbank working on various topics around compliance.\nAs an enthusiastic vibe-coder he developed a number of unique enterprise solutions.",
-      "fr": "Après une carrière chez IBM, Kai a passé plus de 25 ans chez Commerzbank à travailler sur divers sujets liés à la conformité.\nEn tant que vibe-coder enthousiaste, il a développé un certain nombre de solutions d'entreprise uniques.",
-      "de": "Nach einer Karriere bei IBM arbeitete Kai mehr als 25 Jahre bei der Commerzbank an verschiedenen Themen rund um Compliance.\nAls begeisterter Vibe-Codierer entwickelte er eine Reihe einzigartiger Unternehmenslösungen."
-    },
-    "ctaLabel": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "ctaUrl": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Label": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "cta2Url": {
-      "en": "",
-      "fr": "",
-      "de": ""
-    },
-    "price": "",
-    "link": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
-    "avatar": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    },
-    "avatarDetails": {
-      "type": "image",
-      "url": "kai.lebeth.png"
-    }
-  },
-  {
     "id": 1782318605187,
     "type": "solutions",
     "title": {
@@ -958,7 +755,8 @@ export const seedSolutions = [
     "verticals": [],
     "languages": [
       "en",
-      "de"
+      "de",
+      "fr"
     ],
     "avatarPeople": {
       "type": "image",

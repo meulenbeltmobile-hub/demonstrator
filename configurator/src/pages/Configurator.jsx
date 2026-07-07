@@ -42,11 +42,9 @@ function loadItems() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const stored = JSON.parse(raw).map(migrateItem);
-      const storedIds = new Set(stored.map((i) => i.id));
-      // Add back any seed items whose ID is no longer in localStorage
-      const missing = [...seedPeople, ...seedProducts, ...seedSolutions].filter((s) => !storedIds.has(s.id));
-      return missing.length > 0 ? [...stored, ...missing] : stored;
+      // localStorage is the source of truth once it exists — do NOT merge
+      // seed items back in, or every delete gets silently undone on reload.
+      return JSON.parse(raw).map(migrateItem);
     }
   } catch {}
   return [...seedPeople, ...seedProducts, ...seedSolutions];
