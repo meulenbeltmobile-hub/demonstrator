@@ -1,4 +1,5 @@
 import { useLanguage } from '../context/LanguageContext';
+import AppSourceBadge from './AppSourceBadge';
 
 function Avatar({ avatar }) {
   if (avatar.type === 'logo' && avatar.url) {
@@ -37,6 +38,7 @@ export default function Vignette({ item, onClick }) {
       role="button"
       aria-label={`${title}${item.peopleName || item.name ? ` — ${item.peopleName || item.name}` : ''}`}
     >
+      <AppSourceBadge type={item.appSource} />
       <div className="vignette-body">
         <Avatar avatar={item.avatar} />
         {item.shortTitle && <div className="vignette-short-title">

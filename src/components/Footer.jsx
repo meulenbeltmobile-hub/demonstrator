@@ -17,14 +17,14 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Products</h4>
-            <Link to="/products">{tr.nav.products}</Link>
-            <Link to="/tools">{tr.nav.tools}</Link>
+            <h4>Solutions</h4>
+            <Link to="/solutions">{tr.nav.solutions}</Link>
           </div>
 
           <div className="footer-col">
-            <h4>Solutions</h4>
-            <Link to="/solutions">{tr.nav.solutions}</Link>
+            <h4>Products</h4>
+            <Link to="/applications">{tr.nav.tools}</Link>
+            <Link to="/products">{tr.nav.products}</Link>
           </div>
 
           <div className="footer-col">

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import AppSourceBadge from './AppSourceBadge';
 
 function Avatar({ avatar, size = 56 }) {
   if (avatar.type === 'logo' && avatar.url) {
@@ -84,6 +85,7 @@ export default function Modal({ item, onClose }) {
           </div>
           {/* Right: shortTitle + bio */}
           <div className="modal-header-right">
+            <AppSourceBadge type={item.appSource} variant="full" />
             {shortTitle && <div className="modal-short-title">{shortTitle}</div>}
             {bio && <p className="modal-bio">{bio}</p>}
           </div>

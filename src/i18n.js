@@ -3,7 +3,7 @@ const translations = {
     nav: {
       home: 'Home',
       products: 'People',
-      tools: 'Tools',
+      tools: 'Applications',
       solutions: 'Solutions',
       kairntech: 'Kairntech',
       blog: 'Blog',
@@ -15,7 +15,7 @@ const translations = {
     hero: {
       tagline1: 'From vibecoding to',
       tagline2: 'business success',
-      subtitle: 'We provide an ecosystem of people and tools that help to turn great ideas into **robust**, **market-ready** and **sovereign** web applications throughout the journey of your application.',
+      subtitle: 'We provide packaged solutions based on an ecosystem of applications and people to turn great ideas into **robust**, **market-ready** and **sovereign** web applications throughout the journey of your application.',
     },
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude,',
@@ -146,12 +146,12 @@ const translations = {
         description: 'Test and implement open source LLMs. Consider secure on-premise deployments and avoid sharing of confidential data.',
       },
       ctaPeople: 'Discover people',
-      ctaTools: 'Discover tools',
+      ctaTools: 'Discover applications',
     },
     cta: {
       developer: 'Discover people that can help',
-      tools: 'Discover tools',
-      customer: 'Explore applications',
+      tools: 'Explore applications',
+      customer: 'Packaged Solutions',
     },
     product: {
       header: 'Tools & Services',
@@ -167,10 +167,15 @@ const translations = {
         market: 'Market',
         support: 'Scale',
       },
+      appSource: {
+        powered: { tab: 'Powered by AAIA', full: 'Applications created by AAIA customers' },
+        partner: { tab: 'Premium Partners', full: 'Applications part of AAIA Solutions' },
+        choice:  { tab: 'AAIA\'s Choice',  full: 'Recommended applications' },
+      },
       noResults: 'No items in this category yet.',
     },
     toolsPage: {
-      heroTitle: 'Find the right tools',
+      heroTitle: 'Find the right applications',
       heroSub: 'From trusted people and companies to accelerate your go-to-market.',
     },
     solutions: {
@@ -305,7 +310,7 @@ const translations = {
     nav: {
       home: 'Accueil',
       products: 'Personnes',
-      tools: 'Outils',
+      tools: 'Applications',
       solutions: 'Solutions',
       kairntech: 'Kairntech',
       blog: 'Blog',
@@ -317,7 +322,7 @@ const translations = {
     hero: {
       tagline1: 'Du vibecoding au',
       tagline2: 'succès commercial',
-      subtitle: 'Nous proposons un écosystème de personnes et d\'outils qui aident à transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**, tout au long du parcours de votre application.',
+      subtitle: 'Nous proposons des solutions packagées basées sur un écosystème d\'applications et de personnes pour transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**, tout au long du parcours de votre application.',
     },
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude,',
@@ -448,12 +453,12 @@ const translations = {
         description: 'Testez et implémentez des LLM open source. Envisagez des déploiements on-premise sécurisés et évitez le partage de données confidentielles.',
       },
       ctaPeople: 'Découvrir nos experts',
-      ctaTools: 'Découvrir les outils',
+      ctaTools: 'Découvrir les applications',
     },
     cta: {
       developer: 'Découvrir des personnes qui peuvent aider',
-      tools: 'Découvrir les outils',
-      customer: 'Explorer les applications',
+      tools: 'Explorer les applications',
+      customer: 'Solutions packagées',
     },
     product: {
       header: 'Outils & Services',
@@ -469,10 +474,15 @@ const translations = {
         market: 'Commercialiser',
         support: 'Scaler',
       },
+      appSource: {
+        powered: { tab: 'Powered by AAIA',    full: 'Applications créées par des clients AAIA' },
+        partner: { tab: 'Partenaires Premium', full: 'Applications faisant partie des solutions AAIA' },
+        choice:  { tab: 'Le choix AAIA',       full: 'Applications recommandées' },
+      },
       noResults: 'Aucun élément dans cette catégorie pour l\'instant.',
     },
     toolsPage: {
-      heroTitle: 'Trouvez les bons outils',
+      heroTitle: 'Trouvez les bonnes applications',
       heroSub: 'Des personnes et entreprises de confiance pour accélérer votre mise sur le marché.',
     },
     solutions: {
@@ -607,7 +617,7 @@ const translations = {
     nav: {
       home: 'Startseite',
       products: 'Menschen',
-      tools: 'Tools',
+      tools: 'Anwendungen',
       solutions: 'Lösungen',
       kairntech: 'Kairntech',
       blog: 'Blog',
@@ -619,7 +629,7 @@ const translations = {
     hero: {
       tagline1: 'Vom Vibecoding zum',
       tagline2: 'Geschäftserfolg',
-      subtitle: 'Wir bieten ein Ökosystem aus Menschen und Tools, das hilft, großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln — über den gesamten Weg Ihrer Anwendung hinweg.',
+      subtitle: 'Wir bieten gebündelte Lösungen auf Basis eines Ökosystems aus Anwendungen und Menschen, um großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln — über den gesamten Weg Ihrer Anwendung hinweg.',
     },
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist',
@@ -750,12 +760,12 @@ const translations = {
         description: 'Testen und implementieren Sie Open-Source-LLMs. Erwägen Sie sichere On-Premise-Deployments und vermeiden Sie die Weitergabe vertraulicher Daten.',
       },
       ctaPeople: 'Experten entdecken',
-      ctaTools: 'Tools entdecken',
+      ctaTools: 'Anwendungen entdecken',
     },
     cta: {
       developer: 'Menschen entdecken, die helfen können',
-      tools: 'Tools entdecken',
-      customer: 'Anwendungen erkunden',
+      tools: 'Anwendungen erkunden',
+      customer: 'Gebündelte Lösungen',
     },
     product: {
       header: 'Tools & Services',
@@ -771,10 +781,15 @@ const translations = {
         market: 'Vermarkten',
         support: 'Skalieren',
       },
+      appSource: {
+        powered: { tab: 'Powered by AAIA', full: 'Von AAIA-Kunden entwickelte Anwendungen' },
+        partner: { tab: 'Premium-Partner', full: 'Anwendungen als Teil der AAIA-Lösungen' },
+        choice:  { tab: 'AAIA-Empfehlung', full: 'Empfohlene Anwendungen' },
+      },
       noResults: 'Noch keine Einträge in dieser Kategorie.',
     },
     toolsPage: {
-      heroTitle: 'Die richtigen Tools finden',
+      heroTitle: 'Die richtigen Anwendungen finden',
       heroSub: 'Von vertrauenswürdigen Personen und Unternehmen, um Ihre Markteinführung zu beschleunigen.',
     },
     solutions: {

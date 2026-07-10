@@ -79,14 +79,14 @@ export default function Home() {
             ))}
           </div>
           <div className="hero-btns">
-            <button className="btn btn-primary btn-lg" onClick={() => navigate('/products')}>
-              {tr.cta.developer}
+            <button className="btn btn-primary btn-lg" onClick={() => navigate('/solutions')}>
+              {tr.cta.customer}
             </button>
-            <button className="btn btn-primary btn-lg" onClick={() => navigate('/tools')}>
+            <button className="btn btn-outline btn-lg" onClick={() => navigate('/applications')}>
               {tr.cta.tools}
             </button>
-            <button className="btn btn-outline btn-lg" onClick={() => navigate('/solutions')}>
-              {tr.cta.customer}
+            <button className="btn btn-outline btn-lg" onClick={() => navigate('/products')}>
+              {tr.cta.developer}
             </button>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
           <div className="features-cta">
             <button className="btn btn-primary btn-lg" onClick={() => navigate('/products')}>{tr.features.ctaPeople}</button>
-            <button className="btn btn-primary btn-lg" onClick={() => navigate('/tools')}>{tr.features.ctaTools}</button>
+            <button className="btn btn-primary btn-lg" onClick={() => navigate('/applications')}>{tr.features.ctaTools}</button>
           </div>
         </div>
       </section>

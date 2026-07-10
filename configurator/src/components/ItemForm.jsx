@@ -15,19 +15,6 @@ const PEOPLE_TOOLS_CATEGORIES = [
   { key: 'market', label: 'Market', items: ['SEO / GEO marketing', 'Social network marketing', 'Business development'],  icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 3l-7 4H5a1 1 0 00-1 1v6a1 1 0 001 1h6l7 4V3z"/><path d="M16 8.5a3 3 0 010 7"/></svg> },
 ];
 
-const SOLUTION_CATEGORIES = [
-  { key: 'personal-productivity', label: 'Personal productivity' },
-  { key: 'enterprise-solutions', label: 'Enterprise solutions' },
-];
-
-const VERTICALS = [
-  { key: 'pharma', label: 'Pharma' },
-  { key: 'publishing', label: 'Publishing' },
-  { key: 'finance', label: 'Finance' },
-  { key: 'industry', label: 'Industry' },
-  { key: 'public-sector', label: 'Public sector' },
-];
-
 const PRESET_COLORS = [
   '#1E40AF', '#1E3A8A', '#2563EB', '#0D9488',
   '#16A34A', '#D97706', '#DC2626', '#7C3AED',
@@ -310,6 +297,7 @@ function normalise(item, type) {
     toolLink: item?.toolLink ?? '',
     companyName: item?.companyName ?? '',
     companyLink: item?.companyLink ?? '',
+    appSource: item?.appSource ?? null,
   };
 }
 
@@ -323,11 +311,10 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
   const [validationError, setValidationError] = useState(null);
   const isNew = !item?.id;
   const isDirty = JSON.stringify(form) !== JSON.stringify(initial);
-  const typeLabel = form.type === 'people' ? 'Person' : form.type === 'solutions' ? 'Solution' : 'Tool';
+  const typeLabel = form.type === 'people' ? 'Person' : 'Tool';
 
-  const categoryList = (form.type === 'tools-services' || form.type === 'people') ? PEOPLE_TOOLS_CATEGORIES
-    : form.type === 'solutions' ? SOLUTION_CATEGORIES : null;
-  const showVerticals = form.type === 'solutions' && form.categories.includes('enterprise-solutions');
+  // Only People carry go-to-market phases. Applications use the app-source radio below.
+  const categoryList = form.type === 'people' ? PEOPLE_TOOLS_CATEGORIES : null;
 
   function safeClose() {
     if (isDirty && !window.confirm('You have unsaved changes. Close anyway?')) return;
@@ -429,7 +416,7 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
       companyLink:   form.companyLink.trim() || null,
       name:          form.peopleName.trim() || form.toolName.trim() || null,
       link:          form.peopleLink.trim() || form.toolLink.trim() || null,
-      verticals:     showVerticals ? form.verticals : [],
+      verticals:     [],
       avatarPeople:  cleanAvatar(form.avatarPeople),
       avatarTool:    cleanAvatar(form.avatarTool),
       avatarCompany: cleanAvatar(form.avatarCompany),
@@ -481,13 +468,13 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
               {form.type !== 'people' && (
                 <div className="form-group">
                   <label className="form-label">
-                    {form.type === 'solutions' ? 'Solution Name' : 'Tool Name'}
+                    Tool Name
                   </label>
                   <input
                     className="form-input"
                     value={form.toolName}
                     onChange={(e) => setField('toolName', e.target.value)}
-                    placeholder={form.type === 'solutions' ? 'e.g. AI Document Suite' : 'e.g. Nazars'}
+                    placeholder="e.g. Nazars"
                     required
                   />
                   <input
@@ -543,7 +530,6 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                     {[
                       { value: 'people',        label: 'People' },
                       { value: 'tools-services', label: 'Tools' },
-                      { value: 'solutions',      label: 'Solutions' },
                     ].map(({ value, label }) => (
                       <label key={value} className={`type-radio-label ${form.type === value ? 'checked' : ''}`}>
                         <input
@@ -559,11 +545,36 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   </div>
                 </div>
 
+                {/* App source — Tools only */}
+                {form.type === 'tools-services' && (
+                  <div className="form-group">
+                    <div className="form-section-title" style={{ marginBottom: 10 }}>App source (badge shown on vignette &amp; details)</div>
+                    <div className="type-radio-group">
+                      {[
+                        { value: null,      label: 'None' },
+                        { value: 'powered', label: 'Powered by AAIA' },
+                        { value: 'partner', label: 'Premium Partners' },
+                        { value: 'choice',  label: "AAIA's Choice" },
+                      ].map(({ value, label }) => (
+                        <label key={label} className={`type-radio-label ${form.appSource === value ? 'checked' : ''}`}>
+                          <input
+                            type="radio"
+                            name="app-source"
+                            checked={form.appSource === value}
+                            onChange={() => setField('appSource', value)}
+                          />
+                          {label}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Categories */}
                 {categoryList && (
                   <div className="form-group">
                     <div className="form-section-title" style={{ marginBottom: 10 }}>
-                      {form.type === 'solutions' ? 'Solution Categories' : 'Categories'}
+                      Categories
                       {form.categories.length === 0 && (
                         <span style={{ marginLeft: 8, fontWeight: 400, color: 'var(--red)', fontSize: '0.75rem', textTransform: 'none', letterSpacing: 0 }}>
                           Select at least one
@@ -589,29 +600,6 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                               </ul>
                             )}
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {/* Verticals */}
-                {showVerticals && (
-                  <div className="form-group">
-                    <div className="form-section-title" style={{ marginBottom: 10 }}>
-                      Verticals
-                      <span style={{ marginLeft: 8, fontWeight: 400, color: 'var(--gray-400)', fontSize: '0.75rem', textTransform: 'none', letterSpacing: 0 }}>
-                        leave blank to appear in all
-                      </span>
-                    </div>
-                    <div className="check-grid check-grid-wide">
-                      {VERTICALS.map((v) => {
-                        const checked = form.verticals.includes(v.key);
-                        return (
-                          <label key={v.key} className={`check-tile ${checked ? 'checked' : ''}`}>
-                            <input type="checkbox" checked={checked} onChange={() => toggleArr('verticals', v.key)} />
-                            {v.label}
-                          </label>
                         );
                       })}
                     </div>
@@ -653,7 +641,7 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                     </div>
                     <div>
                       <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'var(--gray-600)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                        {form.type === 'solutions' ? 'Solution Avatar' : 'Tool Avatar'}
+                        Tool Avatar
                       </div>
                       <AvatarPicker
                         avatar={form.avatarTool}
@@ -682,7 +670,7 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   avatarPeople={form.avatarPeople}
                   avatarTool={form.avatarTool}
                   avatarCompany={form.avatarCompany}
-                  toolLabel={form.type === 'solutions' ? 'Solution' : 'Tool'}
+                  toolLabel="Tool"
                 />
                 {activeLangs.map((lang) => (
                   <div key={lang.code} className="lang-section" style={{ marginBottom: 16 }}>
@@ -767,7 +755,7 @@ export default function ItemForm({ item, itemType, onSave, onClose }) {
                   avatarPeople={form.avatarPeople}
                   avatarTool={form.avatarTool}
                   avatarCompany={form.avatarCompany}
-                  toolLabel={form.type === 'solutions' ? 'Solution' : 'Tool'}
+                  toolLabel="Tool"
                 />
                 {activeLangs.map((lang) => (
                   <div key={lang.code} className="lang-section" style={{ marginBottom: 16 }}>

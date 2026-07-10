@@ -12,22 +12,13 @@ const PEOPLE_TOOLS_CATEGORIES = [
   { key: 'market', label: 'Market', items: ['SEO / GEO marketing', 'Social network marketing', 'Business development'],           icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 3l-7 4H5a1 1 0 00-1 1v6a1 1 0 001 1h6l7 4V3z"/><path d="M16 8.5a3 3 0 010 7"/></svg> },
 ];
 
-const TOOLS_CATEGORIES = PEOPLE_TOOLS_CATEGORIES;
-
-const SOLUTION_CATEGORIES = [
-  { key: 'personal-productivity', label: 'Personal productivity' },
-  { key: 'enterprise-solutions',  label: 'Enterprise solutions' },
-];
-
-const VERTICALS = [
-  { key: 'pharma',        label: 'Pharma' },
-  { key: 'publishing',    label: 'Publishing' },
-  { key: 'finance',       label: 'Finance' },
-  { key: 'industry',      label: 'Industry' },
-  { key: 'public-sector', label: 'Public sector' },
-];
-
 const LANG_LABELS = { en: 'EN', fr: 'FR', de: 'DE' };
+
+const APP_SOURCE_LABELS = {
+  powered: 'Powered by AAIA',
+  partner: 'Premium Partners',
+  choice: "AAIA's Choice",
+};
 
 function migrateItem(item) {
   return {
@@ -38,16 +29,52 @@ function migrateItem(item) {
   };
 }
 
+function completeness(item) {
+  let score = 0;
+  for (const value of Object.values(item)) {
+    if (value == null || value === '') continue;
+    if (typeof value === 'object') {
+      score += Object.values(value).filter((v) => v != null && v !== '' && (!Array.isArray(v) || v.length)).length;
+    } else {
+      score += 1;
+    }
+  }
+  return score;
+}
+
+// Collapse items that share the same type + English short title into one,
+// keeping the most complete/recent copy. This is a safety net against any
+// browser's localStorage still holding a duplicate from before the
+// loadItems() resurrection bug was fixed — without it, opening the
+// configurator from a stale browser silently re-introduces the duplicate.
+function dedupeByTitle(items) {
+  const groups = new Map();
+  items.forEach((item, index) => {
+    const title = (item.shortTitle?.en || '').trim().toLowerCase();
+    const key = title ? `${item.type}::${title}` : `unique::${item.id}::${index}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(item);
+  });
+  const result = [];
+  for (const group of groups.values()) {
+    if (group.length > 1) {
+      group.sort((a, b) => completeness(b) - completeness(a) || b.id - a.id);
+    }
+    result.push(group[0]);
+  }
+  return result;
+}
+
 function loadItems() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       // localStorage is the source of truth once it exists — do NOT merge
       // seed items back in, or every delete gets silently undone on reload.
-      return JSON.parse(raw).map(migrateItem);
+      return dedupeByTitle(JSON.parse(raw).map(migrateItem));
     }
   } catch {}
-  return [...seedPeople, ...seedProducts, ...seedSolutions];
+  return dedupeByTitle([...seedPeople, ...seedProducts, ...seedSolutions]);
 }
 
 function saveItems(items) {
@@ -101,7 +128,6 @@ export default function Configurator() {
   const [items, setItems] = useState(loadItems);
   const [typeFilter,     setTypeFilter]     = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
-  const [verticalFilter, setVerticalFilter] = useState('all');
   const [editing,       setEditing]       = useState(null);
   const [showExport,    setShowExport]    = useState(false);
   const [publishing,    setPublishing]    = useState(false);
@@ -130,24 +156,19 @@ export default function Configurator() {
   function handleTypeChange(t) {
     setTypeFilter(t);
     setCategoryFilter('all');
-    setVerticalFilter('all');
   }
 
   function handleCategoryChange(c) {
     setCategoryFilter(c);
-    setVerticalFilter('all');
   }
 
-  const categoryList = (typeFilter === 'tools-services' || typeFilter === 'people') ? PEOPLE_TOOLS_CATEGORIES
-    : typeFilter === 'solutions' ? SOLUTION_CATEGORIES
-    : null;
-
-  const showVerticals = typeFilter === 'solutions' && categoryFilter === 'enterprise-solutions';
+  // Only People are organised by go-to-market phase. Applications (tools) are
+  // categorised by app source instead, set on the item form.
+  const categoryList = typeFilter === 'people' ? PEOPLE_TOOLS_CATEGORIES : null;
 
   const filtered = items.filter((item) => {
     if (typeFilter !== 'all' && item.type !== typeFilter) return false;
     if (categoryFilter !== 'all' && !item.categories?.includes(categoryFilter)) return false;
-    if (showVerticals && verticalFilter !== 'all' && !item.verticals?.includes(verticalFilter)) return false;
     return true;
   });
 
@@ -171,10 +192,9 @@ export default function Configurator() {
     }
   }
 
-  const editingItem = editing && editing !== 'new-tools' && editing !== 'new-solutions' && editing !== 'new-people'
+  const editingItem = editing && editing !== 'new-tools' && editing !== 'new-people'
     ? items.find((i) => i.id === editing) ?? null : null;
   const editingType = editing === 'new-tools' ? 'tools-services'
-    : editing === 'new-solutions' ? 'solutions'
     : editing === 'new-people' ? 'people'
     : editingItem?.type ?? 'tools-services';
 
@@ -182,7 +202,7 @@ export default function Configurator() {
     <>
       <header className="config-header">
         <div className="container">
-          <h1>Tools &amp; Solutions Configurator</h1>
+          <h1>Content Configurator</h1>
           <p>Manage the content displayed on the Applied AI in Action website.</p>
         </div>
       </header>
@@ -198,7 +218,6 @@ export default function Configurator() {
               <FilterBtn active={typeFilter === 'all'} onClick={() => handleTypeChange('all')}>All</FilterBtn>
               <FilterBtn active={typeFilter === 'people'} onClick={() => handleTypeChange('people')}>People</FilterBtn>
               <FilterBtn active={typeFilter === 'tools-services'} onClick={() => handleTypeChange('tools-services')}>Tools</FilterBtn>
-              <FilterBtn active={typeFilter === 'solutions'} onClick={() => handleTypeChange('solutions')}>Solutions</FilterBtn>
             </div>
             <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
               {publishMsg && (
@@ -236,7 +255,7 @@ export default function Configurator() {
           {categoryList && (
             <div style={{ paddingTop: 4 }}>
               <div className="controls-label" style={{ marginBottom: 8 }}>
-                {typeFilter === 'solutions' ? 'Solution Categories' : 'Categories'}
+                Categories
               </div>
               <div className="pipeline-cat-bar">
                 <FilterBtn active={categoryFilter === 'all'} onClick={() => handleCategoryChange('all')}>All</FilterBtn>
@@ -260,20 +279,6 @@ export default function Configurator() {
             </div>
           )}
 
-          {/* Row 3: Vertical filter */}
-          {showVerticals && (
-            <div className="controls-inner" style={{ paddingTop: 0 }}>
-              <div className="controls-group" style={{ flexWrap: 'wrap' }}>
-                <span className="controls-label">Vertical</span>
-                <FilterBtn active={verticalFilter === 'all'} onClick={() => setVerticalFilter('all')}>All</FilterBtn>
-                {VERTICALS.map((v) => (
-                  <FilterBtn key={v.key} active={verticalFilter === v.key} onClick={() => setVerticalFilter(v.key)}>
-                    {v.label}
-                  </FilterBtn>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
 
@@ -287,7 +292,6 @@ export default function Configurator() {
             <div style={{ display: 'flex', gap: 8 }}>
               <button className="btn btn-outline btn-sm" onClick={() => setEditing('new-people')}>+ Add Person</button>
               <button className="btn btn-outline btn-sm" onClick={() => setEditing('new-tools')}>+ Add Tool</button>
-              <button className="btn btn-outline btn-sm" onClick={() => setEditing('new-solutions')}>+ Add Solution</button>
             </div>
           </div>
 
@@ -301,13 +305,10 @@ export default function Configurator() {
           ) : (
             <div className="item-list">
               {filtered.map((item) => {
-                const allCats = item.type === 'solutions' ? SOLUTION_CATEGORIES : PEOPLE_TOOLS_CATEGORIES;
                 const catLabels = (item.categories ?? []).map(
-                  (k) => allCats.find((c) => c.key === k)?.label ?? k
+                  (k) => PEOPLE_TOOLS_CATEGORIES.find((c) => c.key === k)?.label ?? k
                 );
-                const vertLabels = (item.verticals ?? []).map(
-                  (k) => VERTICALS.find((v) => v.key === k)?.label ?? k
-                );
+                const appSourceLabel = APP_SOURCE_LABELS[item.appSource] ?? null;
 
                 return (
                   <div key={item.id} className="item-card">
@@ -320,16 +321,18 @@ export default function Configurator() {
                       {item.toolName && <span className="item-meta-chip blue">{item.toolName}</span>}
                       {item.companyName && <span className="item-meta-chip" style={{ background: 'var(--gray-100)', color: 'var(--gray-600)' }}>{item.companyName}</span>}
                         <span className="item-meta-chip" style={{
-                          background: item.type === 'tools-services' ? 'var(--blue-mid)' : item.type === 'solutions' ? 'var(--orange-light)' : 'var(--green-light)',
-                          color: item.type === 'tools-services' ? 'var(--blue)' : item.type === 'solutions' ? 'var(--orange-dark)' : 'var(--green)',
+                          background: item.type === 'tools-services' ? 'var(--blue-mid)' : 'var(--green-light)',
+                          color: item.type === 'tools-services' ? 'var(--blue)' : 'var(--green)',
                         }}>
-                          {item.type === 'tools-services' ? 'Tool' : item.type === 'solutions' ? 'Sol' : 'People'}
+                          {item.type === 'tools-services' ? 'Tool' : 'People'}
                         </span>
+                        {appSourceLabel && (
+                          <span className="item-meta-chip" style={{ background: 'var(--orange-light)', color: 'var(--orange-dark)' }}>
+                            {appSourceLabel}
+                          </span>
+                        )}
                         {catLabels.map((l) => (
                           <span key={l} className="item-meta-chip">{l}</span>
-                        ))}
-                        {vertLabels.map((l) => (
-                          <span key={l} className="item-meta-chip" style={{ background: 'var(--green-light)', color: 'var(--green)' }}>{l}</span>
                         ))}
                         {(item.languages ?? []).map((lc) => (
                           <span key={lc} className="item-meta-chip" style={{ background: 'var(--gray-100)', color: 'var(--gray-500)' }}>

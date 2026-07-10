@@ -393,44 +393,6 @@ export const seedProducts = [
   {
     "id": 4,
     "type": "tools-services",
-    "categories": [
-      "prepare",
-      "market"
-    ],
-    "verticals": [],
-    "languages": [
-      "en",
-      "fr",
-      "de"
-    ],
-    "avatarPeople": {
-      "type": "image",
-      "url": "clement.marinho.png"
-    },
-    "avatarTool": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#1E40AF"
-    },
-    "avatarCompany": {
-      "type": "initials",
-      "value": "?",
-      "bg": "#9CA3AF"
-    },
-    "vignetteAvatar": "people",
-    "detailsAvatar": "people",
-    "peopleName": "Clément Marinho",
-    "peopleLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
-    "toolName": "SEO Champion",
-    "toolLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
-    "companyName": null,
-    "companyLink": null,
-    "name": "Clément Marinho",
-    "shortTitle": {
-      "en": "SEO Champion",
-      "fr": "Logiciel SEO",
-      "de": "SEO-Champion"
-    },
     "title": {
       "en": "Automated SaaS solution for SEO optimization",
       "fr": "Optimisation SEO de Site Web",
@@ -481,6 +443,44 @@ export const seedProducts = [
       "fr": "",
       "de": ""
     },
+    "categories": [
+      "prepare",
+      "market"
+    ],
+    "verticals": [],
+    "languages": [
+      "en",
+      "fr",
+      "de"
+    ],
+    "avatarPeople": {
+      "type": "image",
+      "url": "clement.marinho.png"
+    },
+    "avatarTool": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#1E40AF"
+    },
+    "avatarCompany": {
+      "type": "initials",
+      "value": "?",
+      "bg": "#9CA3AF"
+    },
+    "vignetteAvatar": "people",
+    "detailsAvatar": "people",
+    "peopleName": "Clément Marinho",
+    "peopleLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
+    "toolName": "SEO Champion",
+    "toolLink": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
+    "companyName": null,
+    "companyLink": null,
+    "name": "Clément Marinho",
+    "shortTitle": {
+      "en": "SEO Champion",
+      "fr": "Logiciel SEO",
+      "de": "SEO-Champion"
+    },
     "price": "",
     "link": "https://www.linkedin.com/in/clement-marinho-consultant-seo/",
     "avatar": {
@@ -490,7 +490,8 @@ export const seedProducts = [
     "avatarDetails": {
       "type": "image",
       "url": "clement.marinho.png"
-    }
+    },
+    "appSource": null
   },
   {
     "id": 1782319551037,
@@ -591,17 +592,13 @@ export const seedProducts = [
     "avatarDetails": {
       "type": "logo",
       "url": "logo-kairntech.png"
-    }
-  }
-];
-
-export const seedSolutions = [
+    },
+    "appSource": null
+  },
   {
     "id": 1780400998187,
-    "type": "solutions",
-    "categories": [
-      "personal-productivity"
-    ],
+    "type": "tools-services",
+    "categories": [],
     "verticals": [],
     "languages": [
       "en",
@@ -685,11 +682,12 @@ export const seedSolutions = [
       "type": "initials",
       "value": "?",
       "bg": "#9CA3AF"
-    }
+    },
+    "appSource": "powered"
   },
   {
     "id": 1782318605187,
-    "type": "solutions",
+    "type": "tools-services",
     "title": {
       "en": "Make complex forms easier to complete and compliant with audits",
       "fr": "Rendre les formulaires complexes plus faciles à remplir et conformes aux audits",
@@ -748,15 +746,11 @@ export const seedSolutions = [
     },
     "link": "https://www.linkedin.com/in/kai-lebeth-2905598b/",
     "price": "",
-    "categories": [
-      "personal-productivity",
-      "enterprise-solutions"
-    ],
+    "categories": [],
     "verticals": [],
     "languages": [
       "en",
-      "de",
-      "fr"
+      "de"
     ],
     "avatarPeople": {
       "type": "image",
@@ -787,6 +781,9 @@ export const seedSolutions = [
     "avatarDetails": {
       "type": "image",
       "url": "kai.lebeth.png"
-    }
+    },
+    "appSource": "powered"
   }
 ];
+
+export const seedSolutions = [];

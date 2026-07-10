@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -22,7 +22,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Product />} />
-            <Route path="/tools" element={<Tools />} />
+            <Route path="/applications" element={<Tools />} />
+            {/* legacy path — keep old links working */}
+            <Route path="/tools" element={<Navigate to="/applications" replace />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
