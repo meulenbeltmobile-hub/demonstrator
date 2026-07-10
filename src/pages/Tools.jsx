@@ -20,7 +20,7 @@ export default function Tools() {
 
   return (
     <>
-      <SEO title="Applications — Find the Right Applications" path="/applications" noindex={true} />
+      <SEO title="Explore applications" path="/applications" noindex={true} />
       <section className="blog-hero">
         <div className="blog-hero-grid" aria-hidden="true" />
         <div className="container" style={{ position: 'relative' }}>

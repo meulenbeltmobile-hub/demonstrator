@@ -175,13 +175,13 @@ const translations = {
       noResults: 'No items in this category yet.',
     },
     toolsPage: {
-      heroTitle: 'Find the right applications',
-      heroSub: 'From trusted people and companies to accelerate your go-to-market.',
+      heroTitle: 'Explore applications',
+      heroSub: 'In the Applied AI in Action ecosystem',
     },
     solutions: {
       header: 'Solutions',
-      heroTitle: 'Explore AI applications',
-      heroSub: 'Built by domain experts for personal productivity and/or enterprise use-cases',
+      heroTitle: 'Packaged Solutions',
+      heroSub: 'A selection of best-of-breed applications to ensure business success',
       description: 'Discover AI applications built by domain experts.',
       categories: {
         all: 'All',
@@ -482,13 +482,13 @@ const translations = {
       noResults: 'Aucun élément dans cette catégorie pour l\'instant.',
     },
     toolsPage: {
-      heroTitle: 'Trouvez les bonnes applications',
-      heroSub: 'Des personnes et entreprises de confiance pour accélérer votre mise sur le marché.',
+      heroTitle: 'Explorer les applications',
+      heroSub: 'Dans l\'écosystème Applied AI in Action',
     },
     solutions: {
       header: 'Solutions',
-      heroTitle: 'Explorer des applications IA',
-      heroSub: 'Conçues par des experts métier pour la productivité personnelle et/ou les cas d\'usage enterprise',
+      heroTitle: 'Solutions packagées',
+      heroSub: 'Une sélection des meilleures applications pour assurer votre succès commercial',
       description: 'Découvrez des applications IA créées par des experts métier.',
       categories: {
         all: 'Tous',
@@ -789,13 +789,13 @@ const translations = {
       noResults: 'Noch keine Einträge in dieser Kategorie.',
     },
     toolsPage: {
-      heroTitle: 'Die richtigen Anwendungen finden',
-      heroSub: 'Von vertrauenswürdigen Personen und Unternehmen, um Ihre Markteinführung zu beschleunigen.',
+      heroTitle: 'Anwendungen erkunden',
+      heroSub: 'Im Applied AI in Action Ökosystem',
     },
     solutions: {
       header: 'Lösungen',
-      heroTitle: 'KI-Anwendungen erkunden',
-      heroSub: 'Von Domänenexperten für persönliche Produktivität und/oder Enterprise-Anwendungsfälle entwickelt',
+      heroTitle: 'Gebündelte Lösungen',
+      heroSub: 'Eine Auswahl erstklassiger Anwendungen für Ihren geschäftlichen Erfolg',
       description: 'Entdecken Sie KI-Anwendungen, entwickelt von Domänenexperten.',
       categories: {
         all: 'Alle',
