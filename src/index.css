@@ -1258,6 +1258,148 @@ button {
   padding: 48px 0 72px;
 }
 
+/* ── Packaged solutions ── */
+.packages-section {
+  background: var(--white);
+  padding: 56px 0 72px;
+}
+
+.packages-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  max-width: 760px;
+  margin: 0 auto 44px;
+  line-height: 1.7;
+}
+
+.packages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.package-box {
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.package-box--featured {
+  border: 2px solid var(--orange);
+}
+
+.package-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 15px 24px;
+}
+
+.package-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.package-popular {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  background: var(--orange);
+  padding: 4px 11px;
+  border-radius: var(--radius-full);
+}
+
+.package-price {
+  margin-left: auto;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.package-phases {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.package-phase {
+  padding: 20px 22px;
+  border-left: 1px solid var(--gray-200);
+  min-height: 130px;
+}
+
+.package-phase:first-child {
+  border-left: none;
+}
+
+.package-phase-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-700);
+  margin-bottom: 14px;
+}
+
+.package-phase-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.package-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.package-feature-list li {
+  font-size: 0.92rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.package-feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+@media (max-width: 760px) {
+  .package-phases {
+    grid-template-columns: 1fr;
+  }
+  .package-phase {
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+    min-height: 0;
+  }
+  .package-phase:first-child {
+    border-top: none;
+  }
+}
+
 .grid-controls {
   display: flex;
   align-items: center;

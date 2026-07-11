@@ -15,7 +15,7 @@ const translations = {
     hero: {
       tagline1: 'From vibecoding to',
       tagline2: 'business success',
-      subtitle: 'We provide packaged solutions based on an ecosystem of applications and people to turn great ideas into **robust**, **market-ready** and **sovereign** web applications throughout the journey of your application.',
+      subtitle: 'We provide packaged solutions based on an ecosystem of applications and people to turn great ideas into **robust**, **market-ready** and **sovereign** web applications.',
     },
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude,',
@@ -183,6 +183,8 @@ const translations = {
       heroTitle: 'Packaged Solutions',
       heroSub: 'A selection of best-of-breed applications to ensure business success',
       description: 'Discover AI applications built by domain experts.',
+      packagesIntro: 'We have packaged different solutions corresponding to different phases in your application life cycle.',
+      packagesPopular: 'Most popular',
       categories: {
         all: 'All',
         'personal-productivity': 'Personal productivity',
@@ -322,7 +324,7 @@ const translations = {
     hero: {
       tagline1: 'Du vibecoding au',
       tagline2: 'succès commercial',
-      subtitle: 'Nous proposons des solutions packagées basées sur un écosystème d\'applications et de personnes pour transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**, tout au long du parcours de votre application.',
+      subtitle: 'Nous proposons des solutions packagées basées sur un écosystème d\'applications et de personnes pour transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**.',
     },
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude,',
@@ -490,6 +492,8 @@ const translations = {
       heroTitle: 'Solutions packagées',
       heroSub: 'Une sélection des meilleures applications pour assurer votre succès commercial',
       description: 'Découvrez des applications IA créées par des experts métier.',
+      packagesIntro: 'Nous avons packagé différentes solutions correspondant aux différentes phases du cycle de vie de votre application.',
+      packagesPopular: 'Le plus populaire',
       categories: {
         all: 'Tous',
         'personal-productivity': 'Productivité personnelle',
@@ -629,7 +633,7 @@ const translations = {
     hero: {
       tagline1: 'Vom Vibecoding zum',
       tagline2: 'Geschäftserfolg',
-      subtitle: 'Wir bieten gebündelte Lösungen auf Basis eines Ökosystems aus Anwendungen und Menschen, um großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln — über den gesamten Weg Ihrer Anwendung hinweg.',
+      subtitle: 'Wir bieten gebündelte Lösungen auf Basis eines Ökosystems aus Anwendungen und Menschen, um großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln.',
     },
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist',
@@ -797,6 +801,8 @@ const translations = {
       heroTitle: 'Gebündelte Lösungen',
       heroSub: 'Eine Auswahl erstklassiger Anwendungen für Ihren geschäftlichen Erfolg',
       description: 'Entdecken Sie KI-Anwendungen, entwickelt von Domänenexperten.',
+      packagesIntro: 'Wir haben verschiedene Lösungen gebündelt, die den verschiedenen Phasen im Lebenszyklus Ihrer Anwendung entsprechen.',
+      packagesPopular: 'Am beliebtesten',
       categories: {
         all: 'Alle',
         'personal-productivity': 'Persönliche Produktivität',

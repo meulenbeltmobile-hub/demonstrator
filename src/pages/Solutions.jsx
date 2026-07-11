@@ -4,6 +4,14 @@ import SEO from '../components/SEO';
 import Vignette from '../components/Vignette';
 import Modal from '../components/Modal';
 import solutions from '../data/solutions';
+import packages from '../data/packages';
+
+const PHASES = [
+  { key: 'think',  color: '#2563EB' },
+  { key: 'build',  color: '#F59E0B' },
+  { key: 'deploy', color: '#2563EB' },
+  { key: 'market', color: '#F59E0B' },
+];
 
 export default function Solutions() {
   const { tr, lang } = useLanguage();
@@ -23,19 +31,48 @@ export default function Solutions() {
         </div>
       </section>
 
-      <section className="grid-section">
+      {/* Packages — one box per tier, split into the four phases */}
+      <section className="packages-section">
         <div className="container">
-          <div className="vignette-grid">
-            {filtered.length === 0 ? (
-              <p className="no-results">{tr.solutions.noResults}</p>
-            ) : (
-              filtered.map((item) => (
-                <Vignette key={item.id} item={item} onClick={setSelected} />
-              ))
-            )}
+          <p className="packages-intro">{tr.solutions.packagesIntro}</p>
+          <div className="packages-list">
+            {packages.map((pkg) => (
+              <div key={pkg.id} className={`package-box${pkg.popular ? ' package-box--featured' : ''}`}>
+                <div className="package-header">
+                  <span className="package-name">{pkg.name?.[lang] ?? pkg.name?.en}</span>
+                  {pkg.popular && <span className="package-popular">{tr.solutions.packagesPopular}</span>}
+                  {pkg.price && <span className="package-price">{pkg.price}</span>}
+                </div>
+                <div className="package-phases">
+                  {PHASES.map((ph) => (
+                    <div className="package-phase" key={ph.key}>
+                      <div className="package-phase-label">
+                        <span className="package-phase-dot" style={{ background: ph.color }} />
+                        {tr.pipeline[ph.key]}
+                      </div>
+                      <ul className="package-feature-list">
+                        {(pkg.features?.[ph.key]?.[lang] ?? []).filter((f) => f.trim()).map((f, j) => <li key={j}>{f}</li>)}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {filtered.length > 0 && (
+        <section className="grid-section">
+          <div className="container">
+            <div className="vignette-grid">
+              {filtered.map((item) => (
+                <Vignette key={item.id} item={item} onClick={setSelected} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {selected && (
         <Modal item={selected} onClose={() => setSelected(null)} />

@@ -71,12 +71,15 @@ function saveSeedsPlugin() {
         req.on('data', (chunk) => { body += chunk; });
         req.on('end', () => {
           try {
-            const { people, products, solutions } = JSON.parse(body);
+            const { people, products, solutions, packages } = JSON.parse(body);
             const websiteData = path.resolve(REPO_ROOT, 'src/data');
 
             writeJsonData(path.join(websiteData, 'people.js'),    people,    'people');
             writeJsonData(path.join(websiteData, 'products.js'),  products,  'products');
             writeJsonData(path.join(websiteData, 'solutions.js'), solutions, 'solutions');
+            if (packages) {
+              writeJsonData(path.join(websiteData, 'packages.js'), packages, 'packages');
+            }
 
             const seedsContent = [
               '// Auto-saved by AAIA Configurator — do not edit by hand',
@@ -85,6 +88,8 @@ function saveSeedsPlugin() {
               `export const seedProducts = ${JSON.stringify(products,  null, 2)};`,
               '',
               `export const seedSolutions = ${JSON.stringify(solutions, null, 2)};`,
+              '',
+              `export const seedPackages = ${JSON.stringify(packages ?? [], null, 2)};`,
               '',
             ].join('\n');
             fs.writeFileSync(path.resolve(__dirname, 'src/data/seeds.js'), seedsContent, 'utf8');

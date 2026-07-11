@@ -787,3 +787,104 @@ export const seedProducts = [
 ];
 
 export const seedSolutions = [];
+
+export const seedPackages = [
+  {
+    "id": "starter",
+    "name": {
+      "en": "Starter package",
+      "fr": "Pack Starter",
+      "de": "Starter-Paket"
+    },
+    "price": "",
+    "popular": false,
+    "features": {
+      "think": {
+        "en": [
+          ""
+        ],
+        "fr": [],
+        "de": []
+      },
+      "build": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "deploy": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "market": {
+        "en": [],
+        "fr": [],
+        "de": []
+      }
+    }
+  },
+  {
+    "id": "growth",
+    "name": {
+      "en": "Growth package",
+      "fr": "Pack Growth",
+      "de": "Growth-Paket"
+    },
+    "price": "",
+    "popular": true,
+    "features": {
+      "think": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "build": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "deploy": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "market": {
+        "en": [],
+        "fr": [],
+        "de": []
+      }
+    }
+  },
+  {
+    "id": "enterprise",
+    "name": {
+      "en": "Enterprise package",
+      "fr": "Pack Enterprise",
+      "de": "Enterprise-Paket"
+    },
+    "price": "",
+    "popular": false,
+    "features": {
+      "think": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "build": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "deploy": {
+        "en": [],
+        "fr": [],
+        "de": []
+      },
+      "market": {
+        "en": [],
+        "fr": [],
+        "de": []
+      }
+    }
+  }
+];

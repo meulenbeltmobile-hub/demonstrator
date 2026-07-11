@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import ItemForm from '../components/ItemForm';
 import ExportModal from '../components/ExportModal';
-import { seedPeople, seedProducts, seedSolutions } from '../data/seeds';
+import PackageEditor from '../components/PackageEditor';
+import { seedPeople, seedProducts, seedSolutions, seedPackages } from '../data/seeds';
 
 const STORAGE_KEY = 'aaia-config-items';
+const PACKAGES_KEY = 'aaia-config-packages';
 
 const PEOPLE_TOOLS_CATEGORIES = [
   { key: 'think',  label: 'Prepare',  items: ['Strategic technical advice', 'AI impact advice', 'Go-to-Market advice'],              icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="8" r="5"/><path d="M9 13h6M9.5 15.5h5M10.5 18h3"/></svg> },
@@ -77,9 +79,18 @@ function loadItems() {
   return dedupeByTitle([...seedPeople, ...seedProducts, ...seedSolutions]);
 }
 
-function saveItems(items) {
+function loadPackages() {
+  try {
+    const raw = localStorage.getItem(PACKAGES_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch {}
+  return seedPackages;
+}
+
+function saveAll(items, packages) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  // Persist to seeds.js via Vite dev-server middleware (silent fail in production)
+  localStorage.setItem(PACKAGES_KEY, JSON.stringify(packages));
+  // Persist to the website data files via Vite dev-server middleware (silent fail in production)
   fetch('/api/save-seeds', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -87,6 +98,7 @@ function saveItems(items) {
       people:    items.filter((i) => i.type === 'people'),
       products:  items.filter((i) => i.type === 'tools-services'),
       solutions: items.filter((i) => i.type === 'solutions'),
+      packages,
     }),
   }).catch(() => {});
 }
@@ -126,6 +138,7 @@ function FilterBtn({ active, onClick, children }) {
 
 export default function Configurator() {
   const [items, setItems] = useState(loadItems);
+  const [packages, setPackages] = useState(loadPackages);
   const [typeFilter,     setTypeFilter]     = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [editing,       setEditing]       = useState(null);
@@ -134,7 +147,7 @@ export default function Configurator() {
   const [publishStatus, setPublishStatus] = useState(null);
   const [publishMsg,    setPublishMsg]    = useState('');
 
-  useEffect(() => { saveItems(items); }, [items]);
+  useEffect(() => { saveAll(items, packages); }, [items, packages]);
 
   async function handlePublish() {
     setPublishing(true);
@@ -218,6 +231,7 @@ export default function Configurator() {
               <FilterBtn active={typeFilter === 'all'} onClick={() => handleTypeChange('all')}>All</FilterBtn>
               <FilterBtn active={typeFilter === 'people'} onClick={() => handleTypeChange('people')}>People</FilterBtn>
               <FilterBtn active={typeFilter === 'tools-services'} onClick={() => handleTypeChange('tools-services')}>Tools</FilterBtn>
+              <FilterBtn active={typeFilter === 'packages'} onClick={() => handleTypeChange('packages')}>Packages</FilterBtn>
             </div>
             <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
               {publishMsg && (
@@ -285,6 +299,10 @@ export default function Configurator() {
       {/* Main content */}
       <section className="content-area">
         <div className="container">
+          {typeFilter === 'packages' ? (
+            <PackageEditor packages={packages} onChange={setPackages} />
+          ) : (
+          <>
           <div className="content-toolbar">
             <span className="items-count">
               {filtered.length} item{filtered.length !== 1 ? 's' : ''} shown
@@ -365,7 +383,8 @@ export default function Configurator() {
               })}
             </div>
           )}
-
+          </>
+          )}
         </div>
       </section>
 
