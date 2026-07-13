@@ -1,5 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import SEO from '../components/SEO';
 
@@ -67,15 +67,18 @@ export default function Home() {
           <p className="hero-help">{renderBold(tr.hero.subtitle)}</p>
           <div className="hero-pipeline" aria-label="From Prepare to Market">
             {PHASES.map((phase, i) => (
-              <div className="hiw-phase-wrap" key={phase.key}>
-                <div className="hiw-phase" style={{ '--phase-color': phase.color }}>
-                  <div className="hiw-phase-icon">{phase.icon}</div>
-                  <div className="hiw-phase-label">{phase.label}</div>
+              <Fragment key={phase.key}>
+                <div className="hero-phase-box" style={{ '--phase-color': phase.color }}>
+                  <div className="hero-phase-box-head">
+                    <span className="hero-phase-box-icon">{phase.icon}</span>
+                    {tr.pipeline[phase.key]}
+                  </div>
+                  <div className="hero-phase-box-body">{tr.hero.phaseDesc[phase.key]}</div>
                 </div>
                 {i < PHASES.length - 1 && (
-                  <svg className="hiw-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                  <svg className="hero-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                 )}
-              </div>
+              </Fragment>
             ))}
           </div>
           <div className="hero-btns">

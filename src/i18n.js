@@ -16,6 +16,12 @@ const translations = {
       tagline1: 'From vibecoding to',
       tagline2: 'business success',
       subtitle: 'We provide packaged solutions based on an ecosystem of applications and people to turn great ideas into **robust**, **market-ready** and **sovereign** web applications.',
+      phaseDesc: {
+        think:  'Audits for security, website, marketing, go-to-market.',
+        build:  'Code robustness, security, website design, social media avatars.',
+        deploy: 'Secure and scalable Kubernetes hosting. Email server.',
+        market: 'SEO/GEO, emailing, LinkedIn, Meta marketing.',
+      },
     },
     about: {
       opening: 'Thanks to vibecoding with tools like Codex, Antigravity or Claude,',
@@ -325,6 +331,12 @@ const translations = {
       tagline1: 'Du vibecoding au',
       tagline2: 'succès commercial',
       subtitle: 'Nous proposons des solutions packagées basées sur un écosystème d\'applications et de personnes pour transformer de bonnes idées en applications web **robustes**, **prêtes à lancer sur le marché** et **souveraines**.',
+      phaseDesc: {
+        think:  'Audits sécurité, site web, marketing, mise sur le marché.',
+        build:  'Robustesse du code, sécurité, conception de site web, avatars réseaux sociaux.',
+        deploy: 'Hébergement Kubernetes sécurisé et évolutif. Serveur e-mail.',
+        market: 'SEO/GEO, emailing, LinkedIn, marketing Meta.',
+      },
     },
     about: {
       opening: 'Grâce au vibecoding avec des outils comme Codex, Antigravity ou Claude,',
@@ -634,6 +646,12 @@ const translations = {
       tagline1: 'Vom Vibecoding zum',
       tagline2: 'Geschäftserfolg',
       subtitle: 'Wir bieten gebündelte Lösungen auf Basis eines Ökosystems aus Anwendungen und Menschen, um großartige Ideen in **robuste**, **marktreife** und **souveräne** Webanwendungen zu verwandeln.',
+      phaseDesc: {
+        think:  'Audits für Sicherheit, Website, Marketing, Go-to-Market.',
+        build:  'Code-Robustheit, Sicherheit, Website-Design, Social-Media-Avatare.',
+        deploy: 'Sicheres und skalierbares Kubernetes-Hosting. E-Mail-Server.',
+        market: 'SEO/GEO, E-Mailing, LinkedIn, Meta-Marketing.',
+      },
     },
     about: {
       opening: 'Dank Vibecoding mit Tools wie Codex, Antigravity oder Claude ist',

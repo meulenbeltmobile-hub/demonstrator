@@ -87,6 +87,22 @@ function loadPackages() {
   return seedPackages;
 }
 
+// Drop blank feature lines so the written data file stays clean ([""] -> []),
+// while the editor keeps the raw text for a smooth typing experience.
+function cleanPackagesForFile(packages) {
+  return packages.map((p) => ({
+    ...p,
+    features: Object.fromEntries(
+      Object.entries(p.features ?? {}).map(([phase, langs]) => [
+        phase,
+        Object.fromEntries(
+          Object.entries(langs ?? {}).map(([lc, arr]) => [lc, (arr ?? []).filter((f) => f && f.trim())]),
+        ),
+      ]),
+    ),
+  }));
+}
+
 function saveAll(items, packages) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   localStorage.setItem(PACKAGES_KEY, JSON.stringify(packages));
@@ -98,7 +114,7 @@ function saveAll(items, packages) {
       people:    items.filter((i) => i.type === 'people'),
       products:  items.filter((i) => i.type === 'tools-services'),
       solutions: items.filter((i) => i.type === 'solutions'),
-      packages,
+      packages:  cleanPackagesForFile(packages),
     }),
   }).catch(() => {});
 }

@@ -347,11 +347,72 @@ button {
 
 .hero-pipeline {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 4px;
   row-gap: 16px;
-  margin: 28px auto 40px;
+  margin: 32px auto 44px;
+}
+
+.hero-phase-box {
+  width: 210px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.hero-phase-box-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 11px 16px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-phase-box-icon {
+  display: flex;
+  color: var(--orange);
+}
+
+.hero-phase-box-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-phase-box-body {
+  flex: 1;
+  padding: 13px 16px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--gray-600);
+}
+
+.hero-arrow {
+  align-self: center;
+  flex-shrink: 0;
+  color: var(--gray-400);
+  margin: 0 2px;
+}
+
+@media (max-width: 820px) {
+  .hero-arrow {
+    display: none;
+  }
+  .hero-phase-box {
+    width: 100%;
+    max-width: 360px;
+  }
 }
 
 .hero-btns {
@@ -1273,13 +1334,21 @@ button {
   line-height: 1.7;
 }
 
+/* Three columns; each phase shares a row track (subgrid) so the phase
+   sub-headers line up horizontally across all three packages. */
 .packages-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto repeat(4, auto);
+  column-gap: 24px;
+  row-gap: 0;
+  align-items: start;
 }
 
 .package-box {
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
   border: 1px solid var(--gray-200);
   border-radius: 16px;
   overflow: hidden;
@@ -1287,7 +1356,8 @@ button {
 }
 
 .package-box--featured {
-  border: 2px solid var(--orange);
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px var(--orange), var(--shadow-sm);
 }
 
 .package-header {
@@ -1324,19 +1394,9 @@ button {
   white-space: nowrap;
 }
 
-.package-phases {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
 .package-phase {
-  padding: 20px 22px;
-  border-left: 1px solid var(--gray-200);
-  min-height: 130px;
-}
-
-.package-phase:first-child {
-  border-left: none;
+  padding: 18px 22px;
+  border-top: 1px solid var(--gray-200);
 }
 
 .package-phase-label {
@@ -1386,17 +1446,14 @@ button {
   background: var(--orange);
 }
 
-@media (max-width: 760px) {
-  .package-phases {
-    grid-template-columns: 1fr;
+@media (max-width: 860px) {
+  .packages-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
   }
-  .package-phase {
-    border-left: none;
-    border-top: 1px solid var(--gray-200);
-    min-height: 0;
-  }
-  .package-phase:first-child {
-    border-top: none;
+  .package-box {
+    display: block;
   }
 }
 

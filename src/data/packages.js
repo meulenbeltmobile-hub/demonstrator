@@ -11,9 +11,7 @@ const packages = [
     "popular": false,
     "features": {
       "think": {
-        "en": [
-          ""
-        ],
+        "en": [],
         "fr": [],
         "de": []
       },

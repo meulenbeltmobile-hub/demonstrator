@@ -43,19 +43,17 @@ export default function Solutions() {
                   {pkg.popular && <span className="package-popular">{tr.solutions.packagesPopular}</span>}
                   {pkg.price && <span className="package-price">{pkg.price}</span>}
                 </div>
-                <div className="package-phases">
-                  {PHASES.map((ph) => (
-                    <div className="package-phase" key={ph.key}>
-                      <div className="package-phase-label">
-                        <span className="package-phase-dot" style={{ background: ph.color }} />
-                        {tr.pipeline[ph.key]}
-                      </div>
-                      <ul className="package-feature-list">
-                        {(pkg.features?.[ph.key]?.[lang] ?? []).filter((f) => f.trim()).map((f, j) => <li key={j}>{f}</li>)}
-                      </ul>
+                {PHASES.map((ph) => (
+                  <div className="package-phase" key={ph.key}>
+                    <div className="package-phase-label">
+                      <span className="package-phase-dot" style={{ background: ph.color }} />
+                      {tr.pipeline[ph.key]}
                     </div>
-                  ))}
-                </div>
+                    <ul className="package-feature-list">
+                      {(pkg.features?.[ph.key]?.[lang] ?? []).filter((f) => f.trim()).map((f, j) => <li key={j}>{f}</li>)}
+                    </ul>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
